@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.809.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicantTrackingSystem", "ApplicantTrackingSystem.csproj", "{BA1DD741-2CF2-42C5-8CAE-434B86430ECE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA1DD741-2CF2-42C5-8CAE-434B86430ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1DD741-2CF2-42C5-8CAE-434B86430ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1DD741-2CF2-42C5-8CAE-434B86430ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1DD741-2CF2-42C5-8CAE-434B86430ECE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F94FBF5F-4EE5-49DA-9A33-4B35D271C52C}
+	EndGlobalSection
+EndGlobal
