@@ -21,6 +21,7 @@ com.google.android.material.bottomnavigation.BottomNavigationView;/Users/shifa/D
 com.google.android.material.tabs.TabLayout;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/layout/fallbacktabbardonotuse.xml
 com.google.android.material.tabs.TabLayout;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/layout/rootlayout.xml
 com.google.android.material.tabs.TabLayout;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/layout/tabbar.xml
+corners;obj/Debug/res/layout/rounded_entry.xml
 declare-styleable;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/values/attrs.xml
 external-cache-path;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/53/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
 external-path;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/53/jl/res/xml/xamarin_essentials_fileprovider_file_paths.xml
@@ -40,7 +41,10 @@ set;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantT
 set;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/anim/enterfromright.xml
 set;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/anim/exittoleft.xml
 set;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/anim/exittoright.xml
+shape;obj/Debug/res/layout/rounded_entry.xml
+solid;obj/Debug/res/layout/rounded_entry.xml
 string;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/values/strings.xml
+stroke;obj/Debug/res/layout/rounded_entry.xml
 style;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/values/styles.xml
 style;obj/Debug/res/values/styles.xml
 translate;/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/lp/54/jl/res/anim/enterfromleft.xml

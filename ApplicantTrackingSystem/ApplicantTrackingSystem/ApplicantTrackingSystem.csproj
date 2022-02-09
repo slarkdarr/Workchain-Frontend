@@ -19,9 +19,11 @@
     <None Remove="Fonts\Lato-Black.ttf" />
     <None Remove="Fonts\Lato-Bold.ttf" />
     <None Remove="Fonts\Lato-Regular.ttf" />
+    <None Remove="CustomLayouts\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
+    <Folder Include="CustomLayouts\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Lato-Black.ttf" />

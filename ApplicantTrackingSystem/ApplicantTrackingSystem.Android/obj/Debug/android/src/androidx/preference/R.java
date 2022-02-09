@@ -939,10 +939,10 @@ public final class R {
 		public static final int preference_widget_seekbar_material = 0x7f0b007b;
 		public static final int preference_widget_switch = 0x7f0b007c;
 		public static final int preference_widget_switch_compat = 0x7f0b007d;
-		public static final int select_dialog_item_material = 0x7f0b007f;
-		public static final int select_dialog_multichoice_material = 0x7f0b0080;
-		public static final int select_dialog_singlechoice_material = 0x7f0b0081;
-		public static final int support_simple_spinner_dropdown_item = 0x7f0b0083;
+		public static final int select_dialog_item_material = 0x7f0b0080;
+		public static final int select_dialog_multichoice_material = 0x7f0b0081;
+		public static final int select_dialog_singlechoice_material = 0x7f0b0082;
+		public static final int support_simple_spinner_dropdown_item = 0x7f0b0084;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0e0000;

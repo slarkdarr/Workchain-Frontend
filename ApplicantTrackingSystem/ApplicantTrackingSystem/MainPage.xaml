@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ApplicantTrackingSystem.MainPage">
+             x:Class="ApplicantTrackingSystem.MainPage"
+             NavigationPage.HasNavigationBar="false">
 
     <StackLayout BackgroundColor="White" Padding="40">
         <Label Text="Welcome to ATS!"
@@ -30,7 +31,8 @@
                     FontFamily="LatoBlack"
                     Padding="0,17"
                     CornerRadius="10"
-                    Margin="0,7"/>
+                    Margin="0,7"
+                    Clicked="LoginButtonClicked"/>
 
             <Button x:Name="companyButton"
                     Text="I am a Company"

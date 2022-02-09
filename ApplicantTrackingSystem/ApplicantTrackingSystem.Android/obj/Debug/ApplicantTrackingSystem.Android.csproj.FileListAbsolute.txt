@@ -629,3 +629,5 @@
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/stamp/_ResolveLibraryProjectImports.stamp
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/illustration1.png
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/illustration1lg.png
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/src/crc6448f7ff5eadd7c52f/RoundedEntryRendererAndroid.java
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/layout/rounded_entry.xml
