@@ -57,7 +57,7 @@
                                 <Frame x:Name="entry1Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
                                     <StackLayout>
-                                        <local:RoundedEntry ClassId="entry1" FontFamily="Lato"
+                                        <local:RoundedEntry x:Name="Name" Text="{Binding Name}" ClassId="entry1" FontFamily="Lato"
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"
@@ -73,7 +73,7 @@
                                 <Frame x:Name="entry2Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
                                     <StackLayout>
-                                        <local:RoundedEntry ClassId="entry2" FontFamily="Lato"
+                                        <local:RoundedEntry x:Name="Phone" Text="{Binding Phone}" ClassId="entry2" FontFamily="Lato"
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"
@@ -90,7 +90,7 @@
                                 <Frame x:Name="entry3Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
                                     <StackLayout>
-                                        <local:RoundedEntry ClassId="entry3" FontFamily="Lato"
+                                        <local:RoundedEntry x:Name="Email" Text="{Binding Email}" ClassId="entry3" FontFamily="Lato"
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"
@@ -108,7 +108,7 @@
                                 <Frame x:Name="entry4Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
                                     <StackLayout>
-                                        <local:RoundedEntry ClassId="entry4" FontFamily="Lato"
+                                        <local:RoundedEntry x:Name="Password" Text="{Binding Password}" ClassId="entry4" FontFamily="Lato"
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"

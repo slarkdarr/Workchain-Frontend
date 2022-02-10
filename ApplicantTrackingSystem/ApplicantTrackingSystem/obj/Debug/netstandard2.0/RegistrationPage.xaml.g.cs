@@ -26,13 +26,25 @@ namespace ApplicantTrackingSystem {
         private global::Xamarin.Forms.Frame entry1Frame;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry Name;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Frame entry2Frame;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry Phone;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Frame entry3Frame;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry Email;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Frame entry4Frame;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry Password;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button submitButton;
@@ -43,9 +55,13 @@ namespace ApplicantTrackingSystem {
             illustration = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "illustration");
             loginCard = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "loginCard");
             entry1Frame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "entry1Frame");
+            Name = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry>(this, "Name");
             entry2Frame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "entry2Frame");
+            Phone = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry>(this, "Phone");
             entry3Frame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "entry3Frame");
+            Email = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry>(this, "Email");
             entry4Frame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "entry4Frame");
+            Password = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry>(this, "Password");
             submitButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "submitButton");
         }
     }

@@ -1,13 +1,10 @@
-﻿using MvvmHelpers;
-using MvvmHelpers.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Npgsql;
 using System.ComponentModel;
 using System.Windows.Input;
-
-
+using Xamarin.Forms;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -74,12 +71,14 @@ namespace ApplicantTrackingSystem.ViewModels
             var connString = "Host=ats-kelompok24.cwk6nsvvdnxx.ap-southeast-3.rds.amazonaws.com;Username=postgres;Password=kelompok24;Database=ats";
 
             await using var conn = new NpgsqlConnection(connString);
+            Console.WriteLine("connecting");
             await conn.OpenAsync();
+            Console.WriteLine("connected");
 
-            string query = "SELECT COUNT(applicant_id) FROM applicant WHERE email=@email";
+            string query = "SELECT applicant_id FROM applicant WHERE email=@email";
             try
             {
-                await using (var cmd = new NpgsqlCommand(query, conn))
+                using (var cmd = new NpgsqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("email", email);
                     cmd.Prepare();
@@ -87,13 +86,14 @@ namespace ApplicantTrackingSystem.ViewModels
                     dbExists = cmd.ExecuteScalar() != null;
                 }
 
-                if (!dbExists)
+                if (dbExists)
                 {
+                    Console.WriteLine("Email already exists");
                     DisplayInvalidLoginPrompt();
                 }
                 else
                 {
-                    await using (var cmd1 = new NpgsqlCommand("INSERT INTO applicant (applicant_name, email, password, phone) VALUES (@applicant_name, @email, @password, @phone)", conn))
+                    using (var cmd1 = new NpgsqlCommand("INSERT INTO applicant (applicant_name, email, password, phone) VALUES (@applicant_name, @email, @password, @phone)", conn))
                     {
                         cmd1.Parameters.AddWithValue("applicant_name", name);
                         cmd1.Parameters.AddWithValue("email", email);
@@ -101,6 +101,7 @@ namespace ApplicantTrackingSystem.ViewModels
                         cmd1.Parameters.AddWithValue("phone", phone);
                         await cmd1.ExecuteNonQueryAsync();
                     };
+                    Console.WriteLine("Successfully inserted user");
                 }
             }
 
