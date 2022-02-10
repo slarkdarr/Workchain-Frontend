@@ -631,3 +631,14 @@
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/illustration1lg.png
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/src/crc6448f7ff5eadd7c52f/RoundedEntryRendererAndroid.java
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/layout/rounded_entry.xml
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/Npgsql.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Buffers.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Collections.Immutable.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Diagnostics.DiagnosticSource.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Memory.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Runtime.CompilerServices.Unsafe.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Text.Encodings.Web.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Text.Json.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Threading.Channels.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Threading.Tasks.Extensions.dll

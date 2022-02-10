@@ -57,7 +57,7 @@
                                 <Frame x:Name="entry1Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
                                     <StackLayout>
-                                        <local:RoundedEntry ClassId="entry1" FontFamily="Lato"
+                                        <local:RoundedEntry x:Name="Email" Text="{Binding Email}" ClassId="entry1" FontFamily="Lato"
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"
@@ -75,7 +75,7 @@
                                 <Frame x:Name="entry2Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
                                     <StackLayout>
-                                        <local:RoundedEntry ClassId="entry2" FontFamily="Lato"
+                                        <local:RoundedEntry x:Name="Password" Text="{Binding Password}" ClassId="entry2" FontFamily="Lato"
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"
@@ -88,11 +88,11 @@
                                        TextColor="Black" HorizontalOptions="End" Padding="0,0,0,3"/>
                             </StackLayout>
                             
-                            <Button x:Name="applicantButton"
+                            <Button x:Name="SigninButton"
                                 Text="Sign In" VerticalOptions="End" HorizontalOptions="FillAndExpand"
                                 BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
                                 TextColor="White" FontSize="14" FontFamily="LatoBold"
-                                Padding="0,17" CornerRadius="10" Margin="0,7"/>
+                                Padding="0,17" CornerRadius="10" Margin="0,7" Command="{Binding SubmitCommand}"/>
 
                             <StackLayout Padding="70,0">
                                 <Button Text="I'm a new user. Sign Up" FontFamily="LatoBold"

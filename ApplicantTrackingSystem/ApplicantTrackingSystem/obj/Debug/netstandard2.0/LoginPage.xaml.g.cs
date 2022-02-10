@@ -26,10 +26,16 @@ namespace ApplicantTrackingSystem {
         private global::Xamarin.Forms.Frame entry1Frame;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry Email;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Frame entry2Frame;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Button applicantButton;
+        private global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry Password;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Button SigninButton;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
@@ -37,8 +43,10 @@ namespace ApplicantTrackingSystem {
             illustration = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "illustration");
             loginCard = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.StackLayout>(this, "loginCard");
             entry1Frame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "entry1Frame");
+            Email = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry>(this, "Email");
             entry2Frame = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Frame>(this, "entry2Frame");
-            applicantButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "applicantButton");
+            Password = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::ApplicantTrackingSystem.CustomLayouts.RoundedEntry>(this, "Password");
+            SigninButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "SigninButton");
         }
     }
 }

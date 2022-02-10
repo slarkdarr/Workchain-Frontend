@@ -4,11 +4,6 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Npgsql;
 
-var connString = "Host=ats-kelompok24.cwk6nsvvdnxx.ap-southeast-3.rds.amazonaws.com;Username=postgres;Password=kelompok24;Database=ats";
-
-await using var conn = new NpgsqlConnection(connString);
-await conn.OpenAsync();
-
 namespace ApplicantTrackingSystem.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
@@ -47,12 +42,25 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public void OnSubmit()
         {
+
+            var connString = "Host=ats-kelompok24.cwk6nsvvdnxx.ap-southeast-3.rds.amazonaws.com;Username=postgres;Password=kelompok24;Database=ats";
+
+            var conn = new NpgsqlConnection(connString);
+
+            Console.WriteLine("Opening");
+            conn.Open();
+
+            Console.WriteLine("Opened");
+
             bool dbExists;
             string query = "SELECT COUNT(*) FROM applicant WHERE email=@email AND password=@password";
             try
             {
-                await using (var cmd = new NpgsqlCommand(query, conn))
+                using (var cmd = new NpgsqlCommand(query, conn))
                 {
+                    Console.WriteLine(email);
+                    Console.WriteLine(password);
+
                     cmd.Parameters.AddWithValue("email", email);
                     cmd.Parameters.AddWithValue("password", password);
                     cmd.Prepare();
@@ -62,8 +70,11 @@ namespace ApplicantTrackingSystem.ViewModels
 
                 if (!dbExists)
                 {
+                    Console.WriteLine("Gaada");
                     DisplayInvalidLoginPrompt();
+                    
                 }
+                
             } 
             
             catch (Exception ex)

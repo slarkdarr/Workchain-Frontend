@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ApplicantTrackingSystem.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace ApplicantTrackingSystem
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
-            InitializeComponent();
-
             var vm = new LoginViewModel();
             this.BindingContext = vm;
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
