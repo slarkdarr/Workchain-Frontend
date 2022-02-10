@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
-    x:Class="ApplicantTrackingSystem.LoginPage"
+    x:Class="ApplicantTrackingSystem.RegistrationPage"
     NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Content>
@@ -21,7 +21,7 @@
                             Property=Height,
                             Type=RelativeToView,
                             ElementName=illustration,
-                            Constant=0}"
+                            Constant=-166}"
 
                          RelativeLayout.WidthConstraint="{ConstraintExpression
                             Property=Width,
@@ -40,7 +40,7 @@
 
                     <StackLayout>
                         <StackLayout Padding="50,0">
-                            <Label Text="Sign In"
+                            <Label Text="Sign Up"
                                    FontFamily="LatoBlack"
                                    FontSize="24"
                                    HorizontalTextAlignment="Center"
@@ -52,7 +52,7 @@
                         <StackLayout x:Name="loginCard" Spacing="20" Padding="16">
 
                             <StackLayout>
-                                <Label Text="Email Address" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                <Label Text="Full Name" FontFamily="Lato" FontSize="11" TextColor="#727272"
                                        Padding="3,0,0,0"/>
                                 <Frame x:Name="entry1Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
@@ -61,16 +61,14 @@
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"
-                                           Keyboard="Email"
-                                           Focused="FrameFocused"
-                                           Unfocused="FrameUnfocused"/>
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
-                            
 
                             <StackLayout>
-                                <Label Text="Password" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                <Label Text="Phone Number" FontFamily="Lato" FontSize="11" TextColor="#727272"
                                        Padding="3,0,0,0"/>
                                 <Frame x:Name="entry2Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                        CornerRadius="7" HasShadow="False">
@@ -79,27 +77,63 @@
                                            FontSize="12"
                                            BackgroundColor="White"
                                            TextColor="Black"
-                                           IsPassword="True"
-                                           Focused="FrameFocused"
-                                           Unfocused="FrameUnfocused"/>
+                                           Keyboard="Telephone"
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
                                     </StackLayout>
                                 </Frame>
-                                <Label Text="Forgot password?" FontFamily="Lato" FontSize="11"
+                            </StackLayout>
+
+                            <StackLayout>
+                                <Label Text="Email Address" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                       Padding="3,0,0,0"/>
+                                <Frame x:Name="entry3Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                       CornerRadius="7" HasShadow="False">
+                                    <StackLayout>
+                                        <local:RoundedEntry ClassId="entry3" FontFamily="Lato"
+                                           FontSize="12"
+                                           BackgroundColor="White"
+                                           TextColor="Black"
+                                           Keyboard="Email"
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            
+
+                            <StackLayout>
+                                <Label Text="Password" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                       Padding="3,0,0,0"/>
+                                <Frame x:Name="entry4Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                       CornerRadius="7" HasShadow="False">
+                                    <StackLayout>
+                                        <local:RoundedEntry ClassId="entry4" FontFamily="Lato"
+                                           FontSize="12"
+                                           BackgroundColor="White"
+                                           TextColor="Black"
+                                           IsPassword="True"
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Label Text=" " FontFamily="Lato" FontSize="11"
                                        TextColor="Black" HorizontalOptions="End" Padding="0,0,0,3"/>
                             </StackLayout>
                             
-                            <Button x:Name="applicantButton"
-                                Text="Sign In" VerticalOptions="End" HorizontalOptions="FillAndExpand"
+                            <Button x:Name="submitButton"
+                                Text="Sign Up" VerticalOptions="End" HorizontalOptions="FillAndExpand"
                                 BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
                                 TextColor="White" FontSize="14" FontFamily="LatoBold"
                                 Padding="0,17" CornerRadius="10" Margin="0,7"/>
 
                             <StackLayout Padding="70,0">
-                                <Button Text="I'm a new user. Sign Up" FontFamily="LatoBold"
+                                <Button Text="I already have an account. Sign In" FontFamily="LatoBold"
                                     FontSize="11" TextColor="Black"  Margin="0,-10" Padding="0,0"
                                     BackgroundColor="Transparent" BorderColor="Transparent"
-                                    Clicked="RegisterButtonClickedLog"/>  
+                                    Clicked="LoginButtonClickedReg"/>  
                             </StackLayout>
+                            
 
                         </StackLayout>
 
@@ -109,11 +143,7 @@
                 </Frame>
                 
             </StackLayout>
-            
-
-
 
         </RelativeLayout>
     </ContentPage.Content>
-
 </ContentPage>

@@ -1,16 +1,12 @@
 ﻿<Properties StartupConfiguration="{915A009B-1938-4B36-8341-388B7879506B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ApplicantTrackingSystem/ApplicantTrackingSystem/LoginPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ApplicantTrackingSystem/ApplicantTrackingSystem/RegistrationPage.xaml">
     <Files>
-      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/LoginPage.xaml" Line="100" Column="46" IsPinned="True" />
+      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/LoginPage.xaml" Line="31" Column="43" />
       <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/MainPage.xaml" Line="35" Column="51" />
-      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/App.xaml" />
-      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/App.xaml.cs" />
       <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/LoginPage.xaml.cs" Line="22" Column="11" />
       <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/MainPage.xaml.cs" Line="20" Column="51" />
-      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/AssemblyInfo.cs" Line="3" Column="19" />
-      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/CustomLayouts/RoundedEntry.cs" />
-      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem.Android/CustomLayouts/RoundedEntryRendererAndroid.cs" />
-      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem.Android/Resources/layout/rounded_entry.xml" />
+      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/RegistrationPage.xaml" Line="1" Column="1" />
+      <File FileName="ApplicantTrackingSystem/ApplicantTrackingSystem/RegistrationPage.xaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,9 +14,9 @@
           <Node name="ApplicantTrackingSystem" expanded="True">
             <Node name="ApplicantTrackingSystem" expanded="True">
               <Node name="CustomLayouts" expanded="True" />
-              <Node name="App.xaml" expanded="True" />
-              <Node name="LoginPage.xaml" expanded="True" selected="True" />
+              <Node name="LoginPage.xaml" expanded="True" />
               <Node name="MainPage.xaml" expanded="True" />
+              <Node name="RegistrationPage.xaml" expanded="True" selected="True" />
             </Node>
             <Node name="ApplicantTrackingSystem.Android" expanded="True">
               <Node name="CustomLayouts" expanded="True" />

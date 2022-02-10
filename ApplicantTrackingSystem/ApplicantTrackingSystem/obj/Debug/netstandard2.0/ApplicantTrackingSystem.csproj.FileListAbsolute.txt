@@ -43,3 +43,4 @@ C:/Users/Brandon/source/repos/if3250_2022_24_appts/ApplicantTrackingSystem/Appli
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/Debug/netstandard2.0/ApplicantTrackingSystem.csproj.AssemblyReference.cache
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/Debug/netstandard2.0/ApplicantTrackingSystem.GeneratedMSBuildEditorConfig.editorconfig
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/Debug/netstandard2.0/LoginPage.xaml.g.cs
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/Debug/netstandard2.0/RegistrationPage.xaml.g.cs
