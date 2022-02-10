@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JEkZ8i8R9gG30uOb/Ju44tMLJphJXcZOUPKNNygO7umgpIKmruJIoDswD9V8yP5AR4si/edplDNJzh9vt55b7w==",
+  "dgSpecHash": "eXfMluGYEraifwNK/x6CFcixG5wNxVyZn3U4952O7APCraDKpKc/3pE5w2yFiNgmns5YB9hGBOWerEaeCqf/fg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Brandon\\source\\repos\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj",
+  "projectFilePath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Brandon\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\Brandon\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\Brandon\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "/Users/shifa/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/shifa/.nuget/packages/xamarin.essentials/1.7.0/xamarin.essentials.1.7.0.nupkg.sha512",
+    "/Users/shifa/.nuget/packages/xamarin.forms/5.0.0.2196/xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
   "logs": []
 }

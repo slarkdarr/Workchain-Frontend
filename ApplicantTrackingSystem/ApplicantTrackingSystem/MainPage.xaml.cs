@@ -14,5 +14,10 @@ namespace ApplicantTrackingSystem
         {
             InitializeComponent();
         }
+
+        private void LoginButtonClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
     }
 }

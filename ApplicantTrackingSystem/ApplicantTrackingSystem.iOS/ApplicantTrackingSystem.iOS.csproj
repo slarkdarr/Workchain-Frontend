@@ -61,6 +61,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -129,7 +130,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\ApplicantTrackingSystem\ApplicantTrackingSystem.csproj">
-      <Project>{CD7B1E11-836F-40A2-9103-E00A516205B6}</Project>
+      <Project>{DEF072B7-42B5-45EC-992F-BAEABF4A1D4F}</Project>
       <Name>ApplicantTrackingSystem</Name>
     </ProjectReference>
   </ItemGroup>

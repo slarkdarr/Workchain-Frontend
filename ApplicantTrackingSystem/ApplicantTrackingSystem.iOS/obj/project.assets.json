@@ -982,34 +982,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Brandon\\.nuget\\packages\\": {}
+    "/Users/shifa/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Brandon\\source\\repos\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj",
+      "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj",
       "projectName": "ApplicantTrackingSystem.iOS",
-      "projectPath": "C:\\Users\\Brandon\\source\\repos\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj",
-      "packagesPath": "C:\\Users\\Brandon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Brandon\\source\\repos\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\obj\\",
+      "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj",
+      "packagesPath": "/Users/shifa/.nuget/packages/",
+      "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Brandon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/shifa/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Brandon\\source\\repos\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
-              "projectPath": "C:\\Users\\Brandon\\source\\repos\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj"
+            "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
+              "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj"
             }
           }
         }

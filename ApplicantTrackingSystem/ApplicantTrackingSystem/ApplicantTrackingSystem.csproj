@@ -14,4 +14,20 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Fonts\" />
+    <None Remove="Fonts\Lato-Black.ttf" />
+    <None Remove="Fonts\Lato-Bold.ttf" />
+    <None Remove="Fonts\Lato-Regular.ttf" />
+    <None Remove="CustomLayouts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+    <Folder Include="CustomLayouts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Lato-Black.ttf" />
+    <EmbeddedResource Include="Fonts\Lato-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
+  </ItemGroup>
 </Project>
