@@ -40,20 +40,20 @@ namespace ApplicantTrackingSystem.ViewModels
             SubmitCommand = new Command(OnSubmit);
         }
 
-        public void OnSubmit()
+        async public void OnSubmit()
         {
 
             var connString = "Host=ats-kelompok24.cwk6nsvvdnxx.ap-southeast-3.rds.amazonaws.com;Username=postgres;Password=kelompok24;Database=ats";
-
-            var conn = new NpgsqlConnection(connString);
+            //var connString = "Host=localhost;Database=postgres;Username=shifa";
+            await using var conn = new NpgsqlConnection(connString);
 
             Console.WriteLine("Opening");
-            conn.Open();
+            await conn.OpenAsync();
 
             Console.WriteLine("Opened");
 
             bool dbExists;
-            string query = "SELECT COUNT(*) FROM applicant WHERE email=@email AND password=@password";
+            string query = "SELECT applicant_id FROM applicant WHERE email=@email AND password=@password";
             try
             {
                 using (var cmd = new NpgsqlCommand(query, conn))
@@ -63,9 +63,15 @@ namespace ApplicantTrackingSystem.ViewModels
 
                     cmd.Parameters.AddWithValue("email", email);
                     cmd.Parameters.AddWithValue("password", password);
+
+                    Console.WriteLine("Here now");
+
                     cmd.Prepare();
 
+                    Console.WriteLine("Here now");
+
                     dbExists = cmd.ExecuteScalar() != null;
+                    Console.WriteLine(dbExists);
                 }
 
                 if (!dbExists)
@@ -74,6 +80,10 @@ namespace ApplicantTrackingSystem.ViewModels
                     DisplayInvalidLoginPrompt();
                     
                 }
+
+                Console.WriteLine("Login Successful!");
+
+
                 
             } 
             
