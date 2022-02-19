@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj": {}
+    "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj": {}
   },
   "projects": {
-    "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj": {
+    "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj",
         "projectName": "ApplicantTrackingSystem.iOS",
-        "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj",
-        "packagesPath": "/Users/shifa/.nuget/packages/",
-        "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/obj/",
+        "projectPath": "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj",
+        "packagesPath": "C:\\Users\\ibrah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "/Users/shifa/.config/NuGet/NuGet.Config"
+          "C:\\Users\\ibrah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
-                "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj"
+              "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
+                "projectPath": "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj"
               }
             }
           }
@@ -63,22 +65,24 @@
         }
       }
     },
-    "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
+    "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj",
+        "projectUniqueName": "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj",
         "projectName": "ApplicantTrackingSystem",
-        "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj",
-        "packagesPath": "/Users/shifa/.nuget/packages/",
-        "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/",
+        "projectPath": "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj",
+        "packagesPath": "C:\\Users\\ibrah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ibrah\\Desktop\\PPL Repo Kumpul\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/shifa/.config/NuGet/NuGet.Config"
+          "C:\\Users\\ibrah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -107,6 +111,10 @@
               "target": "Package",
               "version": "[6.0.3, )"
             },
+            "Refractored.MvvmHelpers": {
+              "target": "Package",
+              "version": "[1.6.2, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.7.0, )"
@@ -126,7 +134,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
