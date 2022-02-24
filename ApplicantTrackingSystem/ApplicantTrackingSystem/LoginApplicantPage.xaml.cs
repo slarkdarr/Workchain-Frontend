@@ -24,6 +24,8 @@ namespace ApplicantTrackingSystem
             Password.Completed += (object sender, EventArgs e) =>
             {
                 vm.SubmitCommand.Execute(null);
+                Navigation.PushAsync(new JobCatalogPage());
+                Navigation.RemovePage(this);
             };
         }
 

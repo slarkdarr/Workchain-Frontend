@@ -13,7 +13,7 @@ namespace ApplicantTrackingSystem
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new JobCatalogPage());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
