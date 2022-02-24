@@ -99,7 +99,7 @@
                             <Frame x:Name="entry6Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                     CornerRadius="7" HasShadow="False">
                                 <StackLayout>
-                                    <local:RoundedEntry x:Name="Salary" Text="{Binding JobType}" ClassId="entry6" FontFamily="Lato"
+                                    <local:RoundedEntry x:Name="Salary" Text="{Binding Salary}" ClassId="entry6" FontFamily="Lato"
                                         FontSize="12"
                                         BackgroundColor="White"
                                         TextColor="Black"

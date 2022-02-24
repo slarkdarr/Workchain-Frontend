@@ -14,6 +14,7 @@ namespace ApplicantTrackingSystem.ViewModels
         private DateTime startDate;
         private DateTime endDate;
         private string jobType;
+        private string salary;
         private string description;
 
         public string JobName
@@ -46,6 +47,16 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 jobType = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("JobType"));
+            }
+        }
+
+        public string Salary
+        {
+            get { return salary; }
+            set
+            {
+                salary = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Salary"));
             }
         }
 
@@ -90,13 +101,14 @@ namespace ApplicantTrackingSystem.ViewModels
             await conn.OpenAsync();
             Console.WriteLine("connected");
 
-            using (var cmd1 = new NpgsqlCommand("INSERT INTO job_opening (company_id, job_name, start_recruitment_date, end_recruitment_date, job_type, description) VALUES (1, @job_name, @start_recruitment_date, @end_recruitment_date, @job_type, @description)", conn))
+            using (var cmd1 = new NpgsqlCommand("INSERT INTO job_opening (company_id, job_name, start_recruitment_date, end_recruitment_date, job_type, description, salary) VALUES (1, @job_name, @start_recruitment_date, @end_recruitment_date, @job_type, @description, @salary)", conn))
             {
                 cmd1.Parameters.AddWithValue("job_name", jobName);
                 cmd1.Parameters.AddWithValue("start_recruitment_date", startDate);
                 cmd1.Parameters.AddWithValue("end_recruitment_date", endDate);
                 cmd1.Parameters.AddWithValue("job_type", jobType);
                 cmd1.Parameters.AddWithValue("description", description);
+                cmd1.Parameters.AddWithValue("salary", int.Parse(salary));
                 await cmd1.ExecuteNonQueryAsync();
             };
             Console.WriteLine("Successfully inserted Job Application");

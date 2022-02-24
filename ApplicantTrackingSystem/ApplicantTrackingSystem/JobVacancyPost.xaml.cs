@@ -89,10 +89,9 @@ namespace ApplicantTrackingSystem
         {
             var vm = new JobVacancyPostViewModel();
             this.BindingContext = vm;
-            InitializeComponent();
             StartDate.Date = DateTime.Now;
 
-            vm.SubmitCommand.Execute(null);
+            //vm.SubmitCommand.Execute(null);
         }
     }
 }
