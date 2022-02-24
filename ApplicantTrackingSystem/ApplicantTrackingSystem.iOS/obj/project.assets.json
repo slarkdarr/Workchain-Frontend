@@ -1996,32 +1996,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/shifa/.nuget/packages/": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj",
       "projectName": "ApplicantTrackingSystem.iOS",
-      "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/ApplicantTrackingSystem.iOS.csproj",
-      "packagesPath": "/Users/shifa/.nuget/packages/",
-      "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/obj/",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\ApplicantTrackingSystem.iOS.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/shifa/.config/NuGet/NuGet.Config"
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
-              "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj"
+            "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj"
             }
           }
         }
@@ -2056,13 +2058,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.iOS/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
