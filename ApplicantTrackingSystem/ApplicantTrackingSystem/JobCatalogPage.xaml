@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    xmlns:bound="clr-namespace:ApplicantTrackingSystem"
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    x:Class="ApplicantTrackingSystem.JobCatalogPage"
+    NavigationPage.HasNavigationBar="false">
+
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:JobVacancyViewModel />
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
+            <!--Header-->
+            <StackLayout Padding="30,40,30,20" BackgroundColor="#F2F2F2" Spacing="12">
+                <StackLayout.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#C33278"
+                                      Offset="0.1" />
+                        <GradientStop Color="#58327F"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+
+                <Frame x:Name="entry1Frame" BackgroundColor="White" Padding="10,5" BorderColor="Transparent"
+                        CornerRadius="7" HasShadow="False">
+                    <StackLayout Orientation="Horizontal" >
+                        <local:RoundedEntry x:Name="Email" Text="{Binding SearchKeyword}" ClassId="entry1" FontFamily="Lato"
+                            FontSize="14"
+                            BackgroundColor="White"
+                            TextColor="Black"
+                            Placeholder="Search for your dream job!"
+                            HorizontalOptions="StartAndExpand"/>
+                        <ImageButton Source="search.png"
+                                     Command="{Binding 
+                                        Source={RelativeSource AncestorType={x:Type viewmodels:JobVacancyViewModel}},
+                                        Path=SearchCommand}"
+                                     CommandParameter="{Binding .}"
+                                     BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </Frame>
+
+                <!--Filter Options-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Grid>
+                        <Frame BackgroundColor="#C4C4C4" Opacity="0.5" CornerRadius="3"></Frame>
+                        <Button Text="City" ImageSource="location.png"
+                                BackgroundColor="Transparent" Padding="10,0" Margin="0"
+                                HeightRequest="26" TextColor="White" FontFamily="Lato"
+                                FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                                Clicked="FilterChosen" ClassId="City"/>
+                    </Grid>
+                    <Grid>
+                        <Frame BackgroundColor="#C4C4C4" Opacity="0.5" CornerRadius="3"></Frame>
+                        <Button Text="Job Type" ImageSource="jobtype.png"
+                                BackgroundColor="Transparent" Padding="10,0" Margin="0"
+                                HeightRequest="26" TextColor="White" FontFamily="Lato"
+                                FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                                Clicked="FilterChosen" ClassId="Job"/>
+                    </Grid>
+                    <Grid>
+                        <Frame BackgroundColor="#C4C4C4" Opacity="0.5" CornerRadius="3"></Frame>
+                        <Button Text="Company" ImageSource="company.png"
+                                BackgroundColor="Transparent" Padding="10,0" Margin="0"
+                                HeightRequest="26" TextColor="White" FontFamily="Lato"
+                                FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                                Clicked="FilterChosen" ClassId="Company"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+
+            <!--Filters Hiddeen Element-->
+            <StackLayout x:Name="Filters" Padding="0" Margin="0">
+            <!--City-->
+                <StackLayout HorizontalOptions="FillAndExpand" IsVisible="False" BackgroundColor="White"
+                             Padding="30,20" x:Name="CityStack">
+                    <Label Text="City Filter" FontFamily="Lato" FontSize="11" TextColor="#727272"/>
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="10">
+                        <Frame BorderColor="#C4C4C4" CornerRadius="7" Padding="0" HasShadow="True"
+                               HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0">
+                            <local:RoundedEntry x:Name="City" Text="{Binding CityFilterSelection}" ClassId="entry1"
+                                            FontFamily="Lato" FontSize="13" BackgroundColor="White"
+                                            TextColor="Black" Placeholder="   Enter your search filter here"
+                                            HorizontalOptions="FillAndExpand"/>
+                        </Frame>
+                        <ImageButton Source="filter.png"
+                                     Command="{Binding 
+                                               Source={RelativeSource AncestorType={x:Type viewmodels:JobVacancyViewModel}},
+                                               Path=LoadFilter}"
+                                     CommandParameter="{Binding .}"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="End"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <!--Job type-->
+                <StackLayout HorizontalOptions="FillAndExpand" IsVisible="False" BackgroundColor="White"
+                             Padding="30,20" x:Name="JobStack">
+                    <Label Text="Job Type Filter" FontFamily="Lato" FontSize="11" TextColor="#727272"/>
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="10">
+                        <Frame BorderColor="#C4C4C4" CornerRadius="7" Padding="0" HasShadow="True"
+                               HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0">
+                            <local:RoundedEntry x:Name="JobType" Text="{Binding JobTypeFilterSelection}"
+                                            FontFamily="Lato" FontSize="13" BackgroundColor="White"
+                                            TextColor="Black" Placeholder="   Enter your search filter here"
+                                            HorizontalOptions="FillAndExpand"/>
+                        </Frame>
+                        <ImageButton Source="filter.png"
+                                     Command="{Binding 
+                                               Source={RelativeSource AncestorType={x:Type viewmodels:JobVacancyViewModel}},
+                                               Path=LoadFilter}"
+                                     CommandParameter="{Binding .}"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="End"/>
+                    </StackLayout>
+                </StackLayout>
+           
+                <!--Company-->
+                <StackLayout HorizontalOptions="FillAndExpand" IsVisible="False" BackgroundColor="White"
+                             Padding="30,20" x:Name="CompanyStack">
+                    <Label Text="Company Filter" FontFamily="Lato" FontSize="11" TextColor="#727272"/>
+                    <StackLayout Orientation="Horizontal" Padding="0" Spacing="10">
+                        <Frame BorderColor="#C4C4C4" CornerRadius="7" Padding="0" HasShadow="True"
+                               HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0">
+                            <local:RoundedEntry x:Name="Company" Text="{Binding JobTypeFilterSelection}" ClassId="entry1"
+                                            FontFamily="Lato" FontSize="13" BackgroundColor="White"
+                                            TextColor="Black" Placeholder="   Enter your search filter here"
+                                            HorizontalOptions="FillAndExpand"/>
+                        </Frame>
+                        <ImageButton Source="filter.png"
+                                     Command="{Binding 
+                                               Source={RelativeSource AncestorType={x:Type viewmodels:JobVacancyViewModel}},
+                                               Path=LoadFilter}"
+                                     CommandParameter="{Binding .}"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="End"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <!--Recent Jobs-->
+            <StackLayout Padding="30,30,30,0" BackgroundColor="#F2F2F2">
+                <Label Text="Available Jobs"
+                       FontFamily="LatoBlack"
+                       FontSize="20"
+                       TextColor="Black"
+                       Margin="0,0,0,20"/>
+
+                <!--ItemsSource={Binding JobItems}-->
+                <ListView x:Name="RecentJobsList"
+                          ItemsSource="{Binding JobVacancy}"
+                          HasUnevenRows="True"
+                          VerticalOptions="StartAndExpand"
+                          VerticalScrollBarVisibility="Never">
+                    <!--To use for when binded with view model components-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                <Frame CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
+                                       VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="White"
+                                             Spacing="10" Padding="20,20">
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="JobComponentTapped"/>
+                                        </StackLayout.GestureRecognizers>
+                                        <!--Company logo-->
+                                        <Image Source="imgplaceholder.png"
+                                                HorizontalOptions="Fill"
+                                                VerticalOptions="Center"/>
+
+                                        <!--Job information-->
+                                        <StackLayout HorizontalOptions="StartAndExpand">
+                                            <Label Text="{Binding Company_Name}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                            <Label Text="{Binding Job_Name}" FontFamily="LatoBold" FontSize="16"
+                                                   TextColor="Black"/>
+                                            <Label Text="{Binding City}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                        </StackLayout>
+
+                                        <!--Save and time information-->
+                                        <StackLayout>
+                                            <Image Source="save.png"
+                                                HorizontalOptions="EndAndExpand"
+                                                VerticalOptions="StartAndExpand"/>
+                                            <Label Text="x days" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -642,5 +642,17 @@
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Text.Json.dll
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Threading.Channels.dll
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/System.Threading.Tasks.Extensions.dll
+<<<<<<< HEAD
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/src/crc6448f7ff5eadd7c52f/RoundedEditorRendererAndroid.java
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/src/crc6448f7ff5eadd7c52f/RoundedDatePickerRendererAndroid.java
+=======
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/imgplaceholder.png
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/save.png
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/search.png
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/MvvmHelpers.dll
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/android/assets/MvvmHelpers.pdb
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/location.png
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/company.png
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/jobtype.png
+/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/Debug/res/drawable/filter.png
+>>>>>>> 7-job-vacancy-catalog-for-applicants-front-end

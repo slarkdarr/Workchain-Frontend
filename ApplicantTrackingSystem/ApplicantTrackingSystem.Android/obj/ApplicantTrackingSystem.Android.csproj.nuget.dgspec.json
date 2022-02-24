@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/ApplicantTrackingSystem.Android.csproj": {}
+    "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\ApplicantTrackingSystem.Android.csproj": {}
   },
   "projects": {
-    "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/ApplicantTrackingSystem.Android.csproj": {
+    "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\ApplicantTrackingSystem.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/ApplicantTrackingSystem.Android.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\ApplicantTrackingSystem.Android.csproj",
         "projectName": "ApplicantTrackingSystem.Android",
-        "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/ApplicantTrackingSystem.Android.csproj",
-        "packagesPath": "/Users/shifa/.nuget/packages/",
-        "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\ApplicantTrackingSystem.Android.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "/Users/shifa/.config/NuGet/NuGet.Config"
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "monoandroid11.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "monoandroid11.0": {
             "projectReferences": {
-              "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
-                "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj"
+              "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj"
               }
             }
           }
@@ -52,22 +54,24 @@
         }
       }
     },
-    "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
+    "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj",
         "projectName": "ApplicantTrackingSystem",
-        "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj",
-        "packagesPath": "/Users/shifa/.nuget/packages/",
-        "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/shifa/.config/NuGet/NuGet.Config"
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -96,6 +100,10 @@
               "target": "Package",
               "version": "[6.0.3, )"
             },
+            "Refractored.MvvmHelpers": {
+              "target": "Package",
+              "version": "[1.6.2, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.7.0, )"
@@ -115,7 +123,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.405/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

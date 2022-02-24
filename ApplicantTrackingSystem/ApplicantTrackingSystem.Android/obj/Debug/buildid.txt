@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 6519498f-28de-430f-947c-b9ce464108d8
+=======
+a7b5945a-fbd0-4445-8cb6-a4dad2bec6e3
+>>>>>>> 7-job-vacancy-catalog-for-applicants-front-end

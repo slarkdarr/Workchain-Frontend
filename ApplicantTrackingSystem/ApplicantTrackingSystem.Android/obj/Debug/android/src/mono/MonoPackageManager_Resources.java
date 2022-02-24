@@ -6,6 +6,7 @@ public class MonoPackageManager_Resources {
 		"ApplicantTrackingSystem.dll",
 		"FormsViewGroup.dll",
 		"Microsoft.Bcl.AsyncInterfaces.dll",
+		"MvvmHelpers.dll",
 		"Npgsql.dll",
 		"System.Collections.Immutable.dll",
 		"System.Diagnostics.DiagnosticSource.dll",

@@ -73,7 +73,11 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
+<<<<<<< HEAD
 	.asciz	"6519498f-28de-430f-947c-b9ce464108d8"
+=======
+	.asciz	"a7b5945a-fbd0-4445-8cb6-a4dad2bec6e3"
+>>>>>>> 7-job-vacancy-catalog-for-applicants-front-end
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
