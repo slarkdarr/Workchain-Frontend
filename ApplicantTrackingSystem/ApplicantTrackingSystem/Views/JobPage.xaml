@@ -14,8 +14,8 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ImageCell Text="{Binding Job_Name}"
-                           Detail="{Binding Job_Type}"
-                           ImageSource="https://fillmurray.com/g/200/300" />
+                           Detail="{Binding Salary}"
+                           ImageSource="{Binding Profile_Picture}" />
             </DataTemplate>
         </ListView.ItemTemplate>
 

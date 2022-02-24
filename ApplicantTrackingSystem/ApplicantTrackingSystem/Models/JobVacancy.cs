@@ -15,5 +15,7 @@ namespace ApplicantTrackingSystem.Models
         public string End_Recruitment_Date { get; set; }
         public string Job_Type { get; set; }
         public string Description { get; set; }
+        public Int64 Salary { get; set; }
+        public string Profile_Picture { get; set; }
     }
 }

@@ -35,6 +35,7 @@ namespace ApplicantTrackingSystem.ViewModels
         public string JobTypeFilterSelection
         {
             get => jobTypeFilterSelection;
+            //set => SetProperty(ref jobTypeFilterSelection, value);
             set => SetProperty(ref jobTypeFilterSelection, value);
         }
 
@@ -194,7 +195,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
             await conn.OpenAsync();
 
-            string query = @"SELECT job_id, company.company_id, company_name, job_name, start_recruitment_date, end_recruitment_date, job_type, job_opening.description, company.city,
+            string query = @"SELECT job_id, company.company_id, company_name, job_name, start_recruitment_date, end_recruitment_date, job_type, job_opening.description, company.city, salary, profile_picture,
             REGEXP_MATCHES(job_name, @job_name) Regex_Job
             FROM job_opening
             INNER JOIN company ON job_opening.company_id = company.company_id ;";
@@ -239,8 +240,10 @@ namespace ApplicantTrackingSystem.ViewModels
                             var Job_Type = reader.GetString(6);
                             var Description = reader.GetString(7);
                             var City = reader.GetString(8);
+                            var Salary = reader.GetInt64(9);
+                            var Profile_Picture = reader.GetString(10);
 
-                            JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, City = City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description });
+                            JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, City = City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description, Salary=Salary, Profile_Picture=Profile_Picture });
                         }
                     }
                 }
