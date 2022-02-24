@@ -17,7 +17,12 @@ namespace ApplicantTrackingSystem
 
         private void LoginButtonClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new LoginPage());
+            Navigation.PushAsync(new LoginApplicantPage());
+        }
+
+        private void LoginCompanyButtonClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginCompanyPage());
         }
     }
 }

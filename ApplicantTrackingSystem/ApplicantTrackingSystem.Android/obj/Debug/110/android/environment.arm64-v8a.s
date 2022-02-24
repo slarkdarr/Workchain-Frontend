@@ -79,7 +79,11 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
+<<<<<<< HEAD
 	.asciz	"0fed43c7-0a8c-4cf7-a3e9-c98fdffdd267"
+=======
+	.asciz	"7a1e9135-4d30-4483-bb82-3022e02a7697"
+>>>>>>> 6-register-and-login-for-companies-frontend-backend
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object

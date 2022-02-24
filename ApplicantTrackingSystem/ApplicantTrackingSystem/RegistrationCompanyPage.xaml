@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    x:Class="ApplicantTrackingSystem.RegistrationCompanyPage"
+    NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Content>
+        <RelativeLayout BackgroundColor="White" Padding="40">
+            <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression
+                            Property=Width,
+                            Type=RelativeToParent,
+                            Factor=1}"
+                         x:Name="illustration">
+                <Image Source="illustration1lg.png"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Start"/>
+            </StackLayout>
+
+            <StackLayout RelativeLayout.YConstraint="{ConstraintExpression
+                            Property=Height,
+                            Type=RelativeToView,
+                            ElementName=illustration,
+                            Constant=-166}"
+
+                         RelativeLayout.WidthConstraint="{ConstraintExpression
+                            Property=Width,
+                            Type=RelativeToParent,
+                            Factor=1}"
+
+                         RelativeLayout.HeightConstraint="{ConstraintExpression
+                            Property=Height,
+                            Type=RelativeToParent,
+                            Factor=1}">
+
+                <Frame BackgroundColor="#F2F2F2"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       CornerRadius="30">
+
+                    <StackLayout>
+                        <StackLayout Padding="50,0">
+                            <Label Text="Sign Up"
+                                   FontFamily="LatoBlack"
+                                   FontSize="24"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="Black"
+                                   Margin="0,27"/>
+                        </StackLayout>
+
+
+                        <StackLayout x:Name="loginCard" Spacing="20" Padding="16">
+
+                            <StackLayout>
+                                <Label Text="Company Name" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                       Padding="3,0,0,0"/>
+                                <Frame x:Name="entry1Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                       CornerRadius="7" HasShadow="False">
+                                    <StackLayout>
+                                        <local:RoundedEntry x:Name="Name" Text="{Binding Name}" ClassId="entry1" FontFamily="Lato"
+                                           FontSize="12"
+                                           BackgroundColor="White"
+                                           TextColor="Black"
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                            <StackLayout>
+                                <Label Text="Phone Number" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                       Padding="3,0,0,0"/>
+                                <Frame x:Name="entry2Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                       CornerRadius="7" HasShadow="False">
+                                    <StackLayout>
+                                        <local:RoundedEntry x:Name="Phone" Text="{Binding Phone}" ClassId="entry2" FontFamily="Lato"
+                                           FontSize="12"
+                                           BackgroundColor="White"
+                                           TextColor="Black"
+                                           Keyboard="Telephone"
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                            <StackLayout>
+                                <Label Text="Email Address" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                       Padding="3,0,0,0"/>
+                                <Frame x:Name="entry3Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                       CornerRadius="7" HasShadow="False">
+                                    <StackLayout>
+                                        <local:RoundedEntry x:Name="Email" Text="{Binding Email}" ClassId="entry3" FontFamily="Lato"
+                                           FontSize="12"
+                                           BackgroundColor="White"
+                                           TextColor="Black"
+                                           Keyboard="Email"
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+
+                            <StackLayout>
+                                <Label Text="Password" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                       Padding="3,0,0,0"/>
+                                <Frame x:Name="entry4Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                       CornerRadius="7" HasShadow="False">
+                                    <StackLayout>
+                                        <local:RoundedEntry x:Name="Password" Text="{Binding Password}" ClassId="entry4" FontFamily="Lato"
+                                           FontSize="12"
+                                           BackgroundColor="White"
+                                           TextColor="Black"
+                                           IsPassword="True"
+                                           Focused="FrameFocusedReg"
+                                           Unfocused="FrameUnfocusedReg"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Label Text=" " FontFamily="Lato" FontSize="11"
+                                       TextColor="Black" HorizontalOptions="End" Padding="0,0,0,3"/>
+                            </StackLayout>
+
+                            <Button x:Name="submitButton"
+                                Text="Sign Up" VerticalOptions="End" HorizontalOptions="FillAndExpand"
+                                BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
+                                TextColor="White" FontSize="14" FontFamily="LatoBold"
+                                Padding="0,17" CornerRadius="10" Margin="0,7" Command="{Binding SubmitCommand}"/>
+
+                            <StackLayout Padding="70,0">
+                                <Button Text="I already have an account. Sign In" FontFamily="LatoBold"
+                                    FontSize="11" TextColor="Black"  Margin="0,-10" Padding="0,0"
+                                    BackgroundColor="Transparent" BorderColor="Transparent"
+                                    Clicked="LoginButtonClickedReg"/>
+                            </StackLayout>
+
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+
+                </Frame>
+
+            </StackLayout>
+
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

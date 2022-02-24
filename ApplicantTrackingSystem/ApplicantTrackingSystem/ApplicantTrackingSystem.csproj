@@ -12,6 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Npgsql" Version="6.0.3" />
@@ -37,5 +43,33 @@
     <EmbeddedResource Include="Fonts\Lato-Black.ttf" />
     <EmbeddedResource Include="Fonts\Lato-Bold.ttf" />
     <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="LoginCompanyPage.xaml.cs">
+      <DependentUpon>LoginCompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LoginApplicantPage.xaml.cs">
+      <DependentUpon>LoginApplicantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RegistrationCompanyPage.xaml.cs">
+      <DependentUpon>RegistrationCompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ProfileApplicantPage.xaml.cs">
+      <DependentUpon>ProfileApplicantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RegistrationApplicantPage.xaml.cs">
+      <DependentUpon>RegistrationApplicantPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="LoginCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegistrationCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfileApplicantPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

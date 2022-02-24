@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 0fed43c7-0a8c-4cf7-a3e9-c98fdffdd267
+=======
+7a1e9135-4d30-4483-bb82-3022e02a7697
+>>>>>>> 6-register-and-login-for-companies-frontend-backend

@@ -26,10 +26,14 @@ os=unix
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
 <<<<<<< HEAD
+<<<<<<< HEAD
 _nugetassetstimestamp=637812908117060077
 =======
 _nugetassetstimestamp=637811491993019769
 >>>>>>> 7-job-vacancy-catalog-for-applicants-front-end
+=======
+_nugetassetstimestamp=637813291245669023
+>>>>>>> 6-register-and-login-for-companies-frontend-backend
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a

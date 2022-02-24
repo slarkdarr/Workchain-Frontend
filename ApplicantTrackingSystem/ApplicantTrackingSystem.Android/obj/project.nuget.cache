@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "1AqNeeIjjLfq3wPUGODEreWrJIWn6PXCLMkaGcGDaHWoRpAKWaFH4VeUeTX2+k0eG5oZ8x8emcli492dPyATwQ==",
+=======
+  "dgSpecHash": "dKGzNlAxe6ZFPxvfJS5heLanH8AVTOIUTG9C34WzaKFlld/qyAGgNZcxb2Ud+nK36JFdlN8/UIwB04fe4M/GvA==",
+>>>>>>> 6-register-and-login-for-companies-frontend-backend
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\ApplicantTrackingSystem.Android.csproj",
   "expectedPackageFiles": [

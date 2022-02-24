@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "boNFBHVmD8b0T3+9YgkD3IArmEYSkJOIqXVPoTi08USf84GgTjTpuweI/+gNG8bC6asjFM6jSaGFsZpxvvYbTQ==",
+=======
+  "dgSpecHash": "1lqMPDIvd3LBJ/9XHUh/D8xp+DGStyxIoA4KmHZYCujVBo99Jeur/q99BZ2TpKEHUvC9uQlXBwGhSaEy4ojDog==",
+>>>>>>> 6-register-and-login-for-companies-frontend-backend
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj",
   "expectedPackageFiles": [
