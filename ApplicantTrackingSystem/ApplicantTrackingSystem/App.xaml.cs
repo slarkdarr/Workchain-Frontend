@@ -13,12 +13,7 @@ namespace ApplicantTrackingSystem
         {
             InitializeComponent();
 
-<<<<<<< HEAD
-            //MainPage = new NavigationPage(new MainPage());
-            MainPage =new JobVacancyPost();
-=======
             MainPage = new NavigationPage(new JobCatalogPage());
->>>>>>> 7-job-vacancy-catalog-for-applicants-front-end
         }
 
         protected override void OnStart()

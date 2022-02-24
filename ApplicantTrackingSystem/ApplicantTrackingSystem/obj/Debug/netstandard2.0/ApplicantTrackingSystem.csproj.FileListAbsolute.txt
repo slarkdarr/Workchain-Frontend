@@ -45,7 +45,6 @@ C:/Users/Brandon/source/repos/if3250_2022_24_appts/ApplicantTrackingSystem/Appli
 <<<<<<< HEAD
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/Debug/netstandard2.0/LoginPage.xaml.g.cs
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/Debug/netstandard2.0/RegistrationPage.xaml.g.cs
-<<<<<<< HEAD
 C:/Users/DELL/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/bin/Debug/netstandard2.0/ApplicantTrackingSystem.deps.json
 C:/Users/DELL/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/bin/Debug/netstandard2.0/ApplicantTrackingSystem.dll
 C:/Users/DELL/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/bin/Debug/netstandard2.0/ref/ApplicantTrackingSystem.dll
@@ -68,7 +67,6 @@ C:/Users/DELL/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrac
 =======
 /Users/shifa/Desktop/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/Debug/netstandard2.0/JobCatalogPage.xaml.g.cs
 >>>>>>> 7-job-vacancy-catalog-for-applicants-front-end
-=======
 D:/Repo_Proyek_Kuliah/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/bin/Debug/netstandard2.0/ApplicantTrackingSystem.deps.json
 D:/Repo_Proyek_Kuliah/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/bin/Debug/netstandard2.0/ApplicantTrackingSystem.dll
 D:/Repo_Proyek_Kuliah/if3250_2022_24_appts/ApplicantTrackingSystem/ApplicantTrackingSystem/bin/Debug/netstandard2.0/ref/ApplicantTrackingSystem.dll
