@@ -9,6 +9,7 @@ namespace ApplicantTrackingSystem.ViewModels
     public class LoginCompanyViewModel : INotifyPropertyChanged
     {
         public Action DisplayInvalidLoginPrompt;
+        public Action DisplayValidLoginPrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private string email;
         private string password;
@@ -42,7 +43,6 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async public void OnSubmit()
         {
-
             var connString = "Host=ats-kelompok24.cwk6nsvvdnxx.ap-southeast-3.rds.amazonaws.com;Username=postgres;Password=kelompok24;Database=ats";
             //var connString = "Host=localhost;Database=postgres;Username=shifa";
             await using var conn = new NpgsqlConnection(connString);
@@ -79,9 +79,11 @@ namespace ApplicantTrackingSystem.ViewModels
                     Console.WriteLine("Gaada");
                     DisplayInvalidLoginPrompt();
 
+                } else
+                {
+                    Console.WriteLine("Login Successful!");
+                    DisplayValidLoginPrompt();
                 }
-
-                Console.WriteLine("Login Successful!");
 
 
 

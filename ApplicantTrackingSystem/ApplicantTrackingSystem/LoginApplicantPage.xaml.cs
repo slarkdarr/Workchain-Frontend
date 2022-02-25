@@ -14,6 +14,7 @@ namespace ApplicantTrackingSystem
             var vm = new LoginApplicantViewModel();
             this.BindingContext = vm;
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
+            vm.DisplayValidLoginPrompt += () => Navigation.PushAsync(new JobCatalogPage());
             InitializeComponent();
 
             Email.Completed += (object sender, EventArgs e) =>
@@ -24,8 +25,8 @@ namespace ApplicantTrackingSystem
             Password.Completed += (object sender, EventArgs e) =>
             {
                 vm.SubmitCommand.Execute(null);
-                Navigation.PushAsync(new JobCatalogPage());
-                Navigation.RemovePage(this);
+                //Navigation.PushAsync(new JobCatalogPage());
+                //Navigation.RemovePage(this);
             };
         }
 

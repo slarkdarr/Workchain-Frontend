@@ -9,6 +9,7 @@ namespace ApplicantTrackingSystem.ViewModels
     public class LoginApplicantViewModel : INotifyPropertyChanged
     {
         public Action DisplayInvalidLoginPrompt;
+        public Action DisplayValidLoginPrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private string email;
         private string password;
@@ -79,9 +80,13 @@ namespace ApplicantTrackingSystem.ViewModels
                     Console.WriteLine("Gaada");
                     DisplayInvalidLoginPrompt();
                     
+                } else
+                {
+                    Console.WriteLine("Login Successful!");
+                    DisplayValidLoginPrompt();
                 }
 
-                Console.WriteLine("Login Successful!");
+                
 
 
                 
