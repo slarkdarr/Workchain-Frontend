@@ -646,3 +646,10 @@ C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrac
 C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\res\drawable\company.png
+C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\res\drawable\filter.png
+C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\res\drawable\imgplaceholder.png
+C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\res\drawable\jobtype.png
+C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\res\drawable\location.png
+C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\res\drawable\save.png
+C:\Users\DELL\Desktop\if3250_2022_24_appts\ApplicantTrackingSystem\ApplicantTrackingSystem.Android\obj\Debug\110\res\drawable\search.png

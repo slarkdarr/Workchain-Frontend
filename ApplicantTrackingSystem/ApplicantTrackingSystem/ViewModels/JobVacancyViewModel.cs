@@ -194,7 +194,7 @@ namespace ApplicantTrackingSystem.ViewModels
             //    return;
             //}
 
-            var connString = "Host=ats-kelompok24.cwk6nsvvdnxx.ap-southeast-3.rds.amazonaws.com;Username=postgres;Password=kelompok24;Database=ats";
+            var connString = "Host=ec2-3-219-204-29.compute-1.amazonaws.com;Database=d7p6gej9knqefg;Username=ptyxepvslwevdw;Password=2cff69469572cf04b3e738727d1503ccd0e05efc9b1d73f9ac6061954f094771";
 
             await using var conn = new NpgsqlConnection(connString);
 
