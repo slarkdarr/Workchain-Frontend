@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,16 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-=======
     <Compile Remove="Views\**" />
     <EmbeddedResource Remove="Views\**" />
     <None Remove="Views\**" />
   </ItemGroup>
 
   <ItemGroup>
->>>>>>> dev2
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Npgsql" Version="6.0.3" />
@@ -49,9 +45,6 @@
     <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <EmbeddedResource Update="Views\JobPage.xaml">
-=======
     <Compile Update="LoginCompanyPage.xaml.cs">
       <DependentUpon>LoginCompanyPage.xaml</DependentUpon>
     </Compile>
@@ -76,7 +69,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="ProfileApplicantPage.xaml">
->>>>>>> dev2
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

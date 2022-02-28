@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicantTrackingSystem.ViewModels;
-using ApplicantTrackingSystem.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -53,8 +52,7 @@ namespace ApplicantTrackingSystem
 
         private void RegisterButtonClickedLog(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new RegistrationPage());
-            Navigation.PushAsync(new JobPage());
+            Navigation.PushAsync(new RegistrationPage());
             Navigation.RemovePage(this);
         }
     }

@@ -5,10 +5,7 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Text;
-<<<<<<< HEAD
-=======
 //using Xamarin.Forms;
->>>>>>> dev2
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -26,17 +23,10 @@ namespace ApplicantTrackingSystem.ViewModels
             JobVacancyQueryResult = new ObservableRangeCollection<JobVacancy>();
             PreviousJobVacancy = new ObservableRangeCollection<JobVacancy>();
 
-<<<<<<< HEAD
-            //Search();
-
-            SearchCommand = new Command(Search);
-            LoadFilter = new Command(Filter);
-=======
             SearchCommand = new Command(Search);
             LoadFilter = new Command(Filter);
 
             FetchAll();
->>>>>>> dev2
         }
 
         string searchKeyword;
@@ -46,10 +36,6 @@ namespace ApplicantTrackingSystem.ViewModels
         public string JobTypeFilterSelection
         {
             get => jobTypeFilterSelection;
-<<<<<<< HEAD
-            //set => SetProperty(ref jobTypeFilterSelection, value);
-=======
->>>>>>> dev2
             set => SetProperty(ref jobTypeFilterSelection, value);
         }
 
@@ -189,14 +175,11 @@ namespace ApplicantTrackingSystem.ViewModels
         {
             //Selanjutnya implementasi nilai SeachKeyword berupa input pengguna
             //SearchKeyword = "Software Engineer Developer";
-<<<<<<< HEAD
-=======
             if (searchKeyword == null || searchKeyword == "")
             {
                 FetchAll();
                 return;
             }
->>>>>>> dev2
 
             JobVacancy.Clear();
             JobVacancyQueryResult.Clear();
@@ -206,20 +189,6 @@ namespace ApplicantTrackingSystem.ViewModels
             EndFilterSelection = null;
             CityFilterSelection = null;
 
-<<<<<<< HEAD
-            if(SearchKeyword == null)
-            {
-                return;
-            }
-
-            var connString = "Host=ats-kelompok24.cwk6nsvvdnxx.ap-southeast-3.rds.amazonaws.com;Username=postgres;Password=kelompok24;Database=ats";
-
-            await using var conn = new NpgsqlConnection(connString);
-
-            await conn.OpenAsync();
-
-            string query = @"SELECT job_id, company.company_id, company_name, job_name, start_recruitment_date, end_recruitment_date, job_type, job_opening.description, company.city, salary, profile_picture,
-=======
             //if (SearchKeyword == null)
             //{
             //    return;
@@ -236,7 +205,6 @@ namespace ApplicantTrackingSystem.ViewModels
             Console.WriteLine("Opened");
 
             string query = @"SELECT job_id, company.company_id, company_name, job_name, start_recruitment_date, end_recruitment_date, job_type, job_opening.description, company.city,
->>>>>>> dev2
             REGEXP_MATCHES(job_name, @job_name) Regex_Job
             FROM job_opening
             INNER JOIN company ON job_opening.company_id = company.company_id ;";
@@ -281,15 +249,8 @@ namespace ApplicantTrackingSystem.ViewModels
                             var Job_Type = reader.GetString(6);
                             var Description = reader.GetString(7);
                             var City = reader.GetString(8);
-<<<<<<< HEAD
-                            var Salary = reader.GetInt64(9);
-                            var Profile_Picture = reader.GetString(10);
-
-                            JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, City = City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description, Salary=Salary, Profile_Picture=Profile_Picture });
-=======
 
                             JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, City = City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description });
->>>>>>> dev2
                         }
                     }
                 }
@@ -307,8 +268,6 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-<<<<<<< HEAD
-=======
         async void FetchAll()
         {
             //Selanjutnya implementasi nilai SeachKeyword berupa input pengguna
@@ -380,6 +339,5 @@ namespace ApplicantTrackingSystem.ViewModels
         }
 
 
->>>>>>> dev2
     }
 }
