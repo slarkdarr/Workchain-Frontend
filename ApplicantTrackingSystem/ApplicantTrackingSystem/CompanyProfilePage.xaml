@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ApplicantTrackingSystem.CompanyProfilePage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#58327F" Spacing="0">
+            <!--Header-->
+            <StackLayout Padding="20,20,20,10" BackgroundColor="#58327F" Spacing="12">
+                <Label Text="Profile"
+                       FontFamily="LatoBlack"
+                       FontSize="20"
+                       TextColor="White"/>
+            </StackLayout>
+
+            <ScrollView>
+                <!--Card-->
+                <Grid VerticalOptions="FillAndExpand" Margin="0,0,0,-40" Padding="0,60,0,0">
+                    <Frame HasShadow="False" CornerRadius="40" VerticalOptions="FillAndExpand" Background="#F2F2F2" Padding="0,70,0,0">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*">
+                            <Label Grid.Row="0" Grid.Column="0" Text="Company Name" FontFamily="LatoBlack" FontSize="22" TextColor="Black" HorizontalOptions="Center"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Jakarta, Indonesia" FontFamily="Lato" FontSize="16" HorizontalOptions="Center" Margin="0,5,0,0"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Company headline or description" FontFamily="Lato" FontSize="16" TextColor="Black" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="30,15,30,0"/>
+                            <Button Grid.Row="3" Grid.Column="0" x:Name="ProfilePicture" Text="Choose Profile Picture" HorizontalOptions="End" Margin="0,10,10,0"/>
+
+                            <!--Company Info (from Applicant table)-->
+                            <Frame Grid.Row="4" Grid.Column="0" Margin="0,0,0,0">
+                                <Grid Padding="10,0,10,90">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Company Info" FontFamily="LatoBold" FontSize="18" TextColor="Black"/>
+                                    <Entry Grid.Row="1" Grid.Column="0" x:Name="CompanyName" Text="{Binding CompanyName}" Placeholder="Full Name"/>
+                                    <Entry Grid.Row="2" Grid.Column="0" x:Name="Email" Text="{Binding Email}" Placeholder="Email" Keyboard="Email" IsReadOnly="true"/>
+                                    <Entry Grid.Row="3" Grid.Column="0" x:Name="Password" Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
+                                    <DatePicker Grid.Row="4" Grid.Column="0" x:Name="FoundDate" Date="{Binding FoundDate}"/>
+                                    <Entry Grid.Row="5" Grid.Column="0" x:Name="Phone" Text="{Binding Phone}" Placeholder="Phone Number" Keyboard="Telephone"/>
+                                    <Entry Grid.Row="6" Grid.Column="0" x:Name="Country" Text="{Binding Country}" Placeholder="Country"/>
+                                    <Entry Grid.Row="7" Grid.Column="0" x:Name="City" Text="{Binding City}" Placeholder="City"/>
+                                    <Entry Grid.Row="8" Grid.Column="0" x:Name="Headline" Text="{Binding Headline}" Placeholder="Headline"/>
+                                    <Entry Grid.Row="9" Grid.Column="0" x:Name="Description" Text="{Binding Description}" Placeholder="Description"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </Frame>
+
+                    <!--Profile Picture Frame-->
+                    <Frame HeightRequest="110" WidthRequest="110" CornerRadius="60" BackgroundColor="White" Margin="0,-55,0,0" Padding="0"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Start">
+                        <Image Source="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-No-Background.png"/>
+                    </Frame>
+
+                    <!--Save Button-->
+                    <Button x:Name="SaveButton"
+                            Text="Save" VerticalOptions="End" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
+                            TextColor="White" FontSize="17" FontFamily="LatoBold"
+                            Padding="0,0" CornerRadius="10" Margin="80,20" Command="{Binding SubmitCommand}"/>
+                </Grid>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

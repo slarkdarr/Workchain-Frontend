@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicantTrackingSystem.ViewModels;
-using ApplicantTrackingSystem.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ApplicantTrackingSystem
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RegistrationCompanyPage : ContentPage
     {
-        public LoginPage()
+        public RegistrationCompanyPage()
         {
-            var vm = new LoginViewModel();
+            var vm = new RegistrationCompanyViewModel();
             this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
+            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Email has been taken", "OK");
             InitializeComponent();
+
+            Name.Completed += (object sender, EventArgs e) =>
+            {
+                Phone.Focus();
+            };
+
+            Phone.Completed += (object sender, EventArgs e) =>
+            {
+                Email.Focus();
+            };
 
             Email.Completed += (object sender, EventArgs e) =>
             {
@@ -25,22 +34,21 @@ namespace ApplicantTrackingSystem
             Password.Completed += (object sender, EventArgs e) =>
             {
                 vm.SubmitCommand.Execute(null);
-
             };
         }
 
-        private void FrameFocused(object sender, FocusEventArgs e)
+        private void FrameFocusedReg(object sender, FocusEventArgs e)
         {
             var entry = (Entry)sender;
             var classId = entry.ClassId;
             var identifier = classId + "Frame";
 
             var element = (Frame)loginCard.FindByName(identifier);
-          
+
             element.BorderColor = Color.FromHex("#58327F");
         }
 
-        private void FrameUnfocused(object sender, FocusEventArgs e)
+        private void FrameUnfocusedReg(object sender, FocusEventArgs e)
         {
             var entry = (Entry)sender;
             var classId = entry.ClassId;
@@ -51,10 +59,9 @@ namespace ApplicantTrackingSystem
             element.BorderColor = Color.Transparent;
         }
 
-        private void RegisterButtonClickedLog(object sender, EventArgs e)
+        private void LoginButtonClickedReg(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new RegistrationPage());
-            Navigation.PushAsync(new JobPage());
+            Navigation.PushAsync(new LoginCompanyPage());
             Navigation.RemovePage(this);
         }
     }

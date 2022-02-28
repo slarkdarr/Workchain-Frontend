@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    x:Class="ApplicantTrackingSystem.ApplicantProfilePage"
+    NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#58327F" Spacing="0">
+            <!--Header-->
+            <StackLayout Padding="20,20,20,10" BackgroundColor="#58327F" Spacing="12">
+                <Label Text="Profile"
+                       FontFamily="LatoBlack"
+                       FontSize="20"
+                       TextColor="White"/>
+            </StackLayout>
+
+            <ScrollView>
+                <!--Card-->
+                <Grid VerticalOptions="FillAndExpand" Margin="0,0,0,-40" Padding="0,60,0,0">
+                    <Frame HasShadow="False" CornerRadius="40" VerticalOptions="FillAndExpand" Background="#F2F2F2" Padding="0,70,0,0">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*">
+                            <Label Grid.Row="0" Grid.Column="0" Text="Applicant Name" FontFamily="LatoBlack" FontSize="22" TextColor="Black" HorizontalOptions="Center"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="UI/UX Designer" FontFamily="Lato" FontSize="16" HorizontalOptions="Center" Margin="0,5,0,0"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Hello, I am a UI/UX designer currently working at Uber with 5 years of experience." FontFamily="Lato" FontSize="16" TextColor="Black" HorizontalOptions="Center" HorizontalTextAlignment="Center" Margin="30,15,30,0"/>
+                            <Button Grid.Row="3" Grid.Column="0" x:Name="ProfilePicture" Text="Choose Profile Picture" HorizontalOptions="End" Margin="0,10,10,0"/>
+
+                            <!--Applicant Personal Info (from Applicant table)-->
+                            <Frame Grid.Row="4" Grid.Column="0" Margin="0,0,0,0">
+                                <Grid Padding="10,0,10,90">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Personal Info" FontFamily="LatoBold" FontSize="18" TextColor="Black"/>
+                                    <Entry Grid.Row="1" Grid.Column="0" x:Name="ApplicantName" Placeholder="Full Name" Text="{Binding ApplicantName}"/>
+                                    <Entry Grid.Row="2" Grid.Column="0" x:Name="Email" Placeholder="Email" Keyboard="Email" IsReadOnly="true" Text="{Binding Email}"/>
+                                    <Entry Grid.Row="3" Grid.Column="0" x:Name="Password" Placeholder="Password" IsPassword="True" Text="{Binding Password}"/>
+                                    <DatePicker Grid.Row="4" Grid.Column="0" x:Name="BirthDate" Date="{Binding Birthdate}"/>
+                                    <Entry Grid.Row="5" Grid.Column="0" x:Name="Phone" Placeholder="Phone Number" Keyboard="Telephone" Text="{Binding Phone}"/>
+                                    <Picker Grid.Row="6" Grid.Column="0" x:Name="Gender" Title="Select your Gender" SelectedItem="{Binding Gender}">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Male</x:String>
+                                                <x:String>Female</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Entry Grid.Row="7" Grid.Column="0" x:Name="Country" Placeholder="Country" Text="{Binding Country}"/>
+                                    <Entry Grid.Row="8" Grid.Column="0" x:Name="City" Placeholder="City" Text="{Binding City}"/>
+                                    <Entry Grid.Row="9" Grid.Column="0" x:Name="Headline" Placeholder="Headline" Text="{Binding Headline}"/>
+                                    <Entry Grid.Row="10" Grid.Column="0" x:Name="Description" Placeholder="Description" Text="{Binding Description}"/>
+                                    <Entry Grid.Row="11" Grid.Column="0" x:Name="Status" Placeholder="Status" IsReadOnly="true" Text="{Binding Status}"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </Frame>
+
+                    <!--Profile Picture Frame-->
+                    <Frame HeightRequest="110" WidthRequest="110" CornerRadius="60" BackgroundColor="White" Margin="0,-55,0,0" Padding="0"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Start">
+                        <Image Source="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-No-Background.png"/>
+                    </Frame>
+
+                    <!--Save Button-->
+                    <Button x:Name="SaveButton"
+                            Text="Save" VerticalOptions="End" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
+                            TextColor="White" FontSize="17" FontFamily="LatoBold"
+                            Padding="0,0" CornerRadius="10" Margin="80,20" Command="{Binding SubmitCommand}"/>
+                </Grid>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

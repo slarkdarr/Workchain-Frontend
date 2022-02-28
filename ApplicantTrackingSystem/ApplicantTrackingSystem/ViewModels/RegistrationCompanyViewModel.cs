@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class RegistrationPageViewModel : INotifyPropertyChanged
+    public class RegistrationCompanyViewModel : INotifyPropertyChanged
     {
         public Action DisplayInvalidLoginPrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -60,7 +60,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public ICommand SubmitCommand { protected set; get; }
 
-        public RegistrationPageViewModel()
+        public RegistrationCompanyViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
         }
@@ -75,7 +75,7 @@ namespace ApplicantTrackingSystem.ViewModels
             await conn.OpenAsync();
             Console.WriteLine("connected");
 
-            string query = "SELECT applicant_id FROM applicant WHERE email=@email";
+            string query = "SELECT company_id FROM company WHERE email=@email";
             try
             {
                 using (var cmd = new NpgsqlCommand(query, conn))
@@ -93,9 +93,9 @@ namespace ApplicantTrackingSystem.ViewModels
                 }
                 else
                 {
-                    using (var cmd1 = new NpgsqlCommand("INSERT INTO applicant (applicant_name, email, password, phone) VALUES (@applicant_name, @email, @password, @phone)", conn))
+                    using (var cmd1 = new NpgsqlCommand("INSERT INTO company (company_name, email, password, phone) VALUES (@company_name, @email, @password, @phone)", conn))
                     {
-                        cmd1.Parameters.AddWithValue("applicant_name", name);
+                        cmd1.Parameters.AddWithValue("company_name", name);
                         cmd1.Parameters.AddWithValue("email", email);
                         cmd1.Parameters.AddWithValue("password", password);
                         cmd1.Parameters.AddWithValue("phone", phone);

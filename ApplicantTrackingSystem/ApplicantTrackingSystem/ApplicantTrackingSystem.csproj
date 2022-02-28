@@ -12,10 +12,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+=======
+    <Compile Remove="Views\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+>>>>>>> dev2
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Npgsql" Version="6.0.3" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Fonts\" />
@@ -24,10 +34,14 @@
     <None Remove="Fonts\Lato-Regular.ttf" />
     <None Remove="CustomLayouts\" />
     <None Remove="Npgsql" />
+    <None Remove="Models\" />
+    <None Remove="MVVMHelpers" />
+    <None Remove="Refractored.MvvmHelpers" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="CustomLayouts\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Lato-Black.ttf" />
@@ -35,7 +49,34 @@
     <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Update="Views\JobPage.xaml">
+=======
+    <Compile Update="LoginCompanyPage.xaml.cs">
+      <DependentUpon>LoginCompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LoginApplicantPage.xaml.cs">
+      <DependentUpon>LoginApplicantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RegistrationCompanyPage.xaml.cs">
+      <DependentUpon>RegistrationCompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ProfileApplicantPage.xaml.cs">
+      <DependentUpon>ProfileApplicantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RegistrationApplicantPage.xaml.cs">
+      <DependentUpon>RegistrationApplicantPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="LoginCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegistrationCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ProfileApplicantPage.xaml">
+>>>>>>> dev2
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

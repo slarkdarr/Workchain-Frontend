@@ -46,7 +46,8 @@
                     FontSize="14"
                     FontFamily="LatoBlack"
                     CornerRadius="10"
-                    Margin="0,7"/>
+                    Margin="0,7"
+                    Clicked="LoginCompanyButtonClicked"/>
         </StackLayout>
         
         

@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicantTrackingSystem.ViewModels;
-using ApplicantTrackingSystem.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ApplicantTrackingSystem
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class LoginApplicantPage : ContentPage
     {
-        public LoginPage()
+        public LoginApplicantPage()
         {
-            var vm = new LoginViewModel();
+            var vm = new LoginApplicantViewModel();
             this.BindingContext = vm;
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
+            vm.DisplayValidLoginPrompt += () => Navigation.PushAsync(new JobCatalogPage());
             InitializeComponent();
 
             Email.Completed += (object sender, EventArgs e) =>
@@ -25,7 +25,8 @@ namespace ApplicantTrackingSystem
             Password.Completed += (object sender, EventArgs e) =>
             {
                 vm.SubmitCommand.Execute(null);
-
+                //Navigation.PushAsync(new JobCatalogPage());
+                //Navigation.RemovePage(this);
             };
         }
 
@@ -53,8 +54,7 @@ namespace ApplicantTrackingSystem
 
         private void RegisterButtonClickedLog(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new RegistrationPage());
-            Navigation.PushAsync(new JobPage());
+            Navigation.PushAsync(new RegistrationApplicantPage());
             Navigation.RemovePage(this);
         }
     }

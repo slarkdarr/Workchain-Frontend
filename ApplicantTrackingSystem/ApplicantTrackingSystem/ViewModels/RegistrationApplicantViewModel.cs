@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class RegistrationPageViewModel : INotifyPropertyChanged
+    public class RegistrationApplicantViewModel : INotifyPropertyChanged
     {
         public Action DisplayInvalidLoginPrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -60,7 +60,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public ICommand SubmitCommand { protected set; get; }
 
-        public RegistrationPageViewModel()
+        public RegistrationApplicantViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
         }

@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicantTrackingSystem.ViewModels;
-using ApplicantTrackingSystem.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ApplicantTrackingSystem
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class LoginCompanyPage : ContentPage
     {
-        public LoginPage()
+        public LoginCompanyPage()
         {
-            var vm = new LoginViewModel();
+            var vm = new LoginCompanyViewModel();
             this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
+            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK"); 
+            vm.DisplayValidLoginPrompt += () => Navigation.PushAsync(new JobVacancyPost());
             InitializeComponent();
 
             Email.Completed += (object sender, EventArgs e) =>
@@ -25,7 +25,8 @@ namespace ApplicantTrackingSystem
             Password.Completed += (object sender, EventArgs e) =>
             {
                 vm.SubmitCommand.Execute(null);
-
+                //Navigation.PushAsync(new JobVacancyPost());
+                //Navigation.RemovePage(this);
             };
         }
 
@@ -36,7 +37,7 @@ namespace ApplicantTrackingSystem
             var identifier = classId + "Frame";
 
             var element = (Frame)loginCard.FindByName(identifier);
-          
+
             element.BorderColor = Color.FromHex("#58327F");
         }
 
@@ -53,8 +54,7 @@ namespace ApplicantTrackingSystem
 
         private void RegisterButtonClickedLog(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new RegistrationPage());
-            Navigation.PushAsync(new JobPage());
+            Navigation.PushAsync(new RegistrationCompanyPage());
             Navigation.RemovePage(this);
         }
     }
