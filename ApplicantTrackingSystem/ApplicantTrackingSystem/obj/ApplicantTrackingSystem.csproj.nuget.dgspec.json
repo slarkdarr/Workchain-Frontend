@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {}
+    "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
+    "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj",
+        "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj",
         "projectName": "ApplicantTrackingSystem",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\obj\\",
+        "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj",
+        "packagesPath": "/Users/shifa/.nuget/packages/",
+        "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/shifa/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,7 +71,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.405/RuntimeIdentifierGraph.json"
         }
       }
     }

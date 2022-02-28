@@ -3712,34 +3712,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "/Users/shifa/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\ApplicantTrackingSystem.Android.csproj",
+      "projectUniqueName": "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/ApplicantTrackingSystem.Android.csproj",
       "projectName": "ApplicantTrackingSystem.Android",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\ApplicantTrackingSystem.Android.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem.Android\\obj\\",
+      "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/ApplicantTrackingSystem.Android.csproj",
+      "packagesPath": "/Users/shifa/.nuget/packages/",
+      "outputPath": "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/shifa/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid11.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Desktop\\if3250_2022_24_appts\\ApplicantTrackingSystem\\ApplicantTrackingSystem\\ApplicantTrackingSystem.csproj"
+            "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj": {
+              "projectPath": "/Users/shifa/Desktop/if3250_2022_24_appts-shifa/ApplicantTrackingSystem/ApplicantTrackingSystem/ApplicantTrackingSystem.csproj"
             }
           }
         }
