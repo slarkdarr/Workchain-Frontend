@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    x:Class="ApplicantTrackingSystem.ProfilePage"
+    NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#58327F" Spacing="0">
+            <!--Header-->
+            <StackLayout Padding="20,20,20,10" BackgroundColor="#58327F" Spacing="12">
+                <Label Text="Profile"
+                       FontFamily="LatoBlack"
+                       FontSize="20"
+                       TextColor="White"/>
+            </StackLayout>
+
+            <ScrollView>
+                <!--Card-->
+                <Grid VerticalOptions="FillAndExpand" Margin="0,0,0,-40" Padding="0,60,0,0">
+                    <Frame HasShadow="False" CornerRadius="40" VerticalOptions="FillAndExpand" Background="#F2F2F2" Padding="0,70,0,0">
+                        <StackLayout>
+                            <Editor x:Name="FullName" AutoSize="TextChanges" Text="{Binding FullName}" Placeholder="Full Name" FontFamily="LatoBlack" FontSize="22" TextColor="Black" HorizontalOptions="Center" Margin="30,0"/>
+                            <Editor x:Name="Status" AutoSize="TextChanges" Text="{Binding Status}" Placeholder="Status" FontFamily="Lato" FontSize="16" HorizontalOptions="Center" Margin="30,0"/>
+                            <Editor x:Name="Headline" AutoSize="TextChanges" Text="{Binding Headline}" Placeholder="Tell about yourself in the headline" FontFamily="Lato" FontSize="16" TextColor="Black" HorizontalOptions="Center" Margin="30,15,30,0"/>
+                            <Button x:Name="ProfilePicture" Text="Change profile picture" HorizontalOptions="End" Margin="0,10,10,0"/>
+
+                            <!--Applicant Personal Info (from Applicant table)-->
+                            <Frame Grid.Row="4" Grid.Column="0" Margin="0,0,0,0">
+                                <StackLayout Padding="10,0,10,90">
+                                    <Label Text="Personal Info" FontFamily="LatoBold" FontSize="18" TextColor="Black" Margin="0,0,0,15"/>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="email.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="E-mail"/>
+                                        </Grid>
+                                        <Entry x:Name="Email" Keyboard="Email" IsReadOnly="true" Text="{Binding Email}" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="password.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="Password"/>
+                                        </Grid>
+                                        <Entry x:Name="Password" IsPassword="True" Text="{Binding Password}" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="birthdate.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="Birthdate"/>
+                                        </Grid>
+                                        <DatePicker x:Name="BirthDate" Date="{Binding Birthdate}" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="phone.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="Phone"/>
+                                        </Grid>
+                                        <Entry x:Name="Phone" Keyboard="Telephone" Text="{Binding Phone}" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="gender.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="Gender"/>
+                                        </Grid>
+                                        <Picker x:Name="Gender" Title="Select your Gender" SelectedItem="{Binding Gender}" Margin="30,0,0,0">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Male</x:String>
+                                                <x:String>Female</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="country.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="Country"/>
+                                        </Grid>
+                                        <Entry x:Name="Country" Text="{Binding Country}" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="city.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="City"/>
+                                        </Grid>
+                                        <Entry x:Name="City" Text="{Binding City}" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="description.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="Description"/>
+                                        </Grid>
+                                        <Editor x:Name="Description" Text="{Binding Description}" AutoSize="TextChanges" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,10,0,0">
+                                        <Grid ColumnDefinitions="30">
+                                            <Image Grid.Row="0" Grid.Column="0" Source="type.png" HorizontalOptions="Start"></Image>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="Type"/>
+                                        </Grid>
+                                        <Entry x:Name="Type" IsReadOnly="true" Text="{Binding Type}" Margin="30,0,0,0"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Profile Picture Frame-->
+                    <Frame HeightRequest="110" WidthRequest="110" CornerRadius="60" BackgroundColor="White" Margin="0,-55,0,0" Padding="0"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Start">
+                        <Image Source="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-No-Background.png"/>
+                    </Frame>
+
+                    <!--Save Button-->
+                    <Button x:Name="SaveButton"
+                            Text="Save" VerticalOptions="End" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
+                            TextColor="White" FontSize="17" FontFamily="LatoBold"
+                            Padding="0,0" CornerRadius="10" Margin="80,20" Command="{Binding SubmitCommand}"/>
+                </Grid>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

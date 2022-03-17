@@ -45,6 +45,9 @@
     <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="LoginCompanyPage.xaml.cs">
       <DependentUpon>LoginCompanyPage.xaml</DependentUpon>
     </Compile>
