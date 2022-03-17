@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    xmlns:bound="clr-namespace:ApplicantTrackingSystem"
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    x:Class="ApplicantTrackingSystem.JobApplicationProgressPage"
+    NavigationPage.HasNavigationBar="False">
+
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:JobApplicationProgressViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
+            <!--Header-->
+            <StackLayout Padding="20" BackgroundColor="#F2F2F2" Spacing="12">
+                <StackLayout.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#8142C1"
+                                      Offset="0.1" />
+                        <GradientStop Color="#58327F"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+
+                <!--Page Title-->
+                <Label Text="Application Progress" FontFamily="LatoBlack" FontSize="25" TextColor="White"/>
+
+            </StackLayout>
+
+            <!--Progress State Selectors-->
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout x:Name="States" Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
+                    <Button x:Name="Applied" Text="{Binding Status}" BackgroundColor="#9955DE" Padding="10,0" Margin="0"
+                            HeightRequest="35" TextColor="White" FontFamily="Lato"
+                            FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                            ClassId="Applied" CornerRadius="3" Clicked="StateChosen"/>
+                    <Button x:Name="InReview" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            HeightRequest="35" TextColor="White" FontFamily="Lato"
+                            FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                            ClassId="InReview" CornerRadius="3" Clicked="StateChosen"/>
+                    <Button x:Name="Interview" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            HeightRequest="35" TextColor="White" FontFamily="Lato"
+                            FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                            ClassId="Interview" CornerRadius="3" Clicked="StateChosen"/>
+                    <Button x:Name="Offered" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            HeightRequest="35" TextColor="White" FontFamily="Lato"
+                            FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                            ClassId="Offered" CornerRadius="3" Clicked="StateChosen"/>
+                    <Button x:Name="Declined" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            HeightRequest="35" TextColor="White" FontFamily="Lato"
+                            FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
+                            ClassId="Declined" CornerRadius="3" Clicked="StateChosen"/>
+
+                </StackLayout>
+            </ScrollView>
+
+            <!--List View-->
+            <StackLayout Padding="30,0" BackgroundColor="#F2F2F2" x:Name="JobList">
+                <Label x:Name="StateTitle" Text="APPLIED"
+                       FontFamily="LatoBlack"
+                       FontSize="25"
+                       TextColor="Black"
+                       Margin="0,0,0,20"/>
+
+                <!--ItemsSource={Binding JobItems}-->
+                <ListView x:Name="RecentJobsList"
+                          ItemsSource="{Binding JobApplicationProgress}"
+                          HasUnevenRows="True"
+                          VerticalOptions="StartAndExpand"
+                          VerticalScrollBarVisibility="Never">
+                    <!--To use for when binded with view model components-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Frame CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
+                                       VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal" BackgroundColor="White"
+                                             Spacing="10" Padding="20,20">
+
+                                            <!--<StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="JobComponentTapped"/>
+                                        </StackLayout.GestureRecognizers>-->
+                                            <!--Company logo-->
+                                            <Image Source="imgplaceholder.png"
+                                                HorizontalOptions="Fill"
+                                                VerticalOptions="Center"/>
+
+                                            <!--Job information-->
+                                            <StackLayout HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding Company_Name}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                                <Label Text="{Binding Job_Name}" FontFamily="LatoBold" FontSize="16"
+                                                   TextColor="Black"/>
+                                                <Label Text="{Binding Job_Location}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                            </StackLayout>
+
+                                            <!--Save and time information-->
+                                            <StackLayout>
+                                                <Image Source="{Binding Company_Image}"
+                                                HorizontalOptions="EndAndExpand"
+                                                VerticalOptions="StartAndExpand"/>
+                                                <Label Text="{Binding Apply_Duration}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

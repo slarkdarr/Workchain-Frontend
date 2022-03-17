@@ -37,7 +37,6 @@
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="CustomLayouts\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Lato-Black.ttf" />
@@ -51,6 +50,9 @@
     <Compile Update="LoginApplicantPage.xaml.cs">
       <DependentUpon>LoginApplicantPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="JobApplicationProgressPage.xaml.cs">
+      <DependentUpon>JobApplicationProgressPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="RegistrationCompanyPage.xaml.cs">
       <DependentUpon>RegistrationCompanyPage.xaml</DependentUpon>
     </Compile>
@@ -63,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="LoginCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="JobApplicationProgressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="RegistrationCompanyPage.xaml">
