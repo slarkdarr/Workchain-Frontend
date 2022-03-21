@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    x:Class="ApplicantTrackingSystem.JobApplyPage"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+
+    <ScrollView>
+        <StackLayout>
+            <Frame BackgroundColor="#F2F2F2"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+
+                <StackLayout>
+                    <StackLayout Padding="20,0">
+                        <Label Text="Job Apply"
+                                FontFamily="LatoBlack"
+                                FontSize="24"
+                                HorizontalTextAlignment="Start"
+                                TextColor="Black"
+                                Margin="0,5"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#E5E5E5"/>
+                    </StackLayout>
+
+
+                    <StackLayout x:Name="applyCard" Spacing="20" Padding="16">
+
+                        <StackLayout>
+                            <Label Text="Name" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                    Padding="3,0,0,0"/>
+                            <Frame x:Name="entry1Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                    CornerRadius="7" HasShadow="False">
+                                <StackLayout>
+                                    <local:RoundedEntry x:Name="JobName" Text="{Binding JobName}" ClassId="entry1" FontFamily="Lato"
+                                        FontSize="12"
+                                        BackgroundColor="White"
+                                        TextColor="Black"
+                                        Focused="FrameFocusedReg"
+                                        Unfocused="FrameUnfocusedReg"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        
+
+                        <StackLayout>
+                            <Label Text="Email" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                    Padding="3,0,0,0"/>
+                            <Frame x:Name="entry4Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                    CornerRadius="7" HasShadow="False">
+                                <StackLayout>
+                                    <local:RoundedEntry x:Name="JobType" Text="{Binding JobType}" ClassId="entry4" FontFamily="Lato"
+                                        FontSize="12"
+                                        BackgroundColor="White"
+                                        TextColor="Black"
+                                        Focused="FrameFocusedReg"
+                                        Unfocused="FrameUnfocusedReg"
+                                        Keyboard="Email"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label Text="Phone Number" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                    Padding="3,0,0,0"/>
+                            <Frame x:Name="entry6Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                    CornerRadius="7" HasShadow="False">
+                                <StackLayout>
+                                    <local:RoundedEntry x:Name="Salary" Text="{Binding Salary}" ClassId="entry6" FontFamily="Lato"
+                                        FontSize="12"
+                                        BackgroundColor="White"
+                                        TextColor="Black"
+                                        Focused="FrameFocusedReg"
+                                        Unfocused="FrameUnfocusedReg"
+                                        Keyboard="Numeric"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label Text="Requirement Link" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                    Padding="3,0,0,0"/>
+                            <Frame x:Name="entry5Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
+                                    CornerRadius="7" HasShadow="False">
+                                <StackLayout>
+                                    <local:RoundedEditor x:Name="Description" Text="{Binding Description}" ClassId="entry5" FontFamily="Lato"
+                                        FontSize="12"
+                                        BackgroundColor="White"
+                                        TextColor="Black"
+                                        Focused="FrameFocusedEditor"
+                                        Unfocused="FrameUnfocusedEditor"
+                                        AutoSize="TextChanges"/>
+                                </StackLayout>
+                            </Frame>
+                            <Label Text=" " FontFamily="Lato" FontSize="11"
+                                    TextColor="Black" HorizontalOptions="End" Padding="0,0,0,3"/>
+                        </StackLayout>
+
+                        <Button x:Name="SubmitButton"
+                            Text="Apply" VerticalOptions="End" HorizontalOptions="CenterAndExpand"
+                            BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
+                            TextColor="White" FontSize="14" FontFamily="LatoBold"
+                            Padding="70,0" CornerRadius="30" Margin="0,7" Clicked="Submit"/>
+
+
+                    </StackLayout>
+
+                </StackLayout>
+
+
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
