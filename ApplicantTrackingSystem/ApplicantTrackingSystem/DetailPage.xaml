@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ApplicantTrackingSystem.DetailPage"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout Padding="0" Margin="0">
+            <!--Cover Image-->
+            <Image Aspect="AspectFill" Source="companycover.png"/> <!--Change source later-->
+
+            <ScrollView VerticalOptions="StartAndExpand"
+                        VerticalScrollBarVisibility="Never">
+                <StackLayout>
+                    <!--Content Header-->
+                    <StackLayout Orientation="Horizontal" Padding="20,0">
+                        <StackLayout HorizontalOptions="StartAndExpand" Padding="0,20">
+                            <Label Text="Job Title" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
+                            <Label Text="Company Name" FontFamily="Lato" FontSize="13"/>
+                            <Label Text="Salary" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
+                        </StackLayout>
+
+                        <!--Company logo-->
+                        <Image Source="companydetail.png" VerticalOptions="Start" Margin="0"/>
+                    </StackLayout>
+
+                    <!--Content Body-->
+                    <StackLayout Padding="20,0" VerticalOptions="StartAndExpand">
+                        <Label Text="Job Description"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <!--Apply Button-->
+            <StackLayout Padding="20,20">
+                <Button x:Name="ApplyButton"
+                    Text="Apply" HorizontalOptions="FillAndExpand"
+                    BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
+                    TextColor="White" FontSize="14" FontFamily="LatoBold"
+                    Padding="0,17" CornerRadius="10" Margin="0,7"/>
+            </StackLayout>
+           
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
