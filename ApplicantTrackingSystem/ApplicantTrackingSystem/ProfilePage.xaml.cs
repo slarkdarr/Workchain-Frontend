@@ -7,16 +7,16 @@ using Xamarin.Forms.Xaml;
 namespace ApplicantTrackingSystem
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ApplicantProfilePage : ContentPage
+    public partial class ProfilePage : ContentPage
     {
-        public ApplicantProfilePage()
+        public ProfilePage()
         {
-            var vm = new ApplicantProfileViewModel();
+            var vm = new ProfileViewModel();
             this.BindingContext = vm;
             // vm.DisplayInvalidProfilePrompt += () => DisplayAlert("Error", "Invalid Profile Edit, try again", "OK");
             InitializeComponent();
 
-            ApplicantName.Completed += (object sender, EventArgs e) =>
+            FullName.Completed += (object sender, EventArgs e) =>
             {
                 Password.Focus();
             };
@@ -62,6 +62,11 @@ namespace ApplicantTrackingSystem
             };
 
             Description.Completed += (object sender, EventArgs e) =>
+            {
+                vm.SubmitCommand.Execute(null);
+            };
+
+            Type.Completed += (object sender, EventArgs e) =>
             {
                 vm.SubmitCommand.Execute(null);
             };

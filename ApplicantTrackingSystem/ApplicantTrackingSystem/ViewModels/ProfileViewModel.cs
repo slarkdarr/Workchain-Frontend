@@ -6,43 +6,44 @@ using Npgsql;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class ApplicantProfileViewModel : INotifyPropertyChanged
+    public class ProfileViewModel : INotifyPropertyChanged
     {
         //public Action DisplayInvalidProfilePrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-        private string applicant_name;
+        private string full_name;
         private string email;
         private string password;
         private string profile_picture;
         private DateTime birthdate;
-        private string phone;
+        private string phone_number;
         private string gender;
         private string country;
         private string city;
         private string headline;
         private string description;
         private string status;
+        private string type;
 
-        public string ApplicantName
+        public string FullName
         {
-            get { return applicant_name; }
+            get { return full_name; }
             set
             {
-                applicant_name = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantName"));
+                full_name = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("FullName"));
             }
         }
 
         public string Email
         {
             get { return email; }
-            /*
+
             set
             {
                 email = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Email"));
             }
-            */
+
         }
 
         public string Password
@@ -60,7 +61,7 @@ namespace ApplicantTrackingSystem.ViewModels
             get { return profile_picture; }
             set
             {
-                ProfilePicture = value;
+                profile_picture = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("ProfilePicture"));
             }
         }
@@ -75,13 +76,13 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-        public string Phone
+        public string PhoneNumber
         {
-            get { return phone; }
+            get { return phone_number; }
             set
             {
-                phone = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Phone"));
+                phone_number = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("PhoneNumber"));
             }
         }
 
@@ -138,18 +139,30 @@ namespace ApplicantTrackingSystem.ViewModels
         public string Status
         {
             get { return status; }
-            /*
+            
             set
             {
                 status = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Status"));
             }
-            */
+            
+        }
+
+        public string Type
+        {
+            get { return type; }
+
+            set
+            {
+                status = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Type"));
+            }
+
         }
 
         public ICommand SubmitCommand { protected set; get; }
 
-        public ApplicantProfileViewModel()
+        public ProfileViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
         }
@@ -163,23 +176,24 @@ namespace ApplicantTrackingSystem.ViewModels
             await conn.OpenAsync();
             Console.WriteLine("connected");
 
-            string query = "UPDATE applicant SET applicant_name = @applicant_name, password = @password, profile_picture = @profile_picture, birthdate = @birthdate, phone = @phone, gender = @gender, country = @country, city = @city, headline = @headline, description = @description, status = @status WHERE email=@email";
+            string query = "UPDATE user SET full_name = @full_name, password = @password, profile_picture = @profile_picture, birthdate = @birthdate, phone_number = @phone_number, gender = @gender, country = @country, city = @city, headline = @headline, description = @description, status = @status, type = @type WHERE email=@email";
             try
             {
                 using (var cmd = new NpgsqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("applicant_name", applicant_name);
+                    cmd.Parameters.AddWithValue("full_name", full_name);
+                    cmd.Parameters.AddWithValue("email", email);
                     cmd.Parameters.AddWithValue("password", password);
                     cmd.Parameters.AddWithValue("profile_picture", profile_picture);
                     cmd.Parameters.AddWithValue("birthdate", birthdate);
-                    cmd.Parameters.AddWithValue("phone", phone);
+                    cmd.Parameters.AddWithValue("phone_number", phone_number);
                     cmd.Parameters.AddWithValue("gender", gender);
                     cmd.Parameters.AddWithValue("country", country);
                     cmd.Parameters.AddWithValue("city", city);
                     cmd.Parameters.AddWithValue("headline", headline);
                     cmd.Parameters.AddWithValue("description", description);
                     cmd.Parameters.AddWithValue("status", status);
-                    cmd.Parameters.AddWithValue("email", email);
+                    cmd.Parameters.AddWithValue("type", type);
                     cmd.Prepare();
 
                     cmd.ExecuteNonQueryAsync();
