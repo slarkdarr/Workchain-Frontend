@@ -42,9 +42,8 @@ namespace ApplicantTrackingSystem
                 stateTitle.Text = element.Text;
             }
 
-            var vm = new JobApplicationProgressViewModel();
+            var vm = new JobApplicationProgressPostViewModel();
             this.BindingContext = vm;
-            vm.FetchAll(classId);
         }
     }
 }

@@ -36,9 +36,6 @@ namespace ApplicantTrackingSystem
                 stateTitle.Text = element.Text;
             }
 
-            vm.FetchAll();
-
-
         }
     }
 }

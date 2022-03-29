@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 using System;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -98,11 +97,6 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public ICommand SubmitCommand { protected set; get; }
 
-        public JobVacancyPostViewModel()
-        {
-            SubmitCommand = new Command(OnSubmit);
-        }
-
         async public void OnSubmit()
         {
             /*
@@ -126,41 +120,6 @@ namespace ApplicantTrackingSystem.ViewModels
             */
             Console.WriteLine("Successfully inserted Job Application");
 
-=======
-﻿using ApplicantTrackingSystem.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using MvvmHelpers;
-
-namespace ApplicantTrackingSystem.ViewModels
-{
-    public class JobApplicationProgressViewModel : ViewModelBase
-    {
-        public ObservableRangeCollection<JobApplicationProgress> JobApplicationProgress { get; set; }
-        public ObservableRangeCollection<JobApplicationProgress> JobApplicationProgressQueryResult { get; set; }
-
-        public void FetchAll(string status)
-        {
-            JobApplicationProgress.Clear();
-            JobApplicationProgressQueryResult.Clear();
-
-            // Manggil API nanti implementasinya
-            JobApplicationProgressQueryResult.Add(new JobApplicationProgress { Status = "Applied", Company_name = "Amazon", Company_picture = "save.jpg", City = "Jakarta", Country = "Indonesia", Apply_date = "5 days" });
-
-            foreach (JobApplicationProgress job in JobApplicationProgressQueryResult)
-            {
-                JobApplicationProgress.Add(job);
-            }
-        }
-
-        public JobApplicationProgressViewModel()
-        {
-            JobApplicationProgress = new ObservableRangeCollection<JobApplicationProgress>();
-            JobApplicationProgressQueryResult = new ObservableRangeCollection<JobApplicationProgress>();
-
-            FetchAll("Applied");
->>>>>>> Stashed changes
         }
     }
 }

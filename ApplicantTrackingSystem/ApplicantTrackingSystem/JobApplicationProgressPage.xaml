@@ -10,7 +10,7 @@
 
     <!--Binding context-->
     <ContentPage.BindingContext>
-        <viewmodels:JobApplicationProgressViewModel />
+        <viewmodels:JobApplicationProgressPostViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
