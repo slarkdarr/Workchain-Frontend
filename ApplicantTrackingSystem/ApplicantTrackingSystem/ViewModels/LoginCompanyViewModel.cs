@@ -57,8 +57,9 @@ namespace ApplicantTrackingSystem.ViewModels
 
 
                 // Navigasi ke halaman job vacancy post page
-                var route = $"{nameof(JobVacancyPost)}";
-                await Shell.Current.GoToAsync(route);
+                //var route = $"{nameof(JobVacancyPost)}";
+                //await Shell.Current.GoToAsync(route);
+                await Shell.Current.GoToAsync("//MenuCompany");
             }
             else
             {

@@ -17,11 +17,16 @@ namespace ApplicantTrackingSystem
 
             //Registering route for page
             Routing.RegisterRoute(nameof(JobCatalogPage), typeof(JobCatalogPage));
-            Routing.RegisterRoute(nameof(JobVacancyPost), typeof(JobVacancyPost));
             Routing.RegisterRoute(nameof(RegistrationApplicantPage), typeof(RegistrationApplicantPage));
-            Routing.RegisterRoute(nameof(RegistrationCompanyPage), typeof(RegistrationCompanyPage));
             Routing.RegisterRoute(nameof(DetailPage), typeof(DetailPage));
             Routing.RegisterRoute(nameof(JobApplyPage), typeof(JobApplyPage));
+            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(JobApplicationProgressPage), typeof(JobApplicationProgressPage));
+
+            Routing.RegisterRoute(nameof(RegistrationCompanyPage), typeof(RegistrationCompanyPage));
+            Routing.RegisterRoute(nameof(JobVacancyPost), typeof(JobVacancyPost));
+
+
         }
     }
 }

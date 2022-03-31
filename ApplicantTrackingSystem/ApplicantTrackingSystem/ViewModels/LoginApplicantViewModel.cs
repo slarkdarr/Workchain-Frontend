@@ -48,6 +48,8 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async public void OnSubmit()
         {
+            await Shell.Current.GoToAsync("//MenuApplicant");
+
             var loginResp = await AtsService.PostLogin(Email, Password, "applicant");
 
             if (loginResp != null)
@@ -58,8 +60,9 @@ namespace ApplicantTrackingSystem.ViewModels
                 Console.WriteLine(loginResp.full_name);
 
                 // Navigasi ke halaman job catalog page
-                var route = $"{nameof(JobCatalogPage)}";
-                await Shell.Current.GoToAsync(route);
+                //var route = $"{nameof(JobCatalogPage)}";
+                //await Shell.Current.GoToAsync("Menu");
+                await Shell.Current.GoToAsync("//MenuApplicant");
             }
             else
             {
