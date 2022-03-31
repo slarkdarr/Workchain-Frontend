@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Npgsql;
+using ApplicantTrackingSystem.Services;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -35,13 +36,47 @@ namespace ApplicantTrackingSystem.ViewModels
         }
 
         public ICommand SubmitCommand { protected set; get; }
+        public ICommand RegistationCommand { protected set; get; }
 
         public LoginApplicantViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
+            RegistationCommand = new Command(OnRegistrationClicked);
         }
 
+        
+
         async public void OnSubmit()
+        {
+            var loginResp = await AtsService.PostLogin(Email, Password, "applicant");
+
+            if (loginResp != null)
+            {
+                Console.WriteLine("TOKEN :");
+                Console.WriteLine(loginResp.token);
+                Console.WriteLine("Full Name :");
+                Console.WriteLine(loginResp.full_name);
+
+                // Navigasi ke halaman job catalog page
+                var route = $"{nameof(JobCatalogPage)}";
+                await Shell.Current.GoToAsync(route);
+            }
+            else
+            {
+                Console.WriteLine("EMPTYY");
+                DisplayInvalidLoginPrompt();
+            }
+        }
+
+        async public void OnRegistrationClicked()
+        {
+            // Navigasi ke halaman registrasi
+            Console.WriteLine("View Model - Navigating to registration page");
+            var route = $"{nameof(RegistrationApplicantPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        async public void OnSubmitt()
         {
 
             var connString = "Host=ec2-3-219-204-29.compute-1.amazonaws.com;Database=d7p6gej9knqefg;Username=ptyxepvslwevdw;Password=2cff69469572cf04b3e738727d1503ccd0e05efc9b1d73f9ac6061954f094771";
@@ -79,19 +114,20 @@ namespace ApplicantTrackingSystem.ViewModels
                 {
                     Console.WriteLine("Gaada");
                     DisplayInvalidLoginPrompt();
-                    
-                } else
+
+                }
+                else
                 {
                     Console.WriteLine("Login Successful!");
                     DisplayValidLoginPrompt();
                 }
 
-                
 
 
-                
-            } 
-            
+
+
+            }
+
             catch (Exception ex)
             {
                 Console.WriteLine(ex);

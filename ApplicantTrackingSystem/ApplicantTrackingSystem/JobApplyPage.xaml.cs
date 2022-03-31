@@ -1,15 +1,33 @@
-﻿using System;
+﻿using ApplicantTrackingSystem.ViewModels;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
 
 namespace ApplicantTrackingSystem
 {
+    [QueryProperty(nameof(PassedJobID), nameof(PassedJobID))]
     public partial class JobApplyPage : ContentPage
     {
+        public string PassedJobID { get; set; }
+
+        public JobApplyViewModel vm = new JobApplyViewModel();
         public JobApplyPage()
         {
+            this.BindingContext = vm;
             InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            Console.WriteLine("PassedJobID HASIL PASSING di view");
+            Console.WriteLine(PassedJobID);
+            int.TryParse(PassedJobID, out var result);
+            vm.JobId = result;
+
+
+            //BindingContext = await CoffeeService.GetCoffee(result);
         }
 
         private void FrameFocusedReg(object sender, FocusEventArgs e)
@@ -62,7 +80,7 @@ namespace ApplicantTrackingSystem
             //this.BindingContext = vm;
             //StartDate.Date = DateTime.Now;
 
-            //vm.SubmitCommand.Execute(null);
+            vm.SubmitCommand.Execute(null);
         }
     }
 }

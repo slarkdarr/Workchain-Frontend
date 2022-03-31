@@ -9,9 +9,10 @@ namespace ApplicantTrackingSystem
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginCompanyPage : ContentPage
     {
+        public LoginCompanyViewModel vm = new LoginCompanyViewModel();
         public LoginCompanyPage()
         {
-            var vm = new LoginCompanyViewModel();
+            //var vm = new LoginCompanyViewModel();
             this.BindingContext = vm;
             vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK"); 
             vm.DisplayValidLoginPrompt += () => Navigation.PushAsync(new JobVacancyPost());
@@ -54,8 +55,9 @@ namespace ApplicantTrackingSystem
 
         private void RegisterButtonClickedLog(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegistrationCompanyPage());
-            Navigation.RemovePage(this);
+            vm.RegistationCommand.Execute(null);
+            //Navigation.PushAsync(new RegistrationCompanyPage());
+            //Navigation.RemovePage(this);
         }
     }
 }

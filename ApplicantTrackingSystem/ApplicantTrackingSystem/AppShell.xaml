@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:ApplicantTrackingSystem"
+       Title="ApplicantTrackingSystem"
+       x:Class="ApplicantTrackingSystem.AppShell"
+       FlyoutBehavior="Disabled"
+       Shell.NavBarIsVisible="false">
+
+    <ShellItem Route="MainPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </ShellItem>
+
+</Shell>

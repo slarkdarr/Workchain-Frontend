@@ -2,12 +2,19 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts" 
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
     x:Class="ApplicantTrackingSystem.JobApplyPage"
     NavigationPage.HasNavigationBar="false">
+
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:JobApplyViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
 
-    <ScrollView>
+        <ScrollView>
         <StackLayout>
             <Frame BackgroundColor="#F2F2F2"
                     HorizontalOptions="FillAndExpand"

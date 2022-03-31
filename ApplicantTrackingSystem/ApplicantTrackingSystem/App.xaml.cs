@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MonkeyCache.FileStore;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,8 +14,9 @@ namespace ApplicantTrackingSystem
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new JobCatalogPage());
+            Barrel.ApplicationId = AppInfo.PackageName;
+            MainPage = new AppShell();
+            //MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
