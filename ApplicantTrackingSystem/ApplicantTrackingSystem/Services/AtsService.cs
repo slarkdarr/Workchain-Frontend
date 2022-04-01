@@ -71,7 +71,15 @@ namespace ApplicantTrackingSystem.Services
 
         public static async Task<ObservableRangeCollection<JobVacancy>> getJobOpening(string token)
         {
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
             var json = await client.GetStringAsync("JobOpening");
             var jobVacancies = JsonConvert.DeserializeObject<ObservableRangeCollection<JobVacancy>>(json);
             return jobVacancies;
@@ -79,6 +87,15 @@ namespace ApplicantTrackingSystem.Services
 
         public static async Task<string> AddJobApplication(JobApplication jobApplication, string token)
         {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            } 
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+            
             //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
             var json = JsonConvert.SerializeObject(jobApplication);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
