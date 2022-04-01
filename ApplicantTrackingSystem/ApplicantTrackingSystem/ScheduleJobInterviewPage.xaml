@@ -136,8 +136,8 @@
             
             <!--Response Button-->
             <StackLayout Padding="80,20" BackgroundColor="White" VerticalOptions="EndAndExpand">
-                <!--Schedule Interview Button-->
-                <Button x:Name="ScheduleInterviewButton"
+                <!--Accept Button-->
+                <Button x:Name="AcceptButton"
                         Text="Accept" 
                         BackgroundColor="#58327F"  
                         BorderWidth="2"
@@ -155,7 +155,8 @@
                         TextColor="Red" 
                         FontSize="16" 
                         FontFamily="LatoBold"
-                        CornerRadius="10" />
+                        CornerRadius="10" 
+                        Clicked="DeclineButton_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

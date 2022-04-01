@@ -5,12 +5,12 @@
     xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
     xmlns:bound="clr-namespace:ApplicantTrackingSystem"
     xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
-    x:Class="ApplicantTrackingSystem.ScreeningApplicantPage"
+    x:Class="ApplicantTrackingSystem.ScreeningApplicantListPage"
     NavigationPage.HasNavigationBar="False">
 
     <!--Binding context-->
     <ContentPage.BindingContext>
-        <viewmodels:ScreeningApplicantPageViewModel />
+        <viewmodels:ScreeningApplicantListViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>

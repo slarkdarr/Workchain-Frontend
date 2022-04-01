@@ -7,18 +7,16 @@ using System.Runtime.CompilerServices;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    internal class ScreeningApplicantPageViewModel : INotifyPropertyChanged
+    internal class ScreeningApplicantListViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         //private int jobId;
         //private int applicantId;
         //private int companyId;
         private string status;
-        private string companyName;
-        private string companyPicture;
+        private string applicantName;
+        private string applicantPicture;
         private string jobName;
-        private string jobLocation;
-        private string applyDuration;
 
         public string Status
         {
@@ -30,23 +28,23 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-        public string CompanyName
+        public string ApplicantName
         {
-            get { return companyName; }
+            get { return applicantName; }
             set
             {
-                companyName = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CompanyName"));
+                applicantName = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantName"));
             }
         }
 
-        public string CompanyPicture
+        public string ApplicantPicture
         {
-            get { return companyPicture; }
+            get { return applicantPicture; }
             set
             {
-                companyPicture = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CompanyPicture"));
+                applicantPicture = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantPicture"));
             }
         }
 
@@ -57,26 +55,6 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 jobName = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("JobName"));
-            }
-        }
-
-        public string JobLocation
-        {
-            get { return jobLocation; }
-            set
-            {
-                jobLocation = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("JobLocation"));
-            }
-        }
-
-        public string ApplyDuration
-        {
-            get { return applyDuration; }
-            set
-            {
-                applyDuration = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ApplyDuration"));
             }
         }
 

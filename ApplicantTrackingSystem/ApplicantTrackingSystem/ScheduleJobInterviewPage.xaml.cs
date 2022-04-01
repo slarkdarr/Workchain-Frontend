@@ -23,6 +23,10 @@ namespace ApplicantTrackingSystem
             InterviewEndTime.Time = DateTime.Now.TimeOfDay;
         }
 
-
+        private void DeclineButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ScreeningApplicantListPage());
+            Navigation.RemovePage(this);
+        }
     }
 }

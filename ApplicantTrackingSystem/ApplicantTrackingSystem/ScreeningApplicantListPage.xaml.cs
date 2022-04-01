@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace ApplicantTrackingSystem
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ScreeningApplicantPage : ContentPage
+    public partial class ScreeningApplicantListPage : ContentPage
     {
-        public ScreeningApplicantPage()
+        public ScreeningApplicantListPage()
         {
             InitializeComponent();
         }
@@ -42,7 +42,7 @@ namespace ApplicantTrackingSystem
                 stateTitle.Text = element.Text;
             }
 
-            var vm = new ScreeningApplicantPageViewModel();
+            var vm = new ScreeningApplicantListViewModel();
             this.BindingContext = vm;
         }
     }
