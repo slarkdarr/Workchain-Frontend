@@ -45,6 +45,12 @@
     <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ApplicantDetailPage.xaml.cs">
+      <DependentUpon>ApplicantDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="ScreeningApplicantListPage.xaml.cs">
+      <DependentUpon>ScreeningApplicantListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
