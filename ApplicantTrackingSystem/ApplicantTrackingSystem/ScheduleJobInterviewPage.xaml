@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    xmlns:bound="clr-namespace:ApplicantTrackingSystem"
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    x:Class="ApplicantTrackingSystem.ScheduleJobInterviewPage"
+    NavigationPage.HasNavigationBar="False">
+
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:ScheduleJobInterviewViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
+            <!--Top Navbar-->
+            <StackLayout Padding="20" BackgroundColor="#F2F2F2" Spacing="12">
+                <StackLayout.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#8142C1"
+                                      Offset="0.1" />
+                        <GradientStop Color="#58327F"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+
+                <!--Page Title-->
+                <Label Text="Schedule Job Interview" FontFamily="LatoBold" FontSize="22" TextColor="White"/>
+
+            </StackLayout>
+            
+            <!--Header-->
+            <StackLayout Padding="50,10" BackgroundColor="#F2F2F2">
+                <Image Source="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-No-Background.png"
+                   HeightRequest="90"/>
+                <!--ApplicantName-->
+                <Label x:Name="ApplicantName"
+                       Text="Applicant Name"
+                       FontFamily="LatoBlack"
+                       FontSize="22"
+                       TextColor="Black"
+                       Margin="0,0,0,10"
+                       HorizontalTextAlignment="Center"/>
+                <!--Job Position Name-->
+                <Label x:Name="JobName"
+                       Text="Job Position Name"
+                       FontFamily="Lato"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <BoxView WidthRequest="350" HeightRequest="1" BackgroundColor="#D9D9D9" HorizontalOptions="CenterAndExpand"/>
+            
+            <!--Body-->
+            <ScrollView Padding="30,10" BackgroundColor="#F2F2F2" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label x:Name="Resume" 
+                           Text="Schedule Job Interview" 
+                           FontFamily="LatoBold" 
+                           FontSize="18" 
+                           TextColor="Black"
+                           Margin="0,10,0,20"/>
+                    <StackLayout>
+                        
+
+                        <StackLayout Margin="0,0,0,10">
+                            <Label Text="Date" FontFamily="Lato" FontSize="14" TextColor="#727272"/>
+                            <Grid ColumnDefinitions="30">
+                                <Image Grid.Row="0" Grid.Column="0" Source="date.png" HorizontalOptions="Start"></Image>
+                                <Frame x:Name="entry1Frame" Grid.Row="0" Grid.Column="1" BackgroundColor="White" Padding="3" BorderColor="Transparent"
+                                           CornerRadius="7" HasShadow="False">
+                                    <local:RoundedDatePicker x:Name="InterviewDate" Date="{Binding InterviewDate}" ClassId="entry1" FontFamily="Lato" Margin="0,0,0,0"
+                                                             FontSize="12"
+                                                             BackgroundColor="White"
+                                                             TextColor="Black"/>
+                                </Frame>
+                            </Grid>
+                            
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,10">
+                            <Label Text="Time" FontFamily="Lato" FontSize="14" TextColor="#727272"/>
+                            <Grid ColumnDefinitions="30,80,10,80">
+                                <Image Grid.Row="0" Grid.Column="0" Source="time.png" HorizontalOptions="Start"></Image>
+                                <Frame x:Name="entry2Frame" Grid.Row="0" Grid.Column="1" BackgroundColor="White" Padding="3" BorderColor="Transparent"
+                                           CornerRadius="7" HasShadow="False">
+                                    <TimePicker x:Name="InterviewStartTime" Time="{Binding InterviewStartTime}" ClassId="entry2" FontFamily="Lato" Margin="0,0,0,0"
+                                                             FontSize="12"
+                                                             BackgroundColor="White"
+                                                             TextColor="Black"
+                                                             HorizontalOptions="Center"/>
+                                </Frame>
+                                <Label Grid.Row="0" Grid.Column="2" Text="—" VerticalOptions="Center"/>
+                                <Frame x:Name="entry3Frame" Grid.Row="0" Grid.Column="3" BackgroundColor="White" Padding="3" BorderColor="Transparent"
+                                           CornerRadius="7" HasShadow="False">
+                                    <TimePicker x:Name="InterviewEndTime" Time="{Binding InterviewEndTime}" ClassId="entry3" FontFamily="Lato" Margin="0,0,0,0"
+                                                             FontSize="12"
+                                                             BackgroundColor="White"
+                                                             TextColor="Black"
+                                                             HorizontalOptions="Center"/>
+                                </Frame>
+                            </Grid>
+
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,10">
+                            <Label Text="Meeting Link" FontFamily="Lato" FontSize="14" TextColor="#727272"/>
+                            <Grid ColumnDefinitions="30">
+                                <Image Grid.Row="0" Grid.Column="0" Source="link.png" HorizontalOptions="Start"></Image>
+                                <Frame x:Name="entry4Frame" Grid.Row="0" Grid.Column="1" BackgroundColor="White" Padding="3" BorderColor="Transparent"
+                                           CornerRadius="7" HasShadow="False">
+                                    <local:RoundedEntry x:Name="MeetingLink" Text="{Binding MeetingLink}" ClassId="entry4" FontFamily="Lato" Margin="0,0,0,0"
+                                                             FontSize="12"
+                                                             BackgroundColor="White"
+                                                             TextColor="Black"/>
+                                </Frame>
+                            </Grid>
+
+                        </StackLayout>
+                        <Button x:Name="SaveInterviewButton"
+                                Text="Save" 
+                                BackgroundColor="#58327F"
+                                TextColor="White" 
+                                FontSize="16" 
+                                FontFamily="LatoBold"
+                                HeightRequest="40"
+                                WidthRequest="100"
+                                CornerRadius="10" 
+                                HorizontalOptions="Center"
+                                Margin="0,0,0,10"/>
+
+                    </StackLayout>
+                </StackLayout>
+                
+            </ScrollView>
+            
+            <!--Response Button-->
+            <StackLayout Padding="80,20" BackgroundColor="White" VerticalOptions="EndAndExpand">
+                <!--Schedule Interview Button-->
+                <Button x:Name="ScheduleInterviewButton"
+                        Text="Accept" 
+                        BackgroundColor="#58327F"  
+                        BorderWidth="2"
+                        TextColor="White" 
+                        FontSize="16" 
+                        FontFamily="LatoBold"
+                        CornerRadius="10" 
+                        Margin="0,0,0,10"/>
+                <!--Decline Button-->
+                <Button x:Name="DeclineButton"
+                        Text="Decline" 
+                        BackgroundColor="White"  
+                        BorderColor="Red"
+                        BorderWidth="1"
+                        TextColor="Red" 
+                        FontSize="16" 
+                        FontFamily="LatoBold"
+                        CornerRadius="10" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -45,6 +45,9 @@
     <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ScheduleJobInterviewPage.xaml.cs">
+      <DependentUpon>ScheduleJobInterviewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="ApplicantDetailPage.xaml.cs">
       <DependentUpon>ApplicantDetailPage.xaml</DependentUpon>
     </Compile>
