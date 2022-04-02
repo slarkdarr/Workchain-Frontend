@@ -25,14 +25,14 @@
                       ContentTemplate="{DataTemplate local:JobCatalogPage}" />
         </Tab>
 
-        <Tab Title="Progress">
+        <!--<Tab Title="Progress">
             <Tab.Icon>
                 <FontImageSource FontFamily="{StaticResource MaterialFont}"
                              Glyph="&#x000f0996;"/>
             </Tab.Icon>
             <ShellContent Title="Progress"
                       ContentTemplate="{DataTemplate local:JobApplicationProgressPage}" />
-        </Tab>
+        </Tab>-->
 
         <Tab Title="Progress">
             <Tab.Icon>
@@ -73,7 +73,25 @@
                              Glyph="&#x000f0004;"/>
             </Tab.Icon>
             <ShellContent Title="Progress"
-                      ContentTemplate="{DataTemplate local:ProfilePage}" />
+                      ContentTemplate="{DataTemplate local:ScheduleJobInterviewPage}" />
+        </Tab>
+
+        <Tab Title="Progress">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f0004;"/>
+            </Tab.Icon>
+            <ShellContent Title="Progress"
+                      ContentTemplate="{DataTemplate local:ScreeningApplicantListPage}" />
+        </Tab>
+
+        <Tab Title="Progress">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f0004;"/>
+            </Tab.Icon>
+            <ShellContent Title="Progress"
+                      ContentTemplate="{DataTemplate local:ApplicantDetailPage}" />
         </Tab>
 
         <Tab Title="Profile">
