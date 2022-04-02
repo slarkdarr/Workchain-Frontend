@@ -14,9 +14,8 @@ namespace ApplicantTrackingSystem
         public App()
         {
             InitializeComponent();
-            Barrel.ApplicationId = AppInfo.PackageName;
-            MainPage = new AppShell();
-            //MainPage = new NavigationPage(new MainPage());
+
+            MainPage = new NavigationPage(new ApplicantDetailPage());
         }
 
         protected override void OnStart()
