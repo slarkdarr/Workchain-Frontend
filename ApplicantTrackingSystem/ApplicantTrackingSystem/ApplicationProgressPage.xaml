@@ -4,7 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
     x:Class="ApplicantTrackingSystem.ApplicationProgressPage"
-    NavigationPage.HasNavigationBar="False">
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    NavigationPage.HasNavigationBar="False"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:ApplicationProgressViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
             <!--Header-->
@@ -26,33 +34,38 @@
             <!--Progress State Selectors-->
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout x:Name="States" Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
-                    <Button x:Name="Applied" Text="{Binding Status}" BackgroundColor="#9955DE" Padding="10,0" Margin="0"
+                    <Button x:Name="Applied" Text="Applied" BackgroundColor="#9955DE" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Applied" CornerRadius="3" Clicked="StateChosen"/>
-                    <Button x:Name="InReview" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            ClassId="Applied" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchInReviewCommand}"/>
+                    <Button x:Name="InReview" Text="In Review" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="InReview" CornerRadius="3" Clicked="StateChosen"/>
-                    <Button x:Name="Interview" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            ClassId="InReview" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchInReviewCommand}"/>
+                    <Button x:Name="Interview" Text="Interview" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Interview" CornerRadius="3" Clicked="StateChosen"/>
-                    <Button x:Name="Offered" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            ClassId="Interview" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchInterviewCommand}"/>
+                    <Button x:Name="Offered" Text="Offered" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Offered" CornerRadius="3" Clicked="StateChosen"/>
-                    <Button x:Name="Declined" Text="{Binding Status}" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            ClassId="Offered" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchOfferedCommand}"/>
+                    <Button x:Name="Declined" Text="Declined" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Declined" CornerRadius="3" Clicked="StateChosen"/>
+                            ClassId="Declined" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchDeclinedCommand}"/>
                 
                 </StackLayout>
             </ScrollView>
 
             <!--List View-->
             <StackLayout Padding="30,0" BackgroundColor="#F2F2F2" x:Name="JobList">
-                <Label x:Name="StateTitle" Text="APPLIED"
+                <Label x:Name="StateTitle" Text="{Binding StateTitle}"
                        FontFamily="LatoBlack"
                        FontSize="25"
                        TextColor="Black"
@@ -60,6 +73,7 @@
 
                 <!--ItemsSource={Binding JobItems}-->
                 <ListView x:Name="RecentJobsList"
+                          ItemsSource="{Binding JobApplications}"
                           HasUnevenRows="True"
                           VerticalOptions="StartAndExpand"
                           VerticalScrollBarVisibility="Never">
@@ -83,11 +97,11 @@
 
                                         <!--Job information-->
                                         <StackLayout HorizontalOptions="StartAndExpand">
-                                            <Label Text="{Binding Company_Name}" FontFamily="Lato" FontSize="11"
+                                            <Label Text="{Binding company_name}" FontFamily="Lato" FontSize="11"
                                                    TextColor="#727272"/>
-                                            <Label Text="{Binding Job_Name}" FontFamily="LatoBold" FontSize="16"
+                                            <Label Text="{Binding job_name}" FontFamily="LatoBold" FontSize="16"
                                                    TextColor="Black"/>
-                                            <Label Text="{Binding Job_Location}" FontFamily="Lato" FontSize="11"
+                                            <Label Text="{Binding city}" FontFamily="Lato" FontSize="11"
                                                    TextColor="#727272"/>
                                         </StackLayout>
 

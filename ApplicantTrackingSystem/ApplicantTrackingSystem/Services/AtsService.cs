@@ -69,6 +69,29 @@ namespace ApplicantTrackingSystem.Services
             }
         }
 
+        public static async Task<RegistrationModel> PostRegister(string email, string full_name,
+            string password, string phone_number, string type)
+        {
+            var register = new Register
+            {
+                email = email,
+                full_name = full_name,
+                password = password,
+                phone_number = phone_number,
+                type = type
+            };
+
+            var json = JsonConvert.SerializeObject(register);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("User/register", content);
+            var contentResp = await response.Content.ReadAsStringAsync();
+            var jsonResp = JsonConvert.DeserializeObject<RegistrationModel>(contentResp);
+
+            return jsonResp;
+
+        }
+
         public static async Task<ObservableRangeCollection<JobVacancy>> getJobOpening(string token)
         {
             try
@@ -83,6 +106,23 @@ namespace ApplicantTrackingSystem.Services
             var json = await client.GetStringAsync("JobOpening");
             var jobVacancies = JsonConvert.DeserializeObject<ObservableRangeCollection<JobVacancy>>(json);
             return jobVacancies;
+        }
+
+        public static async Task<ObservableRangeCollection<JobApplication>> GetJobApplication(string token)
+        {
+
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch
+            {
+                //Do nothing
+            }
+            var json = await client.GetStringAsync("JobApplication/applicant");
+            Console.WriteLine(json);
+            var jobApplications = JsonConvert.DeserializeObject<ObservableRangeCollection<JobApplication>>(json);
+            return jobApplications;
         }
 
         public static async Task<string> AddJobApplication(JobApplication jobApplication, string token)
