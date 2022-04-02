@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
+    xmlns:bound="clr-namespace:ApplicantTrackingSystem"
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    x:Class="ApplicantTrackingSystem.ApplicantDetailPage"
+    NavigationPage.HasNavigationBar="False">
+
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:ApplicantDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
+            <!--Top Navbar-->
+            <StackLayout Padding="20" BackgroundColor="#F2F2F2" Spacing="12">
+                <StackLayout.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#8142C1"
+                                      Offset="0.1" />
+                        <GradientStop Color="#58327F"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+
+                <!--Page Title-->
+                <Label Text="Applicant Detail" FontFamily="LatoBold" FontSize="22" TextColor="White"/>
+
+            </StackLayout>
+
+            <!--Header-->
+            <StackLayout Padding="50,10" BackgroundColor="#F2F2F2">
+                <Image Source="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-No-Background.png"
+                   HeightRequest="90"/>
+                <!--ApplicantName-->
+                <Label x:Name="ApplicantName"
+                       Text="Applicant Name"
+                       FontFamily="LatoBlack"
+                       FontSize="22"
+                       TextColor="Black"
+                       Margin="0,0,0,10"
+                       HorizontalTextAlignment="Center"/>
+                <!--Job Position Name-->
+                <Label x:Name="JobName"
+                       Text="Job Position Name"
+                       FontFamily="Lato"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <BoxView WidthRequest="350" HeightRequest="1" BackgroundColor="#D9D9D9" HorizontalOptions="CenterAndExpand"/>
+
+            <!--Body-->
+            <ScrollView Padding="30,10" BackgroundColor="#F2F2F2" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label x:Name="Resume" 
+                           Text="Resume" 
+                           FontFamily="LatoBold" 
+                           FontSize="18" 
+                           TextColor="Black"
+                           Margin="0,0,0,5"/>
+                    <!--Resume File Attachment-->
+                    <Frame x:Name="ResumeFileAttachment" CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
+                           HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#E5E5E5"
+                                     Spacing="10" Padding="10,10">
+                            
+                            <Image Source="attachment.png"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Center"/>
+
+                            <Label x:Name="ResumeFileName"
+                                   Text="ApplicantName_CV.pdf"
+                                   FontFamily="LatoBold"
+                                   VerticalOptions="Center"/>
+
+                            <Button x:Name="ViewResume"
+                                    Margin="-10,-10"
+                                    Text="View"
+                                    FontFamily="Lato"
+                                    TextColor="DodgerBlue"
+                                    BackgroundColor="#E5E5E5"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="Center"/>
+
+                        </StackLayout>
+                    </Frame>
+                    <!--Message-->
+                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit lectus ac porta venenatis. Quisque id aliquet purus, posuere molestie nisi. Vestibulum id pretium sem. In rhoncus nunc quis sapien sagittis interdum. Donec in dolor id magna elementum sollicitudin ut et lorem. Etiam tincidunt at risus eu dictum. Maecenas at est gravida, vulputate orci facilisis, egestas ipsum. Praesent imperdiet venenatis fringilla. Sed pulvinar eget sem eu mattis. Vivamus hendrerit nec turpis vel tempor. Vestibulum lacus ante, rutrum in ultricies eu, dignissim nec sem. Etiam ac massa nec erat tempus pulvinar ut tristique ante."
+                       FontFamily="Lato"
+                       FontSize="Body"/>
+                </StackLayout>
+                
+            </ScrollView>
+            
+            <!--Response Button-->
+            <StackLayout Padding="80,20" BackgroundColor="White" VerticalOptions="EndAndExpand">
+                <!--Schedule Interview Button-->
+                <Button x:Name="ScheduleInterviewButton"
+                        Text="Schedule an Interview" 
+                        BackgroundColor="#58327F"  
+                        BorderWidth="2"
+                        TextColor="White" 
+                        FontSize="16" 
+                        FontFamily="LatoBold"
+                        CornerRadius="10" 
+                        Margin="0,0,0,10"
+                        Clicked="ScheduleInterviewButton_Clicked"/>
+                <!--Decline Button-->
+                <Button x:Name="DeclineButton"
+                        Text="Decline" 
+                        BackgroundColor="White"  
+                        BorderColor="Red"
+                        BorderWidth="1"
+                        TextColor="Red" 
+                        FontSize="16" 
+                        FontFamily="LatoBold"
+                        CornerRadius="10" 
+                        Clicked="DeclineButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
