@@ -9,18 +9,31 @@ using System.Text;
 using Xamarin.Forms;
 using Command = MvvmHelpers.Commands.Command;
 using System.Globalization;
+using MonkeyCache.FileStore;
+using Newtonsoft.Json;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    [QueryProperty(nameof(JobId), nameof(JobId))]
-    [QueryProperty(nameof(ApplicantId), nameof(ApplicantId))]
-    internal class JobApplyViewModel : ViewModelBase
+    public class JobApplyViewModel : ViewModelBase
     {
         public Command SubmitCommand { get; }
+
+        public CredentialModel credential = new CredentialModel();
         public JobApplyViewModel()
         {
+            //How to access the monkey cache
+            Console.WriteLine("CRED");
+            var json = string.Empty;
+            json = Barrel.Current.Get<string>("loginCredential");
+            credential = JsonConvert.DeserializeObject<CredentialModel>(json);
+            Console.WriteLine(credential.token);
+
             DateTime localDate = DateTime.Now;
             ApplyDate = localDate;
+
+            //int.TryParse(PassedJobID, out var result);
+            Console.WriteLine("Job ID hasil passing di view model job apply:");
+            Console.WriteLine(JobId);
 
             SubmitCommand = new Command(Submit);
         }
@@ -83,6 +96,18 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async void Submit()
         {
+            Console.WriteLine("Job ID pas submit di view model job apply:");
+            Console.WriteLine(JobId);
+            
+            Status = "Interview";
+
+            // Hard code, will be removed
+            RequirementLink = "Ini require";
+            ApplicantName = "jorss";
+            ApplicantEmail = "jorss@gmail.com";
+            ApplicantTelp = "987";
+            // Remove till here once the UI is connected to the view model
+
             var jobApplication = new JobApplication
             {
                 job_id = jobId,
@@ -94,7 +119,22 @@ namespace ApplicantTrackingSystem.ViewModels
                 applicant_telp = applicantTelp,
             };
 
-            await AtsService.AddJobApplication(jobApplication);
+
+            var applyResp = await AtsService.AddJobApplication(jobApplication, credential.token);
+            if (applyResp != null)
+            {
+                Console.WriteLine("Hasil response di view model");
+                Console.WriteLine(applyResp);
+                await Application.Current.MainPage.DisplayAlert("Berhasil", "Submisi telah berhasil dilakukan", "OK");
+
+                // Navigasi back to menu sebelumnya
+                await Shell.Current.GoToAsync("..");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Gagal", "Submisi gagal dilakukan", "OK");
+            }
+
         }
 
         //async void Submit()

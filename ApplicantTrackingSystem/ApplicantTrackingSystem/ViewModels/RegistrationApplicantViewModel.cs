@@ -5,6 +5,7 @@ using Npgsql;
 using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
+using ApplicantTrackingSystem.Services;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -67,6 +68,23 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async public void OnSubmit()
         {
+            var registerResp = await AtsService.PostRegister(Email, Name, Password, Phone, "applicant");
+
+            Console.WriteLine("REGISTRATION RESPONSE");
+            if (registerResp.message == "Registration successful")
+            {
+                Email = "";
+                Name = "";
+                Password = "";
+                Phone = "";
+            }
+            Console.WriteLine(registerResp.message);
+        }
+
+        async public void OnSubmitt()
+        {
+            //DEPRECATED
+
             bool dbExists;
             var connString = "Host=ec2-3-219-204-29.compute-1.amazonaws.com;Database=d7p6gej9knqefg;Username=ptyxepvslwevdw;Password=2cff69469572cf04b3e738727d1503ccd0e05efc9b1d73f9ac6061954f094771";
 
