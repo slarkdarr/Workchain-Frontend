@@ -38,7 +38,8 @@
                     Text="Apply" HorizontalOptions="FillAndExpand"
                     BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
                     TextColor="White" FontSize="14" FontFamily="LatoBold"
-                    Padding="0,17" CornerRadius="10" Margin="0,7"/>
+                    Padding="0,17" CornerRadius="10" Margin="0,7"
+                    Clicked="ApplyButtonClicked"/>
             </StackLayout>
            
 

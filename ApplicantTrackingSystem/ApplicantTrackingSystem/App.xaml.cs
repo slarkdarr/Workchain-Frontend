@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MonkeyCache.FileStore;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
