@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:ApplicantTrackingSystem"
+       Title="ApplicantTrackingSystem"
+       x:Class="ApplicantTrackingSystem.AppShell"
+       FlyoutBehavior="Disabled"
+       Shell.NavBarIsVisible="False"
+       Shell.TabBarIsVisible="True"
+       Shell.TabBarTitleColor="Purple">
+
+    <ShellItem Route="MainPage">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+    </ShellItem>
+
+    
+    <!--Tab Bar untuk applicant-->
+    <TabBar Route="MenuApplicant">
+        <Tab Title="Job Catalog">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f1622;"/>
+            </Tab.Icon>
+            <ShellContent Title="Job Catalog"
+                      ContentTemplate="{DataTemplate local:JobCatalogPage}" />
+        </Tab>
+
+        <Tab Title="Progress">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f0996;"/>
+            </Tab.Icon>
+            <ShellContent Title="Progress"
+                      ContentTemplate="{DataTemplate local:JobApplicationProgressPage}" />
+        </Tab>
+
+        <Tab Title="Progress">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f0996;"/>
+            </Tab.Icon>
+            <ShellContent Title="Progress"
+                      ContentTemplate="{DataTemplate local:ApplicationProgressPage}" />
+        </Tab>
+
+        <Tab Title="Profile">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f0004;"/>
+            </Tab.Icon>
+            <ShellContent Title="Profile"
+                      ContentTemplate="{DataTemplate local:ProfilePage}" />
+        </Tab>
+        
+        
+    </TabBar>
+
+    
+    <!--Tab bar untuk company-->
+    <TabBar Route="MenuCompany">
+        <Tab Title="Job Post">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f039c;"/>
+            </Tab.Icon>
+            <ShellContent Title="Job Post"
+                      ContentTemplate="{DataTemplate local:JobVacancyPost}" />
+        </Tab>
+
+        <Tab Title="Progress">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f0004;"/>
+            </Tab.Icon>
+            <ShellContent Title="Progress"
+                      ContentTemplate="{DataTemplate local:ProfilePage}" />
+        </Tab>
+
+        <Tab Title="Profile">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f01d7;"/>
+            </Tab.Icon>
+            <ShellContent Title="Profile"
+                      ContentTemplate="{DataTemplate local:ProfilePage}" />
+        </Tab>
+        
+        
+    </TabBar>
+
+
+
+
+</Shell>

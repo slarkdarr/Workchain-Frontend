@@ -1,32 +1,72 @@
 ﻿using ApplicantTrackingSystem.Models;
+using ApplicantTrackingSystem.Services;
+using MonkeyCache.FileStore;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
+using Newtonsoft.Json;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Text;
-//using Xamarin.Forms;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
     public class JobVacancyViewModel : ViewModelBase
     {
+        public CredentialModel credential = new CredentialModel(); 
         public ObservableRangeCollection<JobVacancy> JobVacancy { get; set; }
         public ObservableRangeCollection<JobVacancy> JobVacancyQueryResult { get; set; }
         public ObservableRangeCollection<JobVacancy> PreviousJobVacancy { get; set; }
-        public Command SearchCommand { get; }
-        public Command LoadFilter { get; }
+
+        public MvvmHelpers.Commands.Command SearchCommand { get; }
+        public MvvmHelpers.Commands.Command LoadFilter { get; }
+
+        public AsyncCommand<object> SelectedCommand { get; }
 
         public JobVacancyViewModel()
         {
+            //How to access the monkey cache
+            Console.WriteLine("CRED");
+            var json = string.Empty;
+            json = Barrel.Current.Get<string>("loginCredential");
+            credential = JsonConvert.DeserializeObject<CredentialModel>(json);
+            Console.WriteLine(credential.token);
+
             JobVacancy = new ObservableRangeCollection<JobVacancy>();
             JobVacancyQueryResult = new ObservableRangeCollection<JobVacancy>();
             PreviousJobVacancy = new ObservableRangeCollection<JobVacancy>();
 
-            SearchCommand = new Command(Search);
-            LoadFilter = new Command(Filter);
+            SearchCommand = new MvvmHelpers.Commands.Command(Search);
+            LoadFilter = new MvvmHelpers.Commands.Command(Filter);
+            SelectedCommand = new AsyncCommand<object>(Selected);
 
             FetchAll();
+        }
+
+        JobVacancy selectedJob;
+        public JobVacancy SelectedJob
+        {
+            get => selectedJob;
+            set => SetProperty(ref selectedJob, value);
+        }
+
+        async Task Selected(object args)
+        {
+            var job = args as JobVacancy;
+            if (job == null)
+            {
+                return;
+            }
+            Console.WriteLine("JOB SELECTED!!!!");
+            SelectedJob = null;
+            //await Application.Current.MainPage.DisplayAlert("Selected", job.Job_Name, "OK");
+
+            // Navigate to Job Detail Page
+            var route = $"{nameof(DetailPage)}?PassedJob={job.Job_ID}";
+            await Shell.Current.GoToAsync(route);
+
         }
 
         string searchKeyword;
@@ -270,6 +310,25 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async void FetchAll()
         {
+            var JobVacancyQueryResult = await AtsService.getJobOpening(credential.token);
+            if (JobVacancyQueryResult != null)
+            {
+                Console.WriteLine("Ada Fetch All :");
+                foreach (JobVacancy job in JobVacancyQueryResult)
+                {
+                    JobVacancy.Add(job);
+                }
+            }
+            else
+            {
+                Console.WriteLine("EMPTYY");
+            }
+        }
+
+        async void FetchAlll()
+        {
+            // DEPRECATEDDDDD
+            
             //Selanjutnya implementasi nilai SeachKeyword berupa input pengguna
             //SearchKeyword = "Software Engineer Developer";
 

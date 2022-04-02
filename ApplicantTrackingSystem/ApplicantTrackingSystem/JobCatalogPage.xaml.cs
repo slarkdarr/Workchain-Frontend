@@ -14,7 +14,9 @@ namespace ApplicantTrackingSystem
 
         private void JobComponentTapped(object sender, EventArgs e)
         {
-            Console.WriteLine("This is now a button sort of");
+            Console.WriteLine("This is now a button sort offfff");
+            Console.WriteLine(sender.GetType());
+            Console.WriteLine(e.GetType());
         }
 
         private void FilterChosen(object sender, EventArgs e)
