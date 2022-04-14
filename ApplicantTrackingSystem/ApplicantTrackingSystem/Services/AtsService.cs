@@ -125,6 +125,23 @@ namespace ApplicantTrackingSystem.Services
             return jobApplications;
         }
 
+        public static async Task<ObservableRangeCollection<JobApplication>> GetApplicants(string token)
+        {
+
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch
+            {
+                //Do nothing
+            }
+            var json = await client.GetStringAsync("JobApplication/company");
+            Console.WriteLine(json);
+            var jobApplications = JsonConvert.DeserializeObject<ObservableRangeCollection<JobApplication>>(json);
+            return jobApplications;
+        }
+
         public static async Task<string> AddJobApplication(JobApplication jobApplication, string token)
         {
             try

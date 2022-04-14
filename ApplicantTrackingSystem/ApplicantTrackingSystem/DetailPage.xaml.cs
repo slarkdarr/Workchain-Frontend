@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ApplicantTrackingSystem.ViewModels;
 
 namespace ApplicantTrackingSystem
 {
@@ -10,6 +11,8 @@ namespace ApplicantTrackingSystem
     public partial class DetailPage : ContentPage
     {
         public string PassedJob { get; set; }
+        public JobVacancyViewModel vm = new JobVacancyViewModel();
+
         public DetailPage()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace ApplicantTrackingSystem
             //int.TryParse(PassedJob, out var result);
 
             //BindingContext = await CoffeeService.GetCoffee(result);
+
         }
 
         private void ApplyButtonClicked(object sender, EventArgs e)

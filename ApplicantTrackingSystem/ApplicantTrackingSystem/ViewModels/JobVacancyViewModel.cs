@@ -22,6 +22,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public MvvmHelpers.Commands.Command SearchCommand { get; }
         public MvvmHelpers.Commands.Command LoadFilter { get; }
+        public MvvmHelpers.Commands.Command FetchAllCommand { get; }
 
         public AsyncCommand<object> SelectedCommand { get; }
 
@@ -40,6 +41,8 @@ namespace ApplicantTrackingSystem.ViewModels
 
             SearchCommand = new MvvmHelpers.Commands.Command(Search);
             LoadFilter = new MvvmHelpers.Commands.Command(Filter);
+            FetchAllCommand = new MvvmHelpers.Commands.Command(FetchAll);
+
             SelectedCommand = new AsyncCommand<object>(Selected);
 
             FetchAll();
