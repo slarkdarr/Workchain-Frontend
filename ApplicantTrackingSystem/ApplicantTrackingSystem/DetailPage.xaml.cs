@@ -11,11 +11,13 @@ namespace ApplicantTrackingSystem
     public partial class DetailPage : ContentPage
     {
         public string PassedJob { get; set; }
-        public JobVacancyViewModel vm = new JobVacancyViewModel();
+        //public JobVacancyViewModel vm = new JobVacancyViewModel();
 
         public DetailPage()
         {
+            BindingContext = new JobVacancyViewModel();
             InitializeComponent();
+
         }
 
         protected override async void OnAppearing()
@@ -23,11 +25,14 @@ namespace ApplicantTrackingSystem
             base.OnAppearing();
             Console.WriteLine("JOB HASIL PASSING");
             Console.WriteLine(PassedJob);
+
             //Console.WriteLine(PassedJob.Description);
             //int.TryParse(PassedJob, out var result);
 
-            //BindingContext = await CoffeeService.GetCoffee(result);
-
+            var vm = BindingContext as JobVacancyViewModel;
+            vm.CurrJobId = PassedJob;
+            vm.FetchByIdCommand.Execute(null);
+            
         }
 
         private void ApplyButtonClicked(object sender, EventArgs e)

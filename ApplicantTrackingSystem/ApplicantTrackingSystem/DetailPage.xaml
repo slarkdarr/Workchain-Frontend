@@ -6,9 +6,9 @@
     xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
     NavigationPage.HasNavigationBar="False">
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodels:JobVacancyViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
     <ContentPage.Content>
         <StackLayout Padding="0" Margin="0">
@@ -21,9 +21,9 @@
                     <!--Content Header-->
                     <StackLayout Orientation="Horizontal" Padding="20,0">
                         <StackLayout HorizontalOptions="StartAndExpand" Padding="0,20">
-                            <Label Text="Job Title" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
-                            <Label Text="Company Name" FontFamily="Lato" FontSize="13"/>
-                            <Label Text="Salary" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
+                            <Label Text="{Binding CurrJobName}" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
+                            <Label Text="{Binding CurrCompanyName}" FontFamily="Lato" FontSize="13"/>
+                            <Label Text="{Binding CurrSalary}" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
                         </StackLayout>
 
                         <!--Company logo-->
@@ -32,7 +32,7 @@
 
                     <!--Content Body-->
                     <StackLayout Padding="20,0" VerticalOptions="StartAndExpand">
-                        <Label Text="Job Description"/>
+                        <Label Text="{Binding CurrDescription}"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

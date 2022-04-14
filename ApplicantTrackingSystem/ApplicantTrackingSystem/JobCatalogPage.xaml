@@ -10,9 +10,9 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
 
     <!--Binding context-->
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodels:JobVacancyViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -196,7 +196,7 @@
                                                    TextColor="#727272"/>
                                             <Label Text="{Binding Job_Name}" FontFamily="LatoBold" FontSize="16"
                                                    TextColor="Black"/>
-                                            <Label Text="{Binding City}" FontFamily="Lato" FontSize="11"
+                                            <Label Text="{Binding Company_City}" FontFamily="Lato" FontSize="11"
                                                    TextColor="#727272"/>
                                         </StackLayout>
 

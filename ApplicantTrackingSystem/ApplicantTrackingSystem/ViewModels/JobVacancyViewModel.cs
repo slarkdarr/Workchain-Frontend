@@ -10,21 +10,81 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Windows.Input;
+using System.ComponentModel;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class JobVacancyViewModel : ViewModelBase
+    public class JobVacancyViewModel : ViewModelBase, INotifyPropertyChanged
     {
         public CredentialModel credential = new CredentialModel(); 
         public ObservableRangeCollection<JobVacancy> JobVacancy { get; set; }
         public ObservableRangeCollection<JobVacancy> JobVacancyQueryResult { get; set; }
         public ObservableRangeCollection<JobVacancy> PreviousJobVacancy { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         public MvvmHelpers.Commands.Command SearchCommand { get; }
         public MvvmHelpers.Commands.Command LoadFilter { get; }
         public MvvmHelpers.Commands.Command FetchAllCommand { get; }
+        public MvvmHelpers.Commands.Command FetchByIdCommand { get; }
 
         public AsyncCommand<object> SelectedCommand { get; }
+
+        private string currJobName;
+        private string currCompanyName;
+        private string currSalary;
+        private string currDescription;
+        private string currJobId;
+
+        public string CurrJobName
+        {
+            get { return currJobName; }
+            set
+            {
+                currJobName = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("CurrJobName"));
+            }
+        }
+
+        public string CurrCompanyName
+        {
+            get { return currCompanyName; }
+            set
+            {
+                currCompanyName = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("CurrCompanyName"));
+            }
+        }
+
+        public string CurrSalary
+        {
+            get { return currSalary; }
+            set
+            {
+                currSalary = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("CurrSalary"));
+            }
+        }
+
+        public string CurrDescription
+        {
+            get { return currDescription; }
+            set
+            {
+                currDescription = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("CurrDescription"));
+            }
+        }
+
+        public string CurrJobId
+        {
+            get { return currJobId; }
+            set
+            {
+                currJobId = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("CurrJobId"));
+            }
+        }
 
         public JobVacancyViewModel()
         {
@@ -42,10 +102,11 @@ namespace ApplicantTrackingSystem.ViewModels
             SearchCommand = new MvvmHelpers.Commands.Command(Search);
             LoadFilter = new MvvmHelpers.Commands.Command(Filter);
             FetchAllCommand = new MvvmHelpers.Commands.Command(FetchAll);
+            FetchByIdCommand = new MvvmHelpers.Commands.Command(FetchById);
 
             SelectedCommand = new AsyncCommand<object>(Selected);
 
-            FetchAll();
+            //FetchAll();
         }
 
         JobVacancy selectedJob;
@@ -64,6 +125,7 @@ namespace ApplicantTrackingSystem.ViewModels
             }
             Console.WriteLine("JOB SELECTED!!!!");
             SelectedJob = null;
+
             //await Application.Current.MainPage.DisplayAlert("Selected", job.Job_Name, "OK");
 
             // Navigate to Job Detail Page
@@ -204,9 +266,9 @@ namespace ApplicantTrackingSystem.ViewModels
                 //Job city filtering
                 foreach (JobVacancy job in PreviousJobVacancy)
                 {
-                    if (job.City == cityFilterSelection)
+                    if (job.Company_City == cityFilterSelection)
                     {
-                        Console.WriteLine(job.City);
+                        Console.WriteLine(job.Company_City);
                         JobVacancy.Add(job);
                     }
 
@@ -291,9 +353,9 @@ namespace ApplicantTrackingSystem.ViewModels
                             var End_Recruitment_Date = reader.GetDate(5).ToString();
                             var Job_Type = reader.GetString(6);
                             var Description = reader.GetString(7);
-                            var City = reader.GetString(8);
+                            var Company_City = reader.GetString(8);
 
-                            JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, City = City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description });
+                            JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, Company_City = Company_City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description });
                         }
                     }
                 }
@@ -321,6 +383,28 @@ namespace ApplicantTrackingSystem.ViewModels
                 {
                     JobVacancy.Add(job);
                 }
+            }
+            else
+            {
+                Console.WriteLine("EMPTYY");
+            }
+        }
+
+        async void FetchById()
+        {
+            var job = await AtsService.GetJobOpeningById(credential.token, CurrJobId);
+            if (JobVacancyQueryResult != null)
+            {
+                Console.WriteLine("Valid job opening");
+                CurrJobName = job[0].Job_Name;
+                CurrCompanyName = job[0].Company_Name;
+                CurrSalary = "Rp." + job[0].Salary;
+                CurrDescription = job[0].Description;
+
+                Console.WriteLine(currJobName);
+                Console.WriteLine(currCompanyName);
+                Console.WriteLine(currSalary);
+                Console.WriteLine(currDescription);
             }
             else
             {
@@ -380,9 +464,9 @@ namespace ApplicantTrackingSystem.ViewModels
                             var End_Recruitment_Date = reader.GetDate(5).ToString();
                             var Job_Type = reader.GetString(6);
                             var Description = reader.GetString(7);
-                            var City = reader.GetString(8);
+                            var Company_City = reader.GetString(8);
 
-                            JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, City = City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description });
+                            JobVacancyQueryResult.Add(new JobVacancy { Job_ID = Job_ID, Company_ID = Company_ID, Company_City = Company_City, Company_Name = Company_Name, Job_Name = Job_Name, Start_Recruitment_Date = Start_Recruitment_Date, End_Recruitment_Date = End_Recruitment_Date, Job_Type = Job_Type, Description = Description });
                         }
                     }
                 }

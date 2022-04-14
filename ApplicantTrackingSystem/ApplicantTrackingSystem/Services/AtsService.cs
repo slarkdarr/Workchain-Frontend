@@ -105,7 +105,24 @@ namespace ApplicantTrackingSystem.Services
             //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
             var json = await client.GetStringAsync("JobOpening");
             var jobVacancies = JsonConvert.DeserializeObject<ObservableRangeCollection<JobVacancy>>(json);
+            Console.WriteLine(json);
             return jobVacancies;
+        }
+
+        public static async Task<ObservableRangeCollection<JobVacancy>> GetJobOpeningById(string token, string id)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            var json = await client.GetStringAsync("JobOpening/" + id);
+            var jobVacancy = JsonConvert.DeserializeObject<ObservableRangeCollection<JobVacancy>>(json);
+            return jobVacancy;
         }
 
         public static async Task<ObservableRangeCollection<JobApplication>> GetJobApplication(string token)
