@@ -108,6 +108,45 @@ namespace ApplicantTrackingSystem.Services
             return jobVacancies;
         }
 
+        public static async Task<ObservableRangeCollection<JobVacancy>> searchJobOpening(string token, string keyword)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            var endpoint = "JobOpening/keyword/" + keyword;
+            var json = await client.GetStringAsync(endpoint);
+            var jobVacancies = JsonConvert.DeserializeObject<ObservableRangeCollection<JobVacancy>>(json);
+            return jobVacancies;
+        }
+
+        public static async Task<JobVacancy> getJobOpeningDetail(string token, string jobID)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            var endpoint = "JobOpening/" + jobID;
+            var json = await client.GetStringAsync(endpoint);
+            var jobVacancies = JsonConvert.DeserializeObject<ObservableRangeCollection<JobVacancy>>(json);
+            var jobVacancy = new JobVacancy();
+            foreach (JobVacancy job in jobVacancies)
+            {
+                jobVacancy = job;
+            }
+            return jobVacancy;
+        }
+
         public static async Task<ObservableRangeCollection<JobApplication>> GetJobApplication(string token)
         {
 
@@ -125,7 +164,7 @@ namespace ApplicantTrackingSystem.Services
             return jobApplications;
         }
 
-        public static async Task<string> AddJobApplication(JobApplication jobApplication, string token)
+        public static async Task<string> AddJobApplication(JobApplicationAdd jobApplication, string token)
         {
             try
             {
@@ -156,6 +195,24 @@ namespace ApplicantTrackingSystem.Services
                 Console.WriteLine(contentResp);
                 return null;
             }
+        }
+
+        public static async Task<ApplicantJobApplicationModel> GetApplicantApplicationData(string token, string used_id)
+        {
+
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch
+            {
+                //Do nothing
+            }
+            var endpoint = "User/" + used_id;
+            var json = await client.GetStringAsync(endpoint);
+            Console.WriteLine(json);
+            var applicantData = JsonConvert.DeserializeObject<ApplicantJobApplicationModel>(json);
+            return applicantData;
         }
     }
 }

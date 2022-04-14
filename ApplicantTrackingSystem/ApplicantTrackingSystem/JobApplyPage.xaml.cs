@@ -16,6 +16,26 @@ namespace ApplicantTrackingSystem
         {
             this.BindingContext = vm;
             InitializeComponent();
+
+            ApplicantName.Completed += (object sender, EventArgs e) =>
+            {
+                ApplicantEmail.Focus();
+            };
+
+            ApplicantEmail.Completed += (object sender, EventArgs e) =>
+            {
+                ApplicantTelp.Focus();
+            };
+
+            ApplicantTelp.Completed += (object sender, EventArgs e) =>
+            {
+                RequirementLink.Focus();
+            };
+
+            RequirementLink.Completed += (object sender, EventArgs e) =>
+            {
+                //vm.SubmitCommand.Execute(null);
+            };
         }
 
         protected override async void OnAppearing()
@@ -25,9 +45,6 @@ namespace ApplicantTrackingSystem
             Console.WriteLine(PassedJobID);
             int.TryParse(PassedJobID, out var result);
             vm.JobId = result;
-
-
-            //BindingContext = await CoffeeService.GetCoffee(result);
         }
 
         private void FrameFocusedReg(object sender, FocusEventArgs e)
