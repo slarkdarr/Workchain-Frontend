@@ -7,9 +7,28 @@ using System.Runtime.CompilerServices;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    internal class ApplicantDetailViewModel : INotifyPropertyChanged
+    public class ApplicantDetailViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ICommand ScheduleCommand { protected set; get; }
+
+        public ApplicantDetailViewModel()
+        {
+            Console.WriteLine("Constructor Applicant detail view model");
+
+            Console.WriteLine("Applicant ID hasil passing di view model applicant detail view model:");
+            Console.WriteLine(ApplicantId);
+
+            ScheduleCommand = new Command(OnSchedule);
+        }
+
+        private string applicantId;
+        public string ApplicantId
+        {
+            get => applicantId;
+            set => SetProperty(ref applicantId, value);
+        }
 
         bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
@@ -27,6 +46,15 @@ namespace ApplicantTrackingSystem.ViewModels
         }
 
         public ICommand SubmitCommand { protected set; get; }
+
+        async public void OnSchedule()
+        {
+            Console.WriteLine("On Schedule");
+            Console.WriteLine(ApplicantId);
+            // Navigate to ScheduleJobInterviewPage
+            var route = $"{nameof(ScheduleJobInterviewPage)}?PassedApplicant={ApplicantId}";
+            await Shell.Current.GoToAsync(route);
+        }
 
         async public void OnSubmit()
         {

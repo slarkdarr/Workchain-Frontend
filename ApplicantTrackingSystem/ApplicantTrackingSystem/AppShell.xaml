@@ -73,25 +73,7 @@
                              Glyph="&#x000f0004;"/>
             </Tab.Icon>
             <ShellContent Title="Progress"
-                      ContentTemplate="{DataTemplate local:ScheduleJobInterviewPage}" />
-        </Tab>
-
-        <Tab Title="Progress">
-            <Tab.Icon>
-                <FontImageSource FontFamily="{StaticResource MaterialFont}"
-                             Glyph="&#x000f0004;"/>
-            </Tab.Icon>
-            <ShellContent Title="Progress"
                       ContentTemplate="{DataTemplate local:ScreeningApplicantListPage}" />
-        </Tab>
-
-        <Tab Title="Progress">
-            <Tab.Icon>
-                <FontImageSource FontFamily="{StaticResource MaterialFont}"
-                             Glyph="&#x000f0004;"/>
-            </Tab.Icon>
-            <ShellContent Title="Progress"
-                      ContentTemplate="{DataTemplate local:ApplicantDetailPage}" />
         </Tab>
 
         <Tab Title="Profile">

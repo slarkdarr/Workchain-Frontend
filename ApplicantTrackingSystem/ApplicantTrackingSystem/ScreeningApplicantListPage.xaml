@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
     xmlns:bound="clr-namespace:ApplicantTrackingSystem"
     xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ApplicantTrackingSystem.ScreeningApplicantListPage"
     NavigationPage.HasNavigationBar="False">
 
@@ -12,6 +13,12 @@
     <ContentPage.BindingContext>
         <viewmodels:ScreeningApplicantListViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
@@ -71,8 +78,15 @@
                           ItemsSource="{Binding JobApplications}"
                           HasUnevenRows="True"
                           VerticalOptions="StartAndExpand"
-                          VerticalScrollBarVisibility="Never">
+                          VerticalScrollBarVisibility="Never"
+                          SelectedItem="{Binding SelectedApplicant, Mode=TwoWay}">
                     <!--To use for when binded with view model components-->
+                    <ListView.Behaviors>
+                        <xct:EventToCommandBehavior 
+                            EventName="ItemSelected"
+                            Command="{Binding SelectedCommand}"
+                            EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+                    </ListView.Behaviors>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

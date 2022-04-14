@@ -7,13 +7,31 @@ using System.Runtime.CompilerServices;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    internal class ScheduleJobInterviewViewModel : INotifyPropertyChanged
+    public class ScheduleJobInterviewViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private DateTime date;
         private DateTime startTime;
         private DateTime endTime;
         private string meetingLink;
+        public ICommand SubmitCommand { protected set; get; }
+
+        public ScheduleJobInterviewViewModel()
+        {
+            Console.WriteLine("Constructor Schedule Job view model");
+
+            Console.WriteLine("Applicant ID hasil passing di view model Schedule Job view model:");
+            Console.WriteLine(ApplicantId);
+
+            SubmitCommand = new Command(OnAccept);
+        }
+
+        private string applicantId;
+        public string ApplicantId
+        {
+            get => applicantId;
+            set => SetProperty(ref applicantId, value);
+        }
 
 
         public DateTime InterviewDate
@@ -63,12 +81,13 @@ namespace ApplicantTrackingSystem.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        //public ICommand SubmitCommand { protected set; get; }
+        async public void OnAccept()
+        {
+            Console.WriteLine("On Schedule Interview");
+            Console.WriteLine(ApplicantId);
+            await Application.Current.MainPage.DisplayAlert("Applicant ID", ApplicantId, "OK");
+        }
 
-        //public ScheduleJobInterviewViewModel()
-        //{
-        //    SubmitCommand = new Command(OnSubmit);
-        //}
 
         //async public void OnSubmit()
         //{
