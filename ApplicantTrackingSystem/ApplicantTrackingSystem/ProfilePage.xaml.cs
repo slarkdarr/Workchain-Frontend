@@ -18,12 +18,12 @@ namespace ApplicantTrackingSystem
 
             FullName.Completed += (object sender, EventArgs e) =>
             {
-                Password.Focus();
+                Headline.Focus();
             };
 
-            Password.Completed += (object sender, EventArgs e) =>
+            Headline.Completed += (object sender, EventArgs e) =>
             {
-                ProfilePicture.Focus();
+                Phone.Focus();
             };
 
             //ProfilePicture.Completed += (object sender, EventArgs e) =>
@@ -53,22 +53,12 @@ namespace ApplicantTrackingSystem
 
             City.Completed += (object sender, EventArgs e) =>
             {
-                Headline.Focus();
-            };
-
-            Headline.Completed += (object sender, EventArgs e) =>
-            {
                 Description.Focus();
             };
 
             Description.Completed += (object sender, EventArgs e) =>
             {
-                vm.SubmitCommand.Execute(null);
-            };
-
-            Type.Completed += (object sender, EventArgs e) =>
-            {
-                vm.SubmitCommand.Execute(null);
+                
             };
         }
 
