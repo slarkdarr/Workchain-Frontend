@@ -18,8 +18,11 @@ namespace ApplicantTrackingSystem.ViewModels
         private DateTime startTime;
         private DateTime endTime;
         private string meetingLink;
+        private string applicantName;
+        private string jobName;
         public ICommand SubmitCommand { protected set; get; }
         public ICommand SaveCommand { protected set; get; }
+        public ICommand LoadCommand { protected set; get; }
 
         public CredentialModel credential = new CredentialModel();
 
@@ -39,6 +42,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
             SubmitCommand = new Command(OnAccept);
             SaveCommand = new Command(Save);
+            LoadCommand = new Command(OnLoad);
 
         }
 
@@ -65,12 +69,32 @@ namespace ApplicantTrackingSystem.ViewModels
         //    get { return startTime; }
         //    set { SetProperty(ref startTime, value); }
         //}
-        
+
         //public DateTime InterviewEndTime
         //{
         //    get { return endTime; }
         //    set { SetProperty(ref endTime, value); }
         //}
+
+        public string ApplicantName
+        {
+            get { return applicantName; }
+            set
+            {
+                applicantName = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantName"));
+            }
+        }
+
+        public string JobName
+        {
+            get { return jobName; }
+            set
+            {
+                jobName = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("JobName"));
+            }
+        }
 
         public DateTime InterviewStartTime
         {
@@ -155,27 +179,22 @@ namespace ApplicantTrackingSystem.ViewModels
 
         }
 
+        async void OnLoad()
+        {
+            var application = await AtsService.GetJobApplicationById(credential.token, ApplicationId);
+            if (application != null)
+            {
+                Console.WriteLine("Valid job opening");
+                ApplicantName = application[0].applicant_name;
+                JobName = application[0].job_name;
+               
+            }
+            else
+            {
+                Console.WriteLine("EMPTYY");
+            }
 
-        //async public void OnSubmit()
-        //{
-        //    var connString = "Host=ec2-3-219-204-29.compute-1.amazonaws.com;Database=d7p6gej9knqefg;Username=ptyxepvslwevdw;Password=2cff69469572cf04b3e738727d1503ccd0e05efc9b1d73f9ac6061954f094771";
+        }
 
-        //    await using var conn = new NpgsqlConnection(connString);
-        //    Console.WriteLine("connecting");
-        //    await conn.OpenAsync();
-        //    Console.WriteLine("connected");
-
-        //    using (var cmd1 = new NpgsqlCommand("INSERT INTO job_opening (company_id, job_name, start_recruitment_date, end_recruitment_date, job_type, description, salary) VALUES (1, @job_name, @start_recruitment_date, @end_recruitment_date, @job_type, @description, @salary)", conn))
-        //    {
-        //        cmd1.Parameters.AddWithValue("start_recruitment_date", date);
-        //        cmd1.Parameters.AddWithValue("end_recruitment_date", time);
-        //        cmd1.Parameters.AddWithValue("job_type", jobType);
-        //        cmd1.Parameters.AddWithValue("description", description);
-        //        cmd1.Parameters.AddWithValue("salary", int.Parse(salary));
-        //        await cmd1.ExecuteNonQueryAsync();
-        //    };
-        //    Console.WriteLine("Successfully inserted Job Application");
-
-        //}
     }
 }

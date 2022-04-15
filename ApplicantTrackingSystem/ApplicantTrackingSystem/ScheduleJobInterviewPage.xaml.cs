@@ -33,6 +33,7 @@ namespace ApplicantTrackingSystem
             Console.WriteLine("APPLICANT HASIL PASSING Schedule");
             Console.WriteLine(PassedApplication);
             vm.ApplicationId = PassedApplication;
+            vm.LoadCommand.Execute(null);
         }
 
         private void DeclineButton_Clicked(object sender, EventArgs e)

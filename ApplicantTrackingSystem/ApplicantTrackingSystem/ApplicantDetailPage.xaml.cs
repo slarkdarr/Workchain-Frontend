@@ -30,6 +30,7 @@ namespace ApplicantTrackingSystem
             Console.WriteLine("APPLICANT HASIL PASSING Detail page");
             Console.WriteLine(PassedApplication);
             vm.ApplicationId = PassedApplication;
+            vm.LoadCommand.Execute(null);
         }
 
         private void ScheduleInterviewButton_Clicked(object sender, EventArgs e)

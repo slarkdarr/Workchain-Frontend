@@ -9,9 +9,9 @@
     NavigationPage.HasNavigationBar="False">
 
     <!--Binding context-->
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodels:ScheduleJobInterviewViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
@@ -37,7 +37,7 @@
                    HeightRequest="90"/>
                 <!--ApplicantName-->
                 <Label x:Name="ApplicantName"
-                       Text="Applicant Name"
+                       Text="{Binding ApplicantName}"
                        FontFamily="LatoBlack"
                        FontSize="22"
                        TextColor="Black"
@@ -45,7 +45,7 @@
                        HorizontalTextAlignment="Center"/>
                 <!--Job Position Name-->
                 <Label x:Name="JobName"
-                       Text="Job Position Name"
+                       Text="{Binding JobName}"
                        FontFamily="Lato"
                        FontSize="18"
                        HorizontalTextAlignment="Center"/>
@@ -135,9 +135,10 @@
                 
             </ScrollView>
             
-            <!--Response Button-->
-            <StackLayout Padding="80,20" BackgroundColor="White" VerticalOptions="EndAndExpand">
-                <!--Accept Button-->
+            <!--Response Button
+            <StackLayout BackgroundColor="White" Orientation="Horizontal" VerticalOptions="Fill"
+                         HorizontalOptions="FillAndExpand" Padding="20,10">
+                Accept Button
                 <Button x:Name="AcceptButton"
                         Text="Accept" 
                         BackgroundColor="#58327F"  
@@ -147,8 +148,9 @@
                         FontFamily="LatoBold"
                         CornerRadius="10" 
                         Margin="0,0,0,10"
+                        HorizontalOptions="FillAndExpand"
                         Command="{Binding SubmitCommand}"/>
-                <!--Decline Button-->
+                Decline Button
                 <Button x:Name="DeclineButton"
                         Text="Decline" 
                         BackgroundColor="White"  
@@ -157,9 +159,11 @@
                         TextColor="Red" 
                         FontSize="16" 
                         FontFamily="LatoBold"
-                        CornerRadius="10" 
+                        CornerRadius="10"
+                        Margin="0,0,0,10"
+                        HorizontalOptions="FillAndExpand"
                         Clicked="DeclineButton_Clicked"/>
-            </StackLayout>
+            </StackLayout>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
