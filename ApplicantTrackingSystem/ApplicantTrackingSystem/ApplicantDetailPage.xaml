@@ -158,7 +158,8 @@
                         CornerRadius="10" 
                         Margin="0,0,0,10"
                         HorizontalOptions="FillAndExpand"
-                        Command="{Binding AcceptCommand}"/>
+                        Command="{Binding AcceptCommand}"
+                        IsVisible="{Binding EnabledAccept}"/>
                 <!--Decline Button-->
                 <Button x:Name="DeclineButton"
                         Text="Decline" 
@@ -171,7 +172,8 @@
                         CornerRadius="10"
                         Margin="0,0,0,10"
                         HorizontalOptions="FillAndExpand"
-                        Command="{Binding DeclineCommand}"/>
+                        Command="{Binding DeclineCommand}"
+                        IsVisible="{Binding EnabledDecline}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

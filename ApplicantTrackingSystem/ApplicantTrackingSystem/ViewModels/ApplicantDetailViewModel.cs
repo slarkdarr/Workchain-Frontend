@@ -56,9 +56,12 @@ namespace ApplicantTrackingSystem.ViewModels
         private string jobName;
         private string applicantEmail;
         private string applicantTelp;
+        private string applicationStatus;
         private string interviewDate = "Not set";
         private string interviewTime = "Not set";
         private string interviewLink = "Not set";
+        private bool enabledAccept;
+        private bool enabledDecline;
 
         public string ApplicantName
         {
@@ -100,6 +103,16 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
+        public string ApplicationStatus
+        {
+            get { return applicationStatus; }
+            set
+            {
+                applicationStatus = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicationStatus"));
+            }
+        }
+
         public string InterviewDate
         {
             get { return interviewDate; }
@@ -127,6 +140,26 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 interviewLink = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("InterviewLink"));
+            }
+        }
+
+        public bool EnabledAccept
+        {
+            get { return enabledAccept; }
+            set
+            {
+                enabledAccept = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("EnabledAccept"));
+            }
+        }
+
+        public bool EnabledDecline
+        {
+            get { return enabledDecline; }
+            set
+            {
+                enabledDecline = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("EnabledDecline"));
             }
         }
 
@@ -222,6 +255,7 @@ namespace ApplicantTrackingSystem.ViewModels
                 ApplicantName = application[0].applicant_name;
                 JobName = application[0].job_name;
                 ApplicantEmail = application[0].applicant_email;
+                ApplicationStatus = application[0].status;
                 ApplicantTelp = application[0].applicant_telp;
                 if (application[0].interview_date != null)
                 {
@@ -229,7 +263,9 @@ namespace ApplicantTrackingSystem.ViewModels
                     InterviewTime = application[0].interview_time;
                     InterviewLink = application[0].interview_link;
                 }
-               
+
+                IsEnabledAccept();
+                IsEnabledDecline();
 
             }
             else
@@ -238,6 +274,30 @@ namespace ApplicantTrackingSystem.ViewModels
             }
 
         }
+
+        void IsEnabledAccept()
+        {
+            if (ApplicationStatus == "Offered")
+            {
+                EnabledAccept = false;
+            } else
+            {
+                EnabledAccept = true;
+            }
+        }
+
+        void IsEnabledDecline()
+        {
+            if (ApplicationStatus == "Declined")
+            {
+                EnabledDecline = false;
+            }
+            else
+            {
+                EnabledDecline = true;
+            }
+        }
+
 
     }
 }
