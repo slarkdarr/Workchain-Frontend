@@ -34,19 +34,19 @@ namespace ApplicantTrackingSystem.ViewModels
 
             Console.WriteLine("Constructor Schedule Job view model");
 
-            Console.WriteLine("Applicant ID hasil passing di view model Schedule Job view model:");
-            Console.WriteLine(ApplicantId);
+            Console.WriteLine("ApplicationId ID hasil passing di view model Schedule Job view model:");
+            Console.WriteLine(ApplicationId);
 
             SubmitCommand = new Command(OnAccept);
             SaveCommand = new Command(Save);
 
         }
 
-        private string applicantId;
-        public string ApplicantId
+        private string applicationId;
+        public string ApplicationId
         {
-            get => applicantId;
-            set => SetProperty(ref applicantId, value);
+            get => applicationId;
+            set => SetProperty(ref applicationId, value);
         }
 
 
@@ -120,8 +120,8 @@ namespace ApplicantTrackingSystem.ViewModels
         async public void OnAccept()
         {
             Console.WriteLine("On Schedule Interview");
-            Console.WriteLine(ApplicantId);
-            await Application.Current.MainPage.DisplayAlert("Applicant ID", ApplicantId, "OK");
+            Console.WriteLine(ApplicationId);
+            await Application.Current.MainPage.DisplayAlert("Applicant ID", ApplicationId, "OK");
         }
 
         async void Save()
@@ -130,7 +130,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
             var jobApplication = new UpdateJobApplication
             {
-                application_id = Int32.Parse(ApplicantId),
+                application_id = Int32.Parse(ApplicationId),
                 status = "Interview",
                 interview_date = InterviewDate.ToString("dd/MM/yyyy"),
                 interview_time = InterviewStartTime.ToString("HH:mm"),

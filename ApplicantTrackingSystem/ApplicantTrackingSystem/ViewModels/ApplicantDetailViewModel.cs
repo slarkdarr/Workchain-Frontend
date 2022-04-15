@@ -17,17 +17,17 @@ namespace ApplicantTrackingSystem.ViewModels
         {
             Console.WriteLine("Constructor Applicant detail view model");
 
-            Console.WriteLine("Applicant ID hasil passing di view model applicant detail view model:");
-            Console.WriteLine(ApplicantId);
+            Console.WriteLine("ApplicationId hasil passing di view model applicant detail view model:");
+            Console.WriteLine(ApplicationId);
 
             ScheduleCommand = new Command(OnSchedule);
         }
 
-        private string applicantId;
-        public string ApplicantId
+        private string applicationId;
+        public string ApplicationId
         {
-            get => applicantId;
-            set => SetProperty(ref applicantId, value);
+            get => applicationId;
+            set => SetProperty(ref applicationId, value);
         }
 
         bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
@@ -50,9 +50,9 @@ namespace ApplicantTrackingSystem.ViewModels
         async public void OnSchedule()
         {
             Console.WriteLine("On Schedule");
-            Console.WriteLine(ApplicantId);
+            Console.WriteLine(ApplicationId);
             // Navigate to ScheduleJobInterviewPage
-            var route = $"{nameof(ScheduleJobInterviewPage)}?PassedApplicant={ApplicantId}";
+            var route = $"{nameof(ScheduleJobInterviewPage)}?PassedApplication={ApplicationId}";
             await Shell.Current.GoToAsync(route);
         }
 

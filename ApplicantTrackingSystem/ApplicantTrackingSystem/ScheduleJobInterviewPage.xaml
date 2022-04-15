@@ -147,7 +147,7 @@
                         FontFamily="LatoBold"
                         CornerRadius="10" 
                         Margin="0,0,0,10"
-                        Command="{Binding SubmitCommand}}"/>
+                        Command="{Binding SubmitCommand}"/>
                 <!--Decline Button-->
                 <Button x:Name="DeclineButton"
                         Text="Decline" 

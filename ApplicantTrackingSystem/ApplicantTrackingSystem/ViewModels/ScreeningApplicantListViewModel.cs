@@ -81,7 +81,7 @@ namespace ApplicantTrackingSystem.ViewModels
             //await Application.Current.MainPage.DisplayAlert("Selected", applicant.applicant_name, "OK");
 
             // Navigate to Job Detail Page
-            var route = $"{nameof(ApplicantDetailPage)}?PassedApplicant={applicant.applicant_id}";
+            var route = $"{nameof(ApplicantDetailPage)}?PassedApplication={applicant.application_id}";
             await Shell.Current.GoToAsync(route);
 
         }
