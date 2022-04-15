@@ -127,7 +127,8 @@
                                 WidthRequest="100"
                                 CornerRadius="10" 
                                 HorizontalOptions="Center"
-                                Margin="0,0,0,10"/>
+                                Margin="0,0,0,10"
+                                Command="{Binding SaveCommand}"/>
 
                     </StackLayout>
                 </StackLayout>

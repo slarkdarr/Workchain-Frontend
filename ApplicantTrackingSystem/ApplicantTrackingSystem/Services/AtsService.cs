@@ -191,5 +191,38 @@ namespace ApplicantTrackingSystem.Services
                 return null;
             }
         }
+
+        public static async Task<string> PutUpdateJobApplication(UpdateJobApplication jobApplication, string token)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            var json = JsonConvert.SerializeObject(jobApplication);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PutAsync("JobApplication", content);
+            var contentResp = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("IS SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                return contentResp;
+            }
+            else
+            {
+                Console.WriteLine("IS NOT SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                Console.WriteLine(contentResp);
+                return null;
+            }
+        }
     }
 }
