@@ -2,13 +2,15 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="ApplicantTrackingSystem.DetailPage"
     xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    x:Class="ApplicantTrackingSystem.DetailPage"
+    x:DataType="viewmodels:DetailPageViewModel"
     NavigationPage.HasNavigationBar="False">
 
-    <!--<ContentPage.BindingContext>
-        <viewmodels:JobVacancyViewModel />
-    </ContentPage.BindingContext>-->
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:DetailPageViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <StackLayout Padding="0" Margin="0">
@@ -21,9 +23,9 @@
                     <!--Content Header-->
                     <StackLayout Orientation="Horizontal" Padding="20,0">
                         <StackLayout HorizontalOptions="StartAndExpand" Padding="0,20">
-                            <Label Text="{Binding CurrJobName}" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
-                            <Label Text="{Binding CurrCompanyName}" FontFamily="Lato" FontSize="13"/>
-                            <Label Text="{Binding CurrSalary}" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
+                            <Label Text="{Binding JobName}}" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
+                            <Label Text="{Binding CompanyName}" FontFamily="Lato" FontSize="13"/>
+                            <Label Text="{Binding Salary}" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
                         </StackLayout>
 
                         <!--Company logo-->
@@ -32,7 +34,7 @@
 
                     <!--Content Body-->
                     <StackLayout Padding="20,0" VerticalOptions="StartAndExpand">
-                        <Label Text="{Binding CurrDescription}"/>
+                        <Label Text="{Binding JobDescription}"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

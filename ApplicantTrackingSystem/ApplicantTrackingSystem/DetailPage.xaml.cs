@@ -1,4 +1,8 @@
 ﻿using ApplicantTrackingSystem.Models;
+using ApplicantTrackingSystem.Services;
+using ApplicantTrackingSystem.ViewModels;
+using MonkeyCache.FileStore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,8 +15,12 @@ namespace ApplicantTrackingSystem
     public partial class DetailPage : ContentPage
     {
         public string PassedJob { get; set; }
-        //public JobVacancyViewModel vm = new JobVacancyViewModel();
 
+        public DetailPageViewModel vm = new DetailPageViewModel();
+
+        public CredentialModel credential = new CredentialModel();
+        public JobVacancy JobVacancy { get; set; }
+        public JobVacancy JobVacancyQueryResult { get; set; }
         public DetailPage()
         {
             BindingContext = new JobVacancyViewModel();
@@ -23,16 +31,11 @@ namespace ApplicantTrackingSystem
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            this.BindingContext = vm;
+
             Console.WriteLine("JOB HASIL PASSING");
             Console.WriteLine(PassedJob);
-
-            //Console.WriteLine(PassedJob.Description);
-            //int.TryParse(PassedJob, out var result);
-
-            var vm = BindingContext as JobVacancyViewModel;
-            vm.CurrJobId = PassedJob;
-            vm.FetchByIdCommand.Execute(null);
-            
+            vm.SetJobID(PassedJob);
         }
 
         private void ApplyButtonClicked(object sender, EventArgs e)

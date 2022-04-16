@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts" 
     xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    x:DataType="viewmodels:JobApplyViewModel"
     x:Class="ApplicantTrackingSystem.JobApplyPage"
     NavigationPage.HasNavigationBar="false">
 
@@ -40,7 +41,7 @@
                             <Frame x:Name="entry1Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                     CornerRadius="7" HasShadow="False">
                                 <StackLayout>
-                                    <local:RoundedEntry x:Name="JobName" Text="{Binding JobName}" ClassId="entry1" FontFamily="Lato"
+                                    <local:RoundedEntry x:Name="ApplicantName" Text="{Binding ApplicantName}" ClassId="entry1" FontFamily="Lato"
                                         FontSize="12"
                                         BackgroundColor="White"
                                         TextColor="Black"
@@ -57,7 +58,7 @@
                             <Frame x:Name="entry4Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                     CornerRadius="7" HasShadow="False">
                                 <StackLayout>
-                                    <local:RoundedEntry x:Name="JobType" Text="{Binding JobType}" ClassId="entry4" FontFamily="Lato"
+                                    <local:RoundedEntry x:Name="ApplicantEmail" Text="{Binding ApplicantEmail}" ClassId="entry4" FontFamily="Lato"
                                         FontSize="12"
                                         BackgroundColor="White"
                                         TextColor="Black"
@@ -74,7 +75,7 @@
                             <Frame x:Name="entry6Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                     CornerRadius="7" HasShadow="False">
                                 <StackLayout>
-                                    <local:RoundedEntry x:Name="Salary" Text="{Binding Salary}" ClassId="entry6" FontFamily="Lato"
+                                    <local:RoundedEntry x:Name="ApplicantTelp" Text="{Binding ApplicantTelp}" ClassId="entry6" FontFamily="Lato"
                                         FontSize="12"
                                         BackgroundColor="White"
                                         TextColor="Black"
@@ -91,7 +92,7 @@
                             <Frame x:Name="entry5Frame" BackgroundColor="White" Padding="5" BorderColor="Transparent"
                                     CornerRadius="7" HasShadow="False">
                                 <StackLayout>
-                                    <local:RoundedEditor x:Name="Description" Text="{Binding Description}" ClassId="entry5" FontFamily="Lato"
+                                    <local:RoundedEditor x:Name="RequirementLink" Text="{Binding RequirementLink}" ClassId="entry5" FontFamily="Lato"
                                         FontSize="12"
                                         BackgroundColor="White"
                                         TextColor="Black"
@@ -108,7 +109,7 @@
                             Text="Apply" VerticalOptions="End" HorizontalOptions="CenterAndExpand"
                             BackgroundColor="#58327F" BorderColor="#58327F" BorderWidth="2"
                             TextColor="White" FontSize="14" FontFamily="LatoBold"
-                            Padding="70,0" CornerRadius="30" Margin="0,7" Clicked="Submit"/>
+                            Padding="70,0" CornerRadius="30" Margin="0,7" Command="{Binding SubmitCommand}"/>
 
 
                     </StackLayout>
