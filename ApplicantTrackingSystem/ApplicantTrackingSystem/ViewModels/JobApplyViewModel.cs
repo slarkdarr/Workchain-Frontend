@@ -57,14 +57,14 @@ namespace ApplicantTrackingSystem.ViewModels
         }
 
         private DateTime applyDate;
-        public DateTime ApplyDate 
+        public DateTime ApplyDate
         {
             get => applyDate;
             set => SetProperty(ref applyDate, value);
         }
 
         private string status;
-        public string Status 
+        public string Status
         {
             get => status;
             set => SetProperty(ref status, value);
@@ -124,7 +124,7 @@ namespace ApplicantTrackingSystem.ViewModels
             Console.WriteLine("Submitting");
             Console.WriteLine(RequirementLink);
 
-            Status = "In Review";
+            Status = "Interview";
             var jobApplication = new JobApplicationAdd
             {
                 job_id = jobId,

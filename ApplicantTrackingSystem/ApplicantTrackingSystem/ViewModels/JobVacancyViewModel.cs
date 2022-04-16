@@ -10,81 +10,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Windows.Input;
-using System.ComponentModel;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class JobVacancyViewModel : ViewModelBase, INotifyPropertyChanged
+    public class JobVacancyViewModel : ViewModelBase
     {
         public CredentialModel credential = new CredentialModel(); 
         public ObservableRangeCollection<JobVacancy> JobVacancy { get; set; }
         public ObservableRangeCollection<JobVacancy> JobVacancyQueryResult { get; set; }
         public ObservableRangeCollection<JobVacancy> PreviousJobVacancy { get; set; }
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
         public MvvmHelpers.Commands.Command SearchCommand { get; }
         public MvvmHelpers.Commands.Command LoadFilter { get; }
-        public MvvmHelpers.Commands.Command FetchAllCommand { get; }
-        public MvvmHelpers.Commands.Command FetchByIdCommand { get; }
 
         public AsyncCommand<object> SelectedCommand { get; }
-
-        private string currJobName;
-        private string currCompanyName;
-        private string currSalary;
-        private string currDescription;
-        private string currJobId;
-
-        public string CurrJobName
-        {
-            get { return currJobName; }
-            set
-            {
-                currJobName = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CurrJobName"));
-            }
-        }
-
-        public string CurrCompanyName
-        {
-            get { return currCompanyName; }
-            set
-            {
-                currCompanyName = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CurrCompanyName"));
-            }
-        }
-
-        public string CurrSalary
-        {
-            get { return currSalary; }
-            set
-            {
-                currSalary = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CurrSalary"));
-            }
-        }
-
-        public string CurrDescription
-        {
-            get { return currDescription; }
-            set
-            {
-                currDescription = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CurrDescription"));
-            }
-        }
-
-        public string CurrJobId
-        {
-            get { return currJobId; }
-            set
-            {
-                currJobId = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CurrJobId"));
-            }
-        }
+        
 
         public JobVacancyViewModel()
         {
@@ -101,12 +40,9 @@ namespace ApplicantTrackingSystem.ViewModels
 
             SearchCommand = new MvvmHelpers.Commands.Command(Search);
             LoadFilter = new MvvmHelpers.Commands.Command(Filter);
-            FetchAllCommand = new MvvmHelpers.Commands.Command(FetchAll);
-            FetchByIdCommand = new MvvmHelpers.Commands.Command(FetchById);
-
             SelectedCommand = new AsyncCommand<object>(Selected);
 
-            //FetchAll();
+            FetchAll();
         }
 
         JobVacancy selectedJob;

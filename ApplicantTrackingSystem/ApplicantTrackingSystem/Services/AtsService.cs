@@ -248,17 +248,17 @@ namespace ApplicantTrackingSystem.Services
             return jobApplications;
         }
 
-        public static async Task<string> AddJobApplication(JobApplication jobApplication, string token)
+        public static async Task<string> AddJobApplication(JobApplicationAdd jobApplication, string token)
         {
             try
             {
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
-            } 
+            }
             catch (Exception ex)
             {
                 //throw ex;
             }
-            
+
             //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
             var json = JsonConvert.SerializeObject(jobApplication);
             var content = new StringContent(json, Encoding.UTF8, "application/json");

@@ -23,7 +23,7 @@
                     <!--Content Header-->
                     <StackLayout Orientation="Horizontal" Padding="20,0">
                         <StackLayout HorizontalOptions="StartAndExpand" Padding="0,20">
-                            <Label Text="{Binding JobName}}" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
+                            <Label Text="{Binding JobName}" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
                             <Label Text="{Binding CompanyName}" FontFamily="Lato" FontSize="13"/>
                             <Label Text="{Binding Salary}" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
                         </StackLayout>

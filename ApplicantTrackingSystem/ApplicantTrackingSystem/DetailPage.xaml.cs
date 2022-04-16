@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using ApplicantTrackingSystem.ViewModels;
 
 namespace ApplicantTrackingSystem
 {
@@ -23,9 +22,7 @@ namespace ApplicantTrackingSystem
         public JobVacancy JobVacancyQueryResult { get; set; }
         public DetailPage()
         {
-            BindingContext = new JobVacancyViewModel();
             InitializeComponent();
-
         }
 
         protected override async void OnAppearing()

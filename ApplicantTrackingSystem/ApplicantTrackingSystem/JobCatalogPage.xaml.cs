@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ApplicantTrackingSystem.ViewModels;
-
 using Xamarin.Forms;
 
 namespace ApplicantTrackingSystem
@@ -10,14 +9,7 @@ namespace ApplicantTrackingSystem
     {
         public JobCatalogPage()
         {
-            BindingContext = new JobVacancyViewModel();
-
             InitializeComponent();
-            Console.WriteLine("WILL EXECUTE: ");
-            Console.WriteLine(BindingContext);
-            var vm = BindingContext as JobVacancyViewModel;
-
-            vm.FetchAllCommand.Execute(null);
         }
 
         private void JobComponentTapped(object sender, EventArgs e)
