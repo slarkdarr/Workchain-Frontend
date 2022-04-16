@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace ApplicantTrackingSystem.Services
 {
@@ -195,6 +196,36 @@ namespace ApplicantTrackingSystem.Services
             var response = await client.PutAsync("User/", content);
             var contentResp = await response.Content.ReadAsStringAsync();
 
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("IS SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                return contentResp;
+            }
+            else
+            {
+                Console.WriteLine("IS NOT SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                Console.WriteLine(contentResp);
+                return null;
+            }
+
+        }
+
+        public static async Task<string> UploadPicture(StreamContent content, string token)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+
+            var response = await client.PostAsync("Upload/picture", content);
+            var contentResp = response.Content.ReadAsStringAsync().Result;
+            
             if (response.IsSuccessStatusCode)
             {
                 Console.WriteLine("IS SUCCESS STATUS CODE");

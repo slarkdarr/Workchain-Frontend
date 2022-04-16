@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using ApplicantTrackingSystem.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -62,17 +64,23 @@ namespace ApplicantTrackingSystem
             };
         }
 
-        //public async void OnChooseProfilePictureClicked(object sender, EventArgs e)
-        //{
-        //    (sender as Button).IsEnabled = false;
+        async void ChangeProfilePicture_Clicked(System.Object sender, System.EventArgs e)
+        {
+            var pickResult = await FilePicker.PickAsync(new PickOptions
+            {
+                FileTypes = FilePickerFileType.Images,
+                PickerTitle = "Choose an image"
+            });
 
-        //    Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
-        //    if (stream != null)
-        //    {
-        //        image.Source = ImageSource.FromStream(() => stream);
-        //    }
+            if (pickResult != null)
+            {
+                var stream = await pickResult.OpenReadAsync();
+                ProfilePic.Source = ImageSource.FromStream(() => stream);
 
-        //    (sender as Button).IsEnabled = true;
-        //}
+                MultipartFormDataContent content = new MultipartFormDataContent();
+
+                content.Add(new StreamContent(stream), "file", pickResult.FileName);
+            }
+        }
     }
 }

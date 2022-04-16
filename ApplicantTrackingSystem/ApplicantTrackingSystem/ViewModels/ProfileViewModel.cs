@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using ApplicantTrackingSystem.Models;
 using ApplicantTrackingSystem.Services;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
+using System.Collections.Generic;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -155,6 +157,7 @@ namespace ApplicantTrackingSystem.ViewModels
                 FullName = ProfileQueryResult.full_name;
                 Headline = ProfileQueryResult.headline;
                 Email = ProfileQueryResult.email;
+                ProfilePicture = ProfileQueryResult.profile_picture;
                 Birthdate = DateTime.ParseExact(ProfileQueryResult.birthdate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 Phone = ProfileQueryResult.phone_number;
                 Gender = ProfileQueryResult.gender;
@@ -198,6 +201,27 @@ namespace ApplicantTrackingSystem.ViewModels
                 Console.WriteLine(ex.Message);
             }
         }
+
+        //private async Task UploadPicture()
+        //{
+        //    try
+        //    {
+        //        var content = new Profile
+        //        {
+        //            profile_picture = profile_picture,
+        //        };
+
+        //        await AtsService.UploadPicture(content, credential.token);
+
+        //        await Shell.Current.GoToAsync("..");
+
+        //        //Console.WriteLine(profile.birthdate);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //}
 
         //async public void OnSubmit()
         //{
