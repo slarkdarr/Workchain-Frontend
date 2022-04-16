@@ -14,7 +14,7 @@ namespace ApplicantTrackingSystem
         public JobApplyViewModel vm = new JobApplyViewModel();
         public JobApplyPage()
         {
-            this.BindingContext = vm;
+            
             InitializeComponent();
 
             ApplicantName.Completed += (object sender, EventArgs e) =>
@@ -41,6 +41,7 @@ namespace ApplicantTrackingSystem
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            this.BindingContext = vm;
             Console.WriteLine("PassedJobID HASIL PASSING di view");
             Console.WriteLine(PassedJobID);
             int.TryParse(PassedJobID, out var result);

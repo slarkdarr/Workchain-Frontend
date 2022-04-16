@@ -124,7 +124,7 @@ namespace ApplicantTrackingSystem.ViewModels
             Console.WriteLine("Submitting");
             Console.WriteLine(RequirementLink);
 
-            Status = "Interview";
+            Status = "In Review";
             var jobApplication = new JobApplicationAdd
             {
                 job_id = jobId,
