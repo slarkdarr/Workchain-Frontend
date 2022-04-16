@@ -9,6 +9,7 @@ using ApplicantTrackingSystem.Services;
 using ApplicantTrackingSystem.Models;
 using Newtonsoft.Json;
 using MvvmHelpers;
+using Xamarin.Essentials;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -22,6 +23,7 @@ namespace ApplicantTrackingSystem.ViewModels
         public ICommand LoadCommand { protected set; get; }
         public ICommand AcceptCommand { protected set; get; }
         public ICommand DeclineCommand { protected set; get; }
+        public ICommand OpenCVCommand { protected set; get; }
 
         public ApplicantDetailViewModel()
         {
@@ -43,6 +45,7 @@ namespace ApplicantTrackingSystem.ViewModels
             LoadCommand = new Command(OnLoad);
             AcceptCommand = new Command(OnAccept);
             DeclineCommand = new Command(OnDecline);
+            OpenCVCommand = new Command(OpenCV);
         }
 
         private string applicationId;
@@ -62,6 +65,7 @@ namespace ApplicantTrackingSystem.ViewModels
         private string interviewLink = "Not set";
         private bool enabledAccept;
         private bool enabledDecline;
+        private string applicantRequirement;
 
         public string ApplicantName
         {
@@ -163,6 +167,15 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
+        public string ApplicantRequirement
+        {
+            get { return applicantRequirement; }
+            set
+            {
+                applicantRequirement = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantRequirement"));
+            }
+        }
 
         bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
@@ -257,6 +270,10 @@ namespace ApplicantTrackingSystem.ViewModels
                 ApplicantEmail = application[0].applicant_email;
                 ApplicationStatus = application[0].status;
                 ApplicantTelp = application[0].applicant_telp;
+
+                //ApplicantRequirement = application[0].requirement_link;
+                ApplicantRequirement = "https://stei19.kuliah.itb.ac.id/login/index.php";
+
                 if (application[0].interview_date != null)
                 {
                     InterviewDate = application[0].interview_date;
@@ -266,6 +283,8 @@ namespace ApplicantTrackingSystem.ViewModels
 
                 IsEnabledAccept();
                 IsEnabledDecline();
+
+                Console.WriteLine("REQ LINK: " + ApplicantRequirement);
 
             }
             else
@@ -296,6 +315,11 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 EnabledDecline = true;
             }
+        }
+
+        async void OpenCV()
+        {
+            await Browser.OpenAsync(ApplicantRequirement, BrowserLaunchMode.SystemPreferred);
         }
 
 
