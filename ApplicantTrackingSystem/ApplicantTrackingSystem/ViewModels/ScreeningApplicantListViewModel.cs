@@ -11,10 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.ComponentModel;
+//using MvvmHelpers.Commands;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class ScreeningApplicantListViewModel : INotifyPropertyChanged
+    public class ScreeningApplicantListViewModel : ViewModelBase
     {
         public CredentialModel credential = new CredentialModel();
         public ObservableRangeCollection<JobApplication> JobApplications { get; set; }
@@ -26,6 +27,8 @@ namespace ApplicantTrackingSystem.ViewModels
         public ICommand FetchInterviewCommand { protected set; get; }
         public ICommand FetchOfferedCommand { protected set; get; }
         public ICommand FetchDeclinedCommand { protected set; get; }
+
+        public MvvmHelpers.Commands.AsyncCommand<object> SelectedCommand { get; }
 
         public string StateTitle
         {
@@ -53,6 +56,33 @@ namespace ApplicantTrackingSystem.ViewModels
             FetchInterviewCommand = new Command(FetchInterview);
             FetchOfferedCommand = new Command(FetchOffered);
             FetchDeclinedCommand = new Command(FetchDeclined);
+
+            SelectedCommand = new MvvmHelpers.Commands.AsyncCommand<object>(Selected);
+
+        }
+
+        JobApplication selectedApplicant;
+        public JobApplication SelectedApplicant
+        {
+            get => selectedApplicant;
+            set => SetProperty(ref selectedApplicant, value);
+        }
+
+        async Task Selected(object args)
+        {
+            var applicant = args as JobApplication;
+            if (applicant == null)
+            {
+                return;
+            }
+            Console.WriteLine("SelectedApplicant SELECTED!!!!");
+            SelectedApplicant = null;
+
+            //await Application.Current.MainPage.DisplayAlert("Selected", applicant.applicant_name, "OK");
+
+            // Navigate to Job Detail Page
+            var route = $"{nameof(ApplicantDetailPage)}?PassedApplication={applicant.application_id}";
+            await Shell.Current.GoToAsync(route);
 
         }
 

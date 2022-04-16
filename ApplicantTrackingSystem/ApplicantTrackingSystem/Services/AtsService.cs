@@ -125,6 +125,39 @@ namespace ApplicantTrackingSystem.Services
             return jobVacancy;
         }
 
+        public static async Task<string> AddJobOpening(AddJobVacancy jobVacancy, string token)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            var json = JsonConvert.SerializeObject(jobVacancy);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("JobOpening/add", content);
+            var contentResp = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("IS SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                return contentResp;
+            }
+            else
+            {
+                Console.WriteLine("IS NOT SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                Console.WriteLine(contentResp);
+                return null;
+            }
+        }
+
         public static async Task<ObservableRangeCollection<JobApplication>> GetJobApplication(string token)
         {
 
@@ -140,6 +173,23 @@ namespace ApplicantTrackingSystem.Services
             Console.WriteLine(json);
             var jobApplications = JsonConvert.DeserializeObject<ObservableRangeCollection<JobApplication>>(json);
             return jobApplications;
+        }
+
+        public static async Task<ObservableRangeCollection<JobApplication>> GetJobApplicationById(string token, string id)
+        {
+
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch
+            {
+                //Do nothing
+            }
+            var json = await client.GetStringAsync("JobApplication/" + id);
+            Console.WriteLine(json);
+            var jobApplication = JsonConvert.DeserializeObject<ObservableRangeCollection<JobApplication>>(json);
+            return jobApplication;
         }
 
         public static async Task<ObservableRangeCollection<JobApplication>> GetApplicants(string token)
@@ -175,6 +225,39 @@ namespace ApplicantTrackingSystem.Services
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await client.PostAsync("JobApplication/add", content);
+            var contentResp = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("IS SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                return contentResp;
+            }
+            else
+            {
+                Console.WriteLine("IS NOT SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                Console.WriteLine(contentResp);
+                return null;
+            }
+        }
+
+        public static async Task<string> PutUpdateJobApplication(UpdateJobApplication jobApplication, string token)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            var json = JsonConvert.SerializeObject(jobApplication);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PutAsync("JobApplication", content);
             var contentResp = await response.Content.ReadAsStringAsync();
 
             if (response.IsSuccessStatusCode)
