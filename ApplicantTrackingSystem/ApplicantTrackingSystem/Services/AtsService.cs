@@ -331,5 +331,24 @@ namespace ApplicantTrackingSystem.Services
                 return null;
             }
         }
+
+        public static async Task<UploadFileModel> PostUploadFile(string token, MultipartFormDataContent content)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+
+            var response = await client.PostAsync("Upload/file", content);
+            var contentResp = await response.Content.ReadAsStringAsync();
+            var jsonResp = JsonConvert.DeserializeObject<UploadFileModel>(contentResp);
+
+            return jsonResp;
+
+        }
     }
 }

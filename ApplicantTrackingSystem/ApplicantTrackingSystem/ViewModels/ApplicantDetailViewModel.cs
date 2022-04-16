@@ -271,8 +271,8 @@ namespace ApplicantTrackingSystem.ViewModels
                 ApplicationStatus = application[0].status;
                 ApplicantTelp = application[0].applicant_telp;
 
-                //ApplicantRequirement = application[0].requirement_link;
-                ApplicantRequirement = "https://stei19.kuliah.itb.ac.id/login/index.php";
+                ApplicantRequirement = application[0].requirement_link;
+                //ApplicantRequirement = "https://stei19.kuliah.itb.ac.id/login/index.php";
 
                 if (application[0].interview_date != null)
                 {

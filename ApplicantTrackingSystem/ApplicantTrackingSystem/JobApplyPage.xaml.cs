@@ -27,15 +27,15 @@ namespace ApplicantTrackingSystem
                 ApplicantTelp.Focus();
             };
 
-            ApplicantTelp.Completed += (object sender, EventArgs e) =>
-            {
-                RequirementLink.Focus();
-            };
+            //ApplicantTelp.Completed += (object sender, EventArgs e) =>
+            //{
+            //    RequirementLink.Focus();
+            //};
 
-            RequirementLink.Completed += (object sender, EventArgs e) =>
-            {
-                //vm.SubmitCommand.Execute(null);
-            };
+            //RequirementLink.Completed += (object sender, EventArgs e) =>
+            //{
+            //    //vm.SubmitCommand.Execute(null);
+            //};
         }
 
         protected override async void OnAppearing()

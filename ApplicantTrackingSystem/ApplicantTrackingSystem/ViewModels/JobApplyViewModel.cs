@@ -11,12 +11,15 @@ using Command = MvvmHelpers.Commands.Command;
 using System.Globalization;
 using MonkeyCache.FileStore;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
+using System.Net.Http;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
     public class JobApplyViewModel : ViewModelBase
     {
         public Command SubmitCommand { get; }
+        public Command CVPickerCommand { get;  }
 
         public CredentialModel credential = new CredentialModel();
         public ApplicantJobApplicationModel applicantJobApplication { get; set; }
@@ -38,6 +41,7 @@ namespace ApplicantTrackingSystem.ViewModels
             Console.WriteLine(JobId);
 
             SubmitCommand = new Command(Submit);
+            CVPickerCommand = new Command(CVPicker);
 
             GetDefaultApplicantData();
         }
@@ -117,6 +121,28 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 Console.WriteLine("Default data : EMPTY");
             }
+        }
+
+        async void CVPicker()
+        {
+            var file = await FilePicker.PickAsync();
+
+            if (file == null)
+            {
+                return;
+            }
+
+            var content = new MultipartFormDataContent();
+            content.Add(new StreamContent(await file.OpenReadAsync()),
+                "file", file.FileName);
+
+            var uploadResp = await AtsService.PostUploadFile(credential.token, content);
+
+            requirementLink = uploadResp.requirement_link;
+
+            Console.WriteLine("REQUIREMENT LINK: ");
+            Console.WriteLine(uploadResp.requirement_link);
+
         }
 
         async void Submit()
