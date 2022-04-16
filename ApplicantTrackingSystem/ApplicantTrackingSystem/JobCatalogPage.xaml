@@ -10,9 +10,9 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
 
     <!--Binding context-->
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodels:JobVacancyViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
     <ContentPage.Resources>
         <ResourceDictionary>

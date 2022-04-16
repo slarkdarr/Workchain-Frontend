@@ -48,7 +48,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async public void OnSubmit()
         {
-            await Shell.Current.GoToAsync("//MenuApplicant");
+            //await Shell.Current.GoToAsync("//MenuApplicant");
 
             var loginResp = await AtsService.PostLogin(Email, Password, "applicant");
 

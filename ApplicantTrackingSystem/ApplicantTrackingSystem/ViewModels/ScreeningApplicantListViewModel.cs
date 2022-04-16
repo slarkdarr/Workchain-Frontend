@@ -1,103 +1,120 @@
-using System;
-using System.ComponentModel;
-using System.Windows.Input;
-using Xamarin.Forms;
+using ApplicantTrackingSystem.Models;
+using ApplicantTrackingSystem.Services;
+using MonkeyCache.FileStore;
+using MvvmHelpers;
+using Newtonsoft.Json;
 using Npgsql;
-using System.Runtime.CompilerServices;
+using System;
+using System.Windows.Input;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using System.ComponentModel;
+//using MvvmHelpers.Commands;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    internal class ScreeningApplicantListViewModel : INotifyPropertyChanged
+    public class ScreeningApplicantListViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        //private int jobId;
-        //private int applicantId;
-        //private int companyId;
-        private string status;
-        private string applicantName;
-        private string applicantPicture;
-        private string jobName;
+        public CredentialModel credential = new CredentialModel();
+        public ObservableRangeCollection<JobApplication> JobApplications { get; set; }
+        public ObservableRangeCollection<JobApplication> JobApplicationQueryResults { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
-        public string Status
+        private string stateTitle;
+        public ICommand FetchInReviewCommand { protected set; get; }
+        public ICommand FetchInterviewCommand { protected set; get; }
+        public ICommand FetchOfferedCommand { protected set; get; }
+        public ICommand FetchDeclinedCommand { protected set; get; }
+
+        public MvvmHelpers.Commands.AsyncCommand<object> SelectedCommand { get; }
+
+        public string StateTitle
         {
-            get { return status; }
+            get { return stateTitle; }
             set
             {
-                status = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Status"));
+                stateTitle = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("StateTitle"));
             }
         }
 
-        public string ApplicantName
+        public ScreeningApplicantListViewModel()
         {
-            get { return applicantName; }
-            set
+            //How to access the monkey cache
+            Console.WriteLine("CRED AT APPLICATION PROGRESS");
+            var json = string.Empty;
+            json = Barrel.Current.Get<string>("loginCredential");
+            credential = JsonConvert.DeserializeObject<CredentialModel>(json);
+            Console.WriteLine(credential.token);
+
+            JobApplications = new ObservableRangeCollection<JobApplication>();
+            JobApplicationQueryResults = new ObservableRangeCollection<JobApplication>();
+
+            FetchInReviewCommand = new Command(FetchInReview);
+            FetchInterviewCommand = new Command(FetchInterview);
+            FetchOfferedCommand = new Command(FetchOffered);
+            FetchDeclinedCommand = new Command(FetchDeclined);
+
+            SelectedCommand = new MvvmHelpers.Commands.AsyncCommand<object>(Selected);
+
+        }
+
+        JobApplication selectedApplicant;
+        public JobApplication SelectedApplicant
+        {
+            get => selectedApplicant;
+            set => SetProperty(ref selectedApplicant, value);
+        }
+
+        async Task Selected(object args)
+        {
+            var applicant = args as JobApplication;
+            if (applicant == null)
             {
-                applicantName = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantName"));
+                return;
+            }
+            Console.WriteLine("SelectedApplicant SELECTED!!!!");
+            SelectedApplicant = null;
+
+            //await Application.Current.MainPage.DisplayAlert("Selected", applicant.applicant_name, "OK");
+
+            // Navigate to Job Detail Page
+            var route = $"{nameof(ApplicantDetailPage)}?PassedApplication={applicant.application_id}";
+            await Shell.Current.GoToAsync(route);
+
+        }
+
+        async void FetchAll(string state)
+        {
+            JobApplications.Clear();
+            var JobApplicationQueryResults = await AtsService.GetApplicants(credential.token);
+            if (JobApplicationQueryResults != null)
+            {
+                Console.WriteLine(JobApplicationQueryResults);
+                foreach (JobApplication job in JobApplicationQueryResults)
+                {
+                    //Console.WriteLine(job.status)
+                    Console.WriteLine(state);
+                    if (job.status == state)
+                    {
+                        JobApplications.Add(job);
+                    }
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("EMPTYY");
             }
         }
 
-        public string ApplicantPicture
-        {
-            get { return applicantPicture; }
-            set
-            {
-                applicantPicture = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantPicture"));
-            }
-        }
+        void FetchInReview() { FetchAll("In Review"); }
+        void FetchInterview() { FetchAll("Interview"); }
+        void FetchOffered() { FetchAll("Offered"); }
+        void FetchDeclined() { FetchAll("Declined"); }
 
-        public string JobName
-        {
-            get { return jobName; }
-            set
-            {
-                jobName = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("JobName"));
-            }
-        }
 
-        bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-        {
-            if (Object.Equals(storage, value))
-                return false;
-
-            storage = value;
-            OnPropertyChanged(propertyName);
-            return true;
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public ICommand SubmitCommand { protected set; get; }
-
-        async public void OnSubmit()
-        {
-            /*
-            var connString = "Host=ec2-3-219-204-29.compute-1.amazonaws.com;Database=d7p6gej9knqefg;Username=ptyxepvslwevdw;Password=2cff69469572cf04b3e738727d1503ccd0e05efc9b1d73f9ac6061954f094771";
-
-            await using var conn = new NpgsqlConnection(connString);
-            Console.WriteLine("connecting");
-            await conn.OpenAsync();
-            Console.WriteLine("connected");
-
-            using (var cmd1 = new NpgsqlCommand("INSERT INTO job_opening (company_id, job_name, start_recruitment_date, end_recruitment_date, job_type, description, salary) VALUES (1, @job_name, @start_recruitment_date, @end_recruitment_date, @job_type, @description, @salary)", conn))
-            {
-                cmd1.Parameters.AddWithValue("job_name", jobName);
-                cmd1.Parameters.AddWithValue("start_recruitment_date", startDate);
-                cmd1.Parameters.AddWithValue("end_recruitment_date", endDate);
-                cmd1.Parameters.AddWithValue("job_type", jobType);
-                cmd1.Parameters.AddWithValue("description", description);
-                cmd1.Parameters.AddWithValue("salary", int.Parse(salary));
-                await cmd1.ExecuteNonQueryAsync();
-            };
-            */
-            Console.WriteLine("Successfully inserted Job Application");
-
-        }
     }
 }
