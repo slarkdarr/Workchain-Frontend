@@ -5,5 +5,6 @@
     <ActiveDebugProfile>Pixel_3_XL_API_29</ActiveDebugProfile>
     <DefaultDevice>Pixel_3_XL_API_29</DefaultDevice>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
+    <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

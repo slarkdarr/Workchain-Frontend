@@ -217,7 +217,7 @@ namespace ApplicantTrackingSystem.ViewModels
 
             var content = new MultipartFormDataContent();
             content.Add(new StreamContent(await image.OpenReadAsync()),
-                "file", image.FileName);
+                "picture", image.FileName);
 
             var uploadResp = await AtsService.UploadPicture(content, credential.token);
 
