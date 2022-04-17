@@ -138,10 +138,10 @@ namespace ApplicantTrackingSystem.ViewModels
 
             var uploadResp = await AtsService.PostUploadFile(credential.token, content);
 
-            requirementLink = uploadResp.requirement_link;
+            requirementLink = uploadResp.link;
 
             Console.WriteLine("REQUIREMENT LINK: ");
-            Console.WriteLine(uploadResp.requirement_link);
+            Console.WriteLine(uploadResp.link);
 
         }
 
