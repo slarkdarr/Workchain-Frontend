@@ -15,7 +15,7 @@ using System.ComponentModel;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class ApplicationProgressViewModel : ViewModelBase, INotifyPropertyChanged
+    public class ApplicationProgressViewModel : ViewModelBase
     {
         public CredentialModel credential = new CredentialModel();
         public ObservableRangeCollection<JobApplication> JobApplications { get; set; }
