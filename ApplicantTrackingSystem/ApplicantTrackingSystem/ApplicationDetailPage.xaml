@@ -1,17 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
-    xmlns:bound="clr-namespace:ApplicantTrackingSystem"
     xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
-    x:Class="ApplicantTrackingSystem.ApplicantDetailPage"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="ApplicantTrackingSystem.ApplicationDetailPage"
     NavigationPage.HasNavigationBar="False">
-
-    <!--Binding context-->
-    <!--<ContentPage.BindingContext>
-        <viewmodels:ApplicantDetailViewModel />
-    </ContentPage.BindingContext>-->
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
@@ -145,37 +139,6 @@
                 
             </ScrollView>
             
-            <!--Response Button-->
-            <StackLayout BackgroundColor="White" Orientation="Horizontal" VerticalOptions="Fill"
-                         HorizontalOptions="FillAndExpand" Padding="20,10">
-                <!--Accept Button-->
-                <Button x:Name="AcceptButton"
-                        Text="Accept" 
-                        BackgroundColor="#58327F"  
-                        BorderWidth="2"
-                        TextColor="White" 
-                        FontSize="16" 
-                        FontFamily="LatoBold"
-                        CornerRadius="10" 
-                        Margin="0,0,0,10"
-                        HorizontalOptions="FillAndExpand"
-                        Command="{Binding AcceptCommand}"
-                        IsVisible="{Binding EnabledAccept}"/>
-                <!--Decline Button-->
-                <Button x:Name="DeclineButton"
-                        Text="Decline" 
-                        BackgroundColor="White"  
-                        BorderColor="Red"
-                        BorderWidth="1"
-                        TextColor="Red" 
-                        FontSize="16" 
-                        FontFamily="LatoBold"
-                        CornerRadius="10"
-                        Margin="0,0,0,10"
-                        HorizontalOptions="FillAndExpand"
-                        Command="{Binding DeclineCommand}"
-                        IsVisible="{Binding EnabledDecline}"/>
-            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

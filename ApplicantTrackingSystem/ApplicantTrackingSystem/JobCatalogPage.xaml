@@ -134,7 +134,7 @@
                     <StackLayout Orientation="Horizontal" Padding="0" Spacing="10">
                         <Frame BorderColor="#C4C4C4" CornerRadius="7" Padding="0" HasShadow="True"
                                HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="0">
-                            <local:RoundedEntry x:Name="Company" Text="{Binding JobTypeFilterSelection}" ClassId="entry1"
+                            <local:RoundedEntry x:Name="Company" Text="{Binding CompanyFilterSelection}" ClassId="entry1"
                                             FontFamily="Lato" FontSize="13" BackgroundColor="White"
                                             TextColor="Black" Placeholder="   Enter your search filter here"
                                             HorizontalOptions="FillAndExpand"/>
@@ -196,7 +196,7 @@
                                                    TextColor="#727272"/>
                                             <Label Text="{Binding Job_Name}" FontFamily="LatoBold" FontSize="16"
                                                    TextColor="Black"/>
-                                            <Label Text="{Binding City}" FontFamily="Lato" FontSize="11"
+                                            <Label Text="{Binding Company_City}" FontFamily="Lato" FontSize="11"
                                                    TextColor="#727272"/>
                                         </StackLayout>
 

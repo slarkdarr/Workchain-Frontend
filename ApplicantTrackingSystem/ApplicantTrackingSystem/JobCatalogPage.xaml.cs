@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ApplicantTrackingSystem.ViewModels;
 using Xamarin.Forms;
 
 namespace ApplicantTrackingSystem

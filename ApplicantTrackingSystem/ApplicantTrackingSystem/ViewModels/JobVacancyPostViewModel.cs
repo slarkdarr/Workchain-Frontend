@@ -4,6 +4,10 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Npgsql;
 using System.Runtime.CompilerServices;
+using ApplicantTrackingSystem.Models;
+using ApplicantTrackingSystem.Services;
+using MonkeyCache.FileStore;
+using Newtonsoft.Json;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -17,6 +21,8 @@ namespace ApplicantTrackingSystem.ViewModels
         private string salary;
         private string description;
 
+        public CredentialModel credential = new CredentialModel();
+
         public string JobName
         {
             get { return jobName; }
@@ -27,18 +33,38 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-
         public DateTime StartDate
         {
             get { return startDate; }
-            set { SetProperty(ref startDate, value); }
+            set
+            {
+                startDate = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("StartDate"));
+            }
         }
 
         public DateTime EndDate
         {
             get { return endDate; }
-            set { SetProperty(ref endDate, value); }
+            set
+            {
+                endDate = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("EndDate"));
+            }
         }
+
+
+        //public DateTime StartDate
+        //{
+        //    get { return startDate; }
+        //    set { SetProperty(ref startDate, value); }
+        //}
+
+        //public DateTime EndDate
+        //{
+        //    get { return endDate; }
+        //    set { SetProperty(ref endDate, value); }
+        //}
 
         public string JobType
         {
@@ -89,29 +115,43 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public JobVacancyPostViewModel()
         {
+            //How to access the monkey cache
+            Console.WriteLine("CRED");
+            var json = string.Empty;
+            json = Barrel.Current.Get<string>("loginCredential");
+            credential = JsonConvert.DeserializeObject<CredentialModel>(json);
+            Console.WriteLine(credential.token);
+
             SubmitCommand = new Command(OnSubmit);
         }
 
-        async public void OnSubmit()
+        async void OnSubmit()
         {
-            var connString = "Host=ec2-3-219-204-29.compute-1.amazonaws.com;Database=d7p6gej9knqefg;Username=ptyxepvslwevdw;Password=2cff69469572cf04b3e738727d1503ccd0e05efc9b1d73f9ac6061954f094771";
-
-            await using var conn = new NpgsqlConnection(connString);
-            Console.WriteLine("connecting");
-            await conn.OpenAsync();
-            Console.WriteLine("connected");
-
-            using (var cmd1 = new NpgsqlCommand("INSERT INTO job_opening (company_id, job_name, start_recruitment_date, end_recruitment_date, job_type, description, salary) VALUES (1, @job_name, @start_recruitment_date, @end_recruitment_date, @job_type, @description, @salary)", conn))
+            var jobVacancy = new AddJobVacancy
             {
-                cmd1.Parameters.AddWithValue("job_name", jobName);
-                cmd1.Parameters.AddWithValue("start_recruitment_date", startDate);
-                cmd1.Parameters.AddWithValue("end_recruitment_date", endDate);
-                cmd1.Parameters.AddWithValue("job_type", jobType);
-                cmd1.Parameters.AddWithValue("description", description);
-                cmd1.Parameters.AddWithValue("salary", int.Parse(salary));
-                await cmd1.ExecuteNonQueryAsync();
+                job_name = jobName,
+                start_recruitment_date = startDate.ToString("dd/MM/yyyy"),
+                end_recruitment_date = endDate.ToString("dd/MM/yyyy"),
+                job_type = jobType,
+                salary = Int32.Parse(salary),
+                description = description
             };
-            Console.WriteLine("Successfully inserted Job Application");
+
+
+            var applyResp = await AtsService.AddJobOpening(jobVacancy, credential.token);
+            if (applyResp != null)
+            {
+                Console.WriteLine("Hasil response di view model");
+                Console.WriteLine(applyResp);
+                await Application.Current.MainPage.DisplayAlert("Berhasil", "Submisi telah berhasil dilakukan", "OK");
+
+                // Navigasi back to menu sebelumnya
+                await Shell.Current.GoToAsync("..");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Gagal", "Submisi gagal dilakukan", "OK");
+            }
 
         }
     }

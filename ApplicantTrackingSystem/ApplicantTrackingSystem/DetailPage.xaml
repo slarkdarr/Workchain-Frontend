@@ -2,8 +2,15 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
     x:Class="ApplicantTrackingSystem.DetailPage"
+    x:DataType="viewmodels:DetailPageViewModel"
     NavigationPage.HasNavigationBar="False">
+
+    <!--Binding context-->
+    <ContentPage.BindingContext>
+        <viewmodels:DetailPageViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <StackLayout Padding="0" Margin="0">
@@ -16,9 +23,9 @@
                     <!--Content Header-->
                     <StackLayout Orientation="Horizontal" Padding="20,0">
                         <StackLayout HorizontalOptions="StartAndExpand" Padding="0,20">
-                            <Label Text="Job Title" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
-                            <Label Text="Company Name" FontFamily="Lato" FontSize="13"/>
-                            <Label Text="Salary" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
+                            <Label Text="{Binding JobName}" FontFamily="LatoBlack" FontSize="25" TextColor="Black"/>
+                            <Label Text="{Binding CompanyName}" FontFamily="Lato" FontSize="13"/>
+                            <Label Text="{Binding Salary}" FontFamily="Lato" FontSize="11" TextColor="#000001"/>
                         </StackLayout>
 
                         <!--Company logo-->
@@ -27,7 +34,7 @@
 
                     <!--Content Body-->
                     <StackLayout Padding="20,0" VerticalOptions="StartAndExpand">
-                        <Label Text="Job Description"/>
+                        <Label Text="{Binding JobDescription}"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

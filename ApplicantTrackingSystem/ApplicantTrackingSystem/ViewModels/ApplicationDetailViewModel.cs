@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows.Input;
 using MonkeyCache.FileStore;
@@ -13,7 +13,7 @@ using Xamarin.Essentials;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
-    public class ApplicantDetailViewModel : INotifyPropertyChanged
+    public partial class ApplicationDetailViewModel : INotifyPropertyChanged
     {
         public CredentialModel credential = new CredentialModel();
         public event PropertyChangedEventHandler PropertyChanged;
@@ -21,11 +21,9 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public ICommand ScheduleCommand { protected set; get; }
         public ICommand LoadCommand { protected set; get; }
-        public ICommand AcceptCommand { protected set; get; }
-        public ICommand DeclineCommand { protected set; get; }
         public ICommand OpenCVCommand { protected set; get; }
 
-        public ApplicantDetailViewModel()
+        public ApplicationDetailViewModel()
         {
             //How to access the monkey cache
             Console.WriteLine("CRED");
@@ -43,8 +41,6 @@ namespace ApplicantTrackingSystem.ViewModels
 
             ScheduleCommand = new Command(OnSchedule);
             LoadCommand = new Command(OnLoad);
-            AcceptCommand = new Command(OnAccept);
-            DeclineCommand = new Command(OnDecline);
             OpenCVCommand = new Command(OpenCV);
         }
 
@@ -63,8 +59,6 @@ namespace ApplicantTrackingSystem.ViewModels
         private string interviewDate = "Not set";
         private string interviewTime = "Not set";
         private string interviewLink = "Not set";
-        private bool enabledAccept;
-        private bool enabledDecline;
         private string applicantRequirement;
 
         public string ApplicantName
@@ -147,26 +141,6 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-        public bool EnabledAccept
-        {
-            get { return enabledAccept; }
-            set
-            {
-                enabledAccept = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("EnabledAccept"));
-            }
-        }
-
-        public bool EnabledDecline
-        {
-            get { return enabledDecline; }
-            set
-            {
-                enabledDecline = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("EnabledDecline"));
-            }
-        }
-
         public string ApplicantRequirement
         {
             get { return applicantRequirement; }
@@ -203,62 +177,6 @@ namespace ApplicantTrackingSystem.ViewModels
             await Shell.Current.GoToAsync(route);
         }
 
-        async void OnAccept()
-        {
-            var jobApplication = new UpdateJobApplication
-            {
-                application_id = Int32.Parse(ApplicationId),
-                status = "Offered",
-                interview_date = InterviewDate,
-                interview_time = InterviewTime,
-                interview_link = InterviewLink
-            };
-
-
-            var applyResp = await AtsService.PutUpdateJobApplication(jobApplication, credential.token);
-            if (applyResp != null)
-            {
-                Console.WriteLine("Hasil response di view model");
-                Console.WriteLine(applyResp);
-                await Application.Current.MainPage.DisplayAlert("Berhasil", "Update status telah berhasil dilakukan", "OK");
-
-                // Navigasi back to menu sebelumnya
-                await Shell.Current.GoToAsync("..");
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("Gagal", "Update status gagal dilakukan", "OK");
-            }
-        }
-
-        async void OnDecline()
-        {
-            var jobApplication = new UpdateJobApplication
-            {
-                application_id = Int32.Parse(ApplicationId),
-                status = "Declined",
-                interview_date = InterviewDate,
-                interview_time = InterviewTime,
-                interview_link = InterviewLink
-            };
-
-
-            var applyResp = await AtsService.PutUpdateJobApplication(jobApplication, credential.token);
-            if (applyResp != null)
-            {
-                Console.WriteLine("Hasil response di view model");
-                Console.WriteLine(applyResp);
-                await Application.Current.MainPage.DisplayAlert("Berhasil", "Update status telah berhasil dilakukan", "OK");
-
-                // Navigasi back to menu sebelumnya
-                await Shell.Current.GoToAsync("..");
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("Gagal", "Update status gagal dilakukan", "OK");
-            }
-        }
-
         async void OnLoad()
         {
             var application = await AtsService.GetJobApplicationById(credential.token, ApplicationId);
@@ -281,9 +199,6 @@ namespace ApplicantTrackingSystem.ViewModels
                     InterviewLink = application[0].interview_link;
                 }
 
-                IsEnabledAccept();
-                IsEnabledDecline();
-
                 Console.WriteLine("REQ LINK: " + ApplicantRequirement);
 
             }
@@ -292,29 +207,6 @@ namespace ApplicantTrackingSystem.ViewModels
                 Console.WriteLine("EMPTYY");
             }
 
-        }
-
-        void IsEnabledAccept()
-        {
-            if (ApplicationStatus == "Offered")
-            {
-                EnabledAccept = false;
-            } else
-            {
-                EnabledAccept = true;
-            }
-        }
-
-        void IsEnabledDecline()
-        {
-            if (ApplicationStatus == "Declined")
-            {
-                EnabledDecline = false;
-            }
-            else
-            {
-                EnabledDecline = true;
-            }
         }
 
         async void OpenCV()

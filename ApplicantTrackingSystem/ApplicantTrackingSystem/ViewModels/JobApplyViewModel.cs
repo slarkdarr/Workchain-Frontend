@@ -11,14 +11,19 @@ using Command = MvvmHelpers.Commands.Command;
 using System.Globalization;
 using MonkeyCache.FileStore;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
+using System.Net.Http;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
     public class JobApplyViewModel : ViewModelBase
     {
         public Command SubmitCommand { get; }
+        public Command CVPickerCommand { get;  }
 
         public CredentialModel credential = new CredentialModel();
+        public ApplicantJobApplicationModel applicantJobApplication { get; set; }
+
         public JobApplyViewModel()
         {
             //How to access the monkey cache
@@ -32,10 +37,13 @@ namespace ApplicantTrackingSystem.ViewModels
             ApplyDate = localDate;
 
             //int.TryParse(PassedJobID, out var result);
-            Console.WriteLine("Job ID hasil passing di view model job apply:");
+            Console.WriteLine("Job ID hasil passing di view model job apply view model:");
             Console.WriteLine(JobId);
 
             SubmitCommand = new Command(Submit);
+            CVPickerCommand = new Command(CVPicker);
+
+            GetDefaultApplicantData();
         }
 
         private int jobId;
@@ -53,62 +61,97 @@ namespace ApplicantTrackingSystem.ViewModels
         }
 
         private DateTime applyDate;
-        public DateTime ApplyDate 
-        { 
-            get => applyDate; 
-            set => SetProperty(ref applyDate, value); 
-        }
-
-        private string requirementLink;
-        public string RequirementLink 
-        { 
-            get => requirementLink; 
-            set => SetProperty(ref requirementLink, value); 
-        }
-
-        private string applicantName;
-        public string ApplicantName 
-        { 
-            get => applicantName; 
-            set => SetProperty(ref applicantName, value); 
-        }
-
-        private string applicantEmail;
-        public string ApplicantEmail 
-        { 
-            get => applicantEmail; 
-            set => SetProperty(ref applicantEmail, value); 
-        }
-
-        private string applicantTelp;
-        public string ApplicantTelp 
-        { 
-            get => applicantTelp; 
-            set => SetProperty(ref applicantTelp, value); 
+        public DateTime ApplyDate
+        {
+            get => applyDate;
+            set => SetProperty(ref applyDate, value);
         }
 
         private string status;
-        public string Status 
-        { 
-            get => status; 
-            set => SetProperty(ref status, value); 
+        public string Status
+        {
+            get => status;
+            set => SetProperty(ref status, value);
+        }
+
+        private string requirementLink;
+        public string RequirementLink
+        {
+            get => requirementLink;
+            set => SetProperty(ref requirementLink, value);
+        }
+
+        private string applicantName;
+        public string ApplicantName
+        {
+            get => applicantName;
+            set => SetProperty(ref applicantName, value);
+        }
+
+        private string applicantEmail;
+        public string ApplicantEmail
+        {
+            get => applicantEmail;
+            set => SetProperty(ref applicantEmail, value);
+        }
+
+        private string applicantTelp;
+        public string ApplicantTelp
+        {
+            get => applicantTelp;
+            set => SetProperty(ref applicantTelp, value);
+        }
+
+        async void GetDefaultApplicantData()
+        {
+            Console.WriteLine("GetDefaultApplicantData");
+            applicantJobApplication = await AtsService.GetApplicantApplicationData(credential.token, credential.user_id.ToString());
+            if (applicantJobApplication != null)
+            {
+                Console.WriteLine("Default data :");
+                Console.WriteLine(applicantJobApplication.full_name);
+                Console.WriteLine(applicantJobApplication.email);
+                Console.WriteLine(applicantJobApplication.phone_number);
+                // Set the binding property
+                ApplicantName = applicantJobApplication.full_name;
+                ApplicantEmail = applicantJobApplication.email;
+                ApplicantTelp = applicantJobApplication.phone_number;
+            }
+            else
+            {
+                Console.WriteLine("Default data : EMPTY");
+            }
+        }
+
+        async void CVPicker()
+        {
+            var file = await FilePicker.PickAsync();
+
+            if (file == null)
+            {
+                return;
+            }
+
+            var content = new MultipartFormDataContent();
+            content.Add(new StreamContent(await file.OpenReadAsync()),
+                "file", file.FileName);
+
+            var uploadResp = await AtsService.PostUploadFile(credential.token, content);
+
+            requirementLink = uploadResp.link;
+
+            Console.WriteLine("REQUIREMENT LINK: ");
+            Console.WriteLine(uploadResp.link);
+
         }
 
         async void Submit()
         {
-            Console.WriteLine("Job ID pas submit di view model job apply:");
-            Console.WriteLine(JobId);
-            
-            Status = "Interview";
+            Console.WriteLine("Submitting");
+            Console.WriteLine(RequirementLink);
 
-            // Hard code, will be removed
-            RequirementLink = "Ini require";
-            ApplicantName = "jorss";
-            ApplicantEmail = "jorss@gmail.com";
-            ApplicantTelp = "987";
-            // Remove till here once the UI is connected to the view model
-
-            var jobApplication = new JobApplication
+            Status = "In Review";
+            var jobApplication = new JobApplicationAdd
             {
                 job_id = jobId,
                 apply_date = applyDate.ToString("dd/MM/yyyy"),
@@ -118,6 +161,14 @@ namespace ApplicantTrackingSystem.ViewModels
                 applicant_email = applicantEmail,
                 applicant_telp = applicantTelp,
             };
+
+            Console.WriteLine(jobApplication.job_id);
+            Console.WriteLine(jobApplication.apply_date);
+            Console.WriteLine(jobApplication.requirement_link);
+            Console.WriteLine(jobApplication.status);
+            Console.WriteLine(jobApplication.applicant_email);
+            Console.WriteLine(jobApplication.applicant_name);
+            Console.WriteLine(jobApplication.applicant_telp);
 
 
             var applyResp = await AtsService.AddJobApplication(jobApplication, credential.token);
@@ -136,43 +187,5 @@ namespace ApplicantTrackingSystem.ViewModels
             }
 
         }
-
-        //async void Submit()
-        //{
-        //    var connString = "Host=ec2-3-219-204-29.compute-1.amazonaws.com;Database=d7p6gej9knqefg;Username=ptyxepvslwevdw;Password=2cff69469572cf04b3e738727d1503ccd0e05efc9b1d73f9ac6061954f094771";
-
-        //    await using var conn = new NpgsqlConnection(connString);
-
-        //    Console.WriteLine("Opening");
-        //    await conn.OpenAsync();
-
-        //    Console.WriteLine("Opened");
-
-
-        //    string query = "INSERT INTO job_application (job_id, applicant_id, apply_date, requirement_link, status, applicant_name, applicat_email, applicant_telp) VALUES (@job_id, @applicant_id, @apply_date, @requirement_link, @status, @applicant_name, @applicat_email, @applicant_telp)";
-        //    try
-        //    {
-        //        using (var cmd1 = new NpgsqlCommand(query, conn))
-        //        {
-        //            cmd1.Parameters.AddWithValue("job_id", JobId);
-        //            cmd1.Parameters.AddWithValue("applicant_id", ApplicantId);
-        //            cmd1.Parameters.AddWithValue("apply_date", ApplyDate);
-        //            cmd1.Parameters.AddWithValue("requirement_link", RequirementLink);
-        //            cmd1.Parameters.AddWithValue("status", Status);
-        //            cmd1.Parameters.AddWithValue("applicant_name", ApplicantName);
-        //            cmd1.Parameters.AddWithValue("applicat_email", ApplicantEmail);
-        //            cmd1.Parameters.AddWithValue("applicant_telp", ApplicantTelp);
-        //            await cmd1.ExecuteNonQueryAsync();
-        //        };
-        //        Console.WriteLine("Successfully inserted new job application");
-        //    }
-
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex);
-        //        conn.Close();
-        //    }
-
-        //}
     }
 }

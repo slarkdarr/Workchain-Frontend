@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:ApplicantTrackingSystem.CustomLayouts"
     xmlns:bound="clr-namespace:ApplicantTrackingSystem"
     xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Class="ApplicantTrackingSystem.ScreeningApplicantListPage"
     NavigationPage.HasNavigationBar="False">
 
@@ -12,6 +13,12 @@
     <ContentPage.BindingContext>
         <viewmodels:ScreeningApplicantListViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
@@ -37,78 +44,91 @@
                     <Button x:Name="InReview" Text="In Review" BackgroundColor="#9955DE" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="14" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="InReview" CornerRadius="3" Clicked="StateChosen"/>
+                            ClassId="InReview" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchInReviewCommand}"/>
                     <Button x:Name="Interview" Text="Interview" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="14" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Interview" CornerRadius="3" Clicked="StateChosen"/>
-                    <Button x:Name="Accepted" Text="Accepted" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
+                            ClassId="Interview" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchInterviewCommand}"/>
+                    <Button x:Name="Offered" Text="Offered" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="14" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Accepted" CornerRadius="3" Clicked="StateChosen"/>
+                            ClassId="Offered" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchOfferedCommand}"/>
                     <Button x:Name="Declined" Text="Declined" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="14" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Declined" CornerRadius="3" Clicked="StateChosen"/>
+                            ClassId="Declined" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchDeclinedCommand}"/>
 
                 </StackLayout>
             </ScrollView>
 
             <!--List View-->
-            <StackLayout Padding="30,0" BackgroundColor="#F2F2F2" x:Name="ApplicantList">
-                <Label x:Name="StateTitle"
+            <StackLayout Padding="30,0" BackgroundColor="#F2F2F2" x:Name="JobList">
+                <Label x:Name="StateTitle" Text="{Binding StateTitle}"
                        FontFamily="LatoBlack"
                        FontSize="25"
                        TextColor="Black"
                        Margin="0,0,0,20"/>
-                <StackLayout>
-                    <Frame CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
-                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                        <StackLayout Orientation="Horizontal" BackgroundColor="White"
-                                     Spacing="10" Padding="20,20">
 
-                            <!--<StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="JobComponentTapped"/>
-                            </StackLayout.GestureRecognizers>-->
-                            <!--Applicant Photo-->
-                            <Image Source="imgplaceholder.png"
-                                   HorizontalOptions="Fill"
-                                   VerticalOptions="Center"/>
-
-                            <!--Job information-->
-                            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center">
-                                <Label Text="Applicant Name" FontFamily="Lato" FontSize="12"
-                                       TextColor="#727272"/>
-                                <Label Text="Job Name" FontFamily="LatoBold" FontSize="16"
-                                       TextColor="Black"/>
-                            </StackLayout>
-
-                            <!--Save and time information-->
-                            <StackLayout>
-                                <Image Source=""
-                                       HorizontalOptions="EndAndExpand"
-                                       VerticalOptions="StartAndExpand"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-
-
-                <!--ItemsSource={Binding JobItems}--><!--
+                <!--ItemsSource={Binding JobItems}-->
                 <ListView x:Name="RecentJobsList"
+                          ItemsSource="{Binding JobApplications}"
                           HasUnevenRows="True"
                           VerticalOptions="StartAndExpand"
-                          VerticalScrollBarVisibility="Never">
-                    
-                    --><!--To use for when binded with view model components--><!--
+                          VerticalScrollBarVisibility="Never"
+                          SelectedItem="{Binding SelectedApplicant, Mode=TwoWay}">
+                    <!--To use for when binded with view model components-->
+                    <ListView.Behaviors>
+                        <xct:EventToCommandBehavior 
+                            EventName="ItemSelected"
+                            Command="{Binding SelectedCommand}"
+                            EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+                    </ListView.Behaviors>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                
+                                <StackLayout>
+                                <Frame CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
+                                       VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="White"
+                                             Spacing="10" Padding="20,20">
+
+                                        <!--<StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="JobComponentTapped"/>
+                                        </StackLayout.GestureRecognizers>-->
+                                        <!--Company logo-->
+                                        <Image Source="imgplaceholder.png"
+                                                HorizontalOptions="Fill"
+                                                VerticalOptions="Center"/>
+
+                                        <!--Job information-->
+                                        <StackLayout HorizontalOptions="StartAndExpand">
+                                            <Label Text="{Binding job_name}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                            <Label Text="{Binding applicant_name}" FontFamily="LatoBold" FontSize="16"
+                                                   TextColor="Black"/>
+                                            <Label Text="{Binding city}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                        </StackLayout>
+
+                                        <!--Save and time information-->
+                                        <StackLayout>
+                                            <Image Source="{Binding Company_Image}"
+                                                HorizontalOptions="EndAndExpand"
+                                                VerticalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding Apply_Duration}" FontFamily="Lato" FontSize="11"
+                                                   TextColor="#727272"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                                </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
+                </ListView>
 
             </StackLayout>
 

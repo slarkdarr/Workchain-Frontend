@@ -12,34 +12,24 @@ namespace ApplicantTrackingSystem
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [QueryProperty(nameof(PassedApplication), nameof(PassedApplication))]
-    public partial class ScheduleJobInterviewPage : ContentPage
+    public partial class ApplicationDetailPage : ContentPage
     {
         public string PassedApplication { get; set; }
+        public ApplicationDetailViewModel vm = new ApplicationDetailViewModel();
 
-        public ScheduleJobInterviewViewModel vm = new ScheduleJobInterviewViewModel();
-        public ScheduleJobInterviewPage()
+        public ApplicationDetailPage()
         {
-            
             InitializeComponent();
-            InterviewDate.Date = DateTime.Now;
-            InterviewStartTime.Time = DateTime.Now.TimeOfDay;
-            InterviewEndTime.Time = DateTime.Now.TimeOfDay;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             this.BindingContext = vm;
-            Console.WriteLine("APPLICANT HASIL PASSING Schedule");
+            Console.WriteLine("APPLICANT HASIL PASSING Detail page");
             Console.WriteLine(PassedApplication);
             vm.ApplicationId = PassedApplication;
             vm.LoadCommand.Execute(null);
-        }
-
-        private void DeclineButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ScreeningApplicantListPage());
-            Navigation.RemovePage(this);
         }
     }
 }

@@ -11,11 +11,26 @@ using Xamarin.Forms.Xaml;
 namespace ApplicantTrackingSystem
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [QueryProperty(nameof(PassedApplication), nameof(PassedApplication))]
     public partial class ApplicantDetailPage : ContentPage
     {
+        public string PassedApplication { get; set; }
+
+        public ApplicantDetailViewModel vm = new ApplicantDetailViewModel();
         public ApplicantDetailPage()
         {
+            
             InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            this.BindingContext = vm;
+            Console.WriteLine("APPLICANT HASIL PASSING Detail page");
+            Console.WriteLine(PassedApplication);
+            vm.ApplicationId = PassedApplication;
+            vm.LoadCommand.Execute(null);
         }
 
         private void ScheduleInterviewButton_Clicked(object sender, EventArgs e)
