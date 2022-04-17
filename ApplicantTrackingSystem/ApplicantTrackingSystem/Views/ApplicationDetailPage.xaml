@@ -109,11 +109,7 @@
                            FontSize="18" 
                            TextColor="Black"
                            Margin="0,20,0,5"/>
-                        <ImageButton Source="edit.png"
-                               HorizontalOptions="Center"
-                               Margin="0,15,0,5"
-                               Command="{Binding ScheduleCommand}"
-                               BackgroundColor="Transparent"/>
+                        
                     </StackLayout>
                     
 

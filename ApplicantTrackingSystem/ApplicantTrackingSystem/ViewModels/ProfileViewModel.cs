@@ -19,6 +19,7 @@ namespace ApplicantTrackingSystem.ViewModels
         public CredentialModel credential = new CredentialModel();
         public Profile ProfileQueryResult { get; set; }
         public Command ImagePickerCommand { get; }
+        public Command LogoutCommand { get; }
 
         //public Action DisplayInvalidProfilePrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -147,7 +148,28 @@ namespace ApplicantTrackingSystem.ViewModels
 
             SaveCommand = new Command(async () => await UpdateProfile());
             ImagePickerCommand = new Command(ImagePicker);
+            LogoutCommand = new Command(Logout);
 
+        }
+
+        async void Logout()
+        {
+            //Hapus credentials, tapi masih belum bener
+            Barrel.Current.Empty("loginCredential");
+            Barrel.Current.EmptyAll();
+            Barrel.Current.EmptyExpired();
+
+            AtsService.client =  new HttpClient
+            {
+                BaseAddress = new Uri(AtsService.BaseUrl)
+            };
+
+            Console.WriteLine("BARREL CONTENT: " + Barrel.Current.Get<string>("loginCredential"));
+
+            //Yahya tolong benerin navigasi nya dong, buat balik ke main page
+            //var route = $"{nameof(RegistrationApplicantPage)}";
+            await Shell.Current.GoToAsync("//MainPage");
+            
         }
 
         async void FetchAll()
@@ -161,7 +183,9 @@ namespace ApplicantTrackingSystem.ViewModels
                 Headline = ProfileQueryResult.headline;
                 Email = ProfileQueryResult.email;
                 ProfilePicture = ProfileQueryResult.profile_picture;
-                Birthdate = DateTime.ParseExact(ProfileQueryResult.birthdate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                if (ProfileQueryResult.birthdate != null) {
+                    Birthdate = DateTime.ParseExact(ProfileQueryResult.birthdate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                }
                 Phone = ProfileQueryResult.phone_number;
                 Gender = ProfileQueryResult.gender;
                 Country = ProfileQueryResult.country;

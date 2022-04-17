@@ -15,9 +15,9 @@ namespace ApplicantTrackingSystem.Services
         //static string Baseurl = DeviceInfo.Platform == DevicePlatform.Android ?
         //                                    "http://10.0.2.2:5000" : "http://localhost:5000";
 
-        static string BaseUrl = "https://ats-kelompok24.herokuapp.com";
+        public static string BaseUrl = "https://ats-kelompok24.herokuapp.com";
 
-        static HttpClient client;
+        public static HttpClient client;
 
         static AtsService()
         {
@@ -33,6 +33,7 @@ namespace ApplicantTrackingSystem.Services
 
             }
         }
+
 
         public static async Task<CredentialModel> PostLogin(string email, string password, string type)
         {
@@ -58,6 +59,7 @@ namespace ApplicantTrackingSystem.Services
             {
                 Console.WriteLine("IS SUCCESS STATUS CODE");
                 Console.WriteLine(response);
+                Barrel.Current.EmptyAll();
                 Barrel.Current.Add("loginCredential", contentResp, TimeSpan.FromMinutes(30));
                 return credential;
             }

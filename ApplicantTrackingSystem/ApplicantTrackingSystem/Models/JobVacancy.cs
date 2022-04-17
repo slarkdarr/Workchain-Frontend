@@ -15,6 +15,7 @@ namespace ApplicantTrackingSystem.Models
         public string Description { get; set; }
         public int Company_ID { get; set; }
         public string Company_Name { get; set; }
-        public string? Company_City { get; set; }
+        public string Company_City { get; set; }
+        public string Company_Profile_Picture { get; set; }
     }
 }

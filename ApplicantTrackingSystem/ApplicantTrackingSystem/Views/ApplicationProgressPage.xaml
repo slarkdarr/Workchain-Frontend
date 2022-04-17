@@ -103,10 +103,14 @@
                                         <!--<StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="JobComponentTapped"/>
                                         </StackLayout.GestureRecognizers>-->
-                                        <!--Company logo-->
-                                        <Image Source="imgplaceholder.png"
-                                                HorizontalOptions="Fill"
-                                                VerticalOptions="Center"/>
+                                        <!--Company Logo-->
+                                        <Frame Padding="0" Margin="0" CornerRadius="7" IsClippedToBounds="True">
+                                            <Image Source="{Binding company_picture}"
+                                                    HorizontalOptions="Fill"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="55"
+                                                    Margin="0"/>
+                                        </Frame>
 
                                         <!--Job information-->
                                         <StackLayout HorizontalOptions="StartAndExpand">

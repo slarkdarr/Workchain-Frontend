@@ -15,6 +15,7 @@
     <Compile Remove="Views\**" />
     <EmbeddedResource Remove="Views\**" />
     <None Remove="Views\**" />
+    <None Remove="View\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,59 +44,182 @@
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="CustomLayouts\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Lato-Black.ttf" />
     <EmbeddedResource Include="Fonts\Lato-Bold.ttf" />
     <EmbeddedResource Include="Fonts\Lato-Regular.ttf" />
+    <EmbeddedResource Include="Views\ApplicantDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ApplicationDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ApplicationProgressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppShell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\JobApplicationProgressPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\JobApplyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\JobCatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\JobVacancyPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginApplicantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfileApplicantPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegistrationApplicantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegistrationCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ScheduleJobInterviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ScreeningApplicantListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ScheduleJobInterviewPage.xaml.cs">
-      <DependentUpon>ScheduleJobInterviewPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="ApplicantDetailPage.xaml.cs">
+    <Compile Include="Views\ApplicantDetailPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
       <DependentUpon>ApplicantDetailPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ScreeningApplicantListPage.xaml.cs">
-      <DependentUpon>ScreeningApplicantListPage.xaml</DependentUpon>
+    <Compile Include="Views\App.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProfilePage.xaml.cs">
-      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    <Compile Include="Views\ApplicationDetailPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>ApplicationDetailPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoginCompanyPage.xaml.cs">
-      <DependentUpon>LoginCompanyPage.xaml</DependentUpon>
+    <Compile Include="Views\ApplicationProgressPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>ApplicationProgressPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LoginApplicantPage.xaml.cs">
-      <DependentUpon>LoginApplicantPage.xaml</DependentUpon>
+    <Compile Include="Views\AppShell.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>AppShell.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="JobApplicationProgressPage.xaml.cs">
+    <Compile Include="Views\AssemblyInfo.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="Views\DetailPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>DetailPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\JobApplicationProgressPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
       <DependentUpon>JobApplicationProgressPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RegistrationCompanyPage.xaml.cs">
-      <DependentUpon>RegistrationCompanyPage.xaml</DependentUpon>
+    <Compile Include="Views\JobApplyPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>JobApplyPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProfileApplicantPage.xaml.cs">
+    <Compile Include="Views\JobCatalogPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>JobCatalogPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\JobVacancyPost.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>JobVacancyPost.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\LoginApplicantPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>LoginApplicantPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\LoginCompanyPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>LoginCompanyPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\ProfileApplicantPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
       <DependentUpon>ProfileApplicantPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RegistrationApplicantPage.xaml.cs">
+    <Compile Include="Views\ProfilePage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\RegistrationApplicantPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
       <DependentUpon>RegistrationApplicantPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="AppShell.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="LoginCompanyPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="JobApplicationProgressPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="RegistrationCompanyPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="ProfileApplicantPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Include="Views\RegistrationCompanyPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>RegistrationCompanyPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\RegistrationPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\ScheduleJobInterviewPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>ScheduleJobInterviewPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\ScreeningApplicantListPage.xaml.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <DependentUpon>ScreeningApplicantListPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

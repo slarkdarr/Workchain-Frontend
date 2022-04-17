@@ -19,7 +19,6 @@ namespace ApplicantTrackingSystem.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableRangeCollection<JobApplication> JobApplicationQueryResult { get; set; }
 
-        public ICommand ScheduleCommand { protected set; get; }
         public ICommand LoadCommand { protected set; get; }
         public ICommand OpenCVCommand { protected set; get; }
 
@@ -39,7 +38,6 @@ namespace ApplicantTrackingSystem.ViewModels
 
             JobApplicationQueryResult = new ObservableRangeCollection<JobApplication>();
 
-            ScheduleCommand = new Command(OnSchedule);
             LoadCommand = new Command(OnLoad);
             OpenCVCommand = new Command(OpenCV);
         }
@@ -168,14 +166,6 @@ namespace ApplicantTrackingSystem.ViewModels
 
         public ICommand SubmitCommand { protected set; get; }
 
-        async public void OnSchedule()
-        {
-            Console.WriteLine("On Schedule");
-            Console.WriteLine(ApplicationId);
-            // Navigate to ScheduleJobInterviewPage
-            var route = $"{nameof(ScheduleJobInterviewPage)}?PassedApplication={ApplicationId}";
-            await Shell.Current.GoToAsync(route);
-        }
 
         async void OnLoad()
         {
