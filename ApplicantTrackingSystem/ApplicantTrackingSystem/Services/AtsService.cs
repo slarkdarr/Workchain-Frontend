@@ -212,7 +212,7 @@ namespace ApplicantTrackingSystem.Services
 
         }
 
-        public static async Task<string> UploadPicture(StreamContent content, string token)
+        public static async Task<UploadImageModel> UploadPicture(MultipartFormDataContent content, string token)
         {
             try
             {
@@ -224,21 +224,10 @@ namespace ApplicantTrackingSystem.Services
             }
 
             var response = await client.PostAsync("Upload/picture", content);
-            var contentResp = response.Content.ReadAsStringAsync().Result;
+            var contentResp = await response.Content.ReadAsStringAsync();
+            var jsonResp = JsonConvert.DeserializeObject<UploadImageModel>(contentResp);
             
-            if (response.IsSuccessStatusCode)
-            {
-                Console.WriteLine("IS SUCCESS STATUS CODE");
-                Console.WriteLine(response);
-                return contentResp;
-            }
-            else
-            {
-                Console.WriteLine("IS NOT SUCCESS STATUS CODE");
-                Console.WriteLine(response);
-                Console.WriteLine(contentResp);
-                return null;
-            }
+            return jsonResp;
 
         }
     }

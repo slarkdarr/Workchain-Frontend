@@ -28,7 +28,7 @@
                         <StackLayout>
                             <Editor x:Name="FullName" AutoSize="TextChanges" Text="{Binding FullName}" Placeholder="Full Name" FontFamily="LatoBlack" FontSize="22" TextColor="Black" HorizontalOptions="Center" Margin="30,0"/>
                             <Editor x:Name="Headline" AutoSize="TextChanges" Text="{Binding Headline}" Placeholder="Tell about yourself in the headline" FontFamily="Lato" FontSize="16" HorizontalOptions="Center" Margin="30,0"/>
-                            <Button x:Name="ProfilePicture" Text="Change profile picture" HorizontalOptions="End" Margin="0,10,10,0" Clicked="ChangeProfilePicture_Clicked"/>
+                            <Button x:Name="ProfilePicture" Text="Change profile picture" HorizontalOptions="End" Margin="0,10,10,0" Command="{Binding ImagePickerCommand}" Clicked="ChangeProfilePicture_Clicked"/>
 
                             <!--Applicant Personal Info (from Applicant table)-->
                             <Frame Grid.Row="4" Grid.Column="0" Margin="0,0,0,0">

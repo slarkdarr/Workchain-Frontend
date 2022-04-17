@@ -10,6 +10,7 @@ using ApplicantTrackingSystem.Services;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using System.Collections.Generic;
+using System.Net.Http;
 
 namespace ApplicantTrackingSystem.ViewModels
 {
@@ -17,6 +18,7 @@ namespace ApplicantTrackingSystem.ViewModels
     {
         public CredentialModel credential = new CredentialModel();
         public Profile ProfileQueryResult { get; set; }
+        public Command ImagePickerCommand { get; }
 
         //public Action DisplayInvalidProfilePrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -144,6 +146,7 @@ namespace ApplicantTrackingSystem.ViewModels
             FetchAll();
 
             SaveCommand = new Command(async () => await UpdateProfile());
+            ImagePickerCommand = new Command(ImagePicker);
 
         }
 
@@ -182,6 +185,7 @@ namespace ApplicantTrackingSystem.ViewModels
                     full_name = full_name,
                     headline = headline,
                     email = email,
+                    profile_picture = profile_picture,
                     birthdate = birthdate.ToString("dd/MM/yyyy"),
                     phone_number = phone_number,
                     gender = gender,
@@ -202,26 +206,28 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-        //private async Task UploadPicture()
-        //{
-        //    try
-        //    {
-        //        var content = new Profile
-        //        {
-        //            profile_picture = profile_picture,
-        //        };
+        async void ImagePicker()
+        {
+            var image = await MediaPicker.PickPhotoAsync();
 
-        //        await AtsService.UploadPicture(content, credential.token);
+            if (image == null)
+            {
+                return;
+            }
 
-        //        await Shell.Current.GoToAsync("..");
+            var content = new MultipartFormDataContent();
+            content.Add(new StreamContent(await image.OpenReadAsync()),
+                "file", image.FileName);
 
-        //        //Console.WriteLine(profile.birthdate);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-        //}
+            var uploadResp = await AtsService.UploadPicture(content, credential.token);
+
+            ProfilePicture = uploadResp.link;
+            Console.WriteLine(uploadResp);
+            Console.WriteLine("REQUIREMENT LINK: ");
+            Console.WriteLine(uploadResp.link);
+
+        }
+
 
         //async public void OnSubmit()
         //{
