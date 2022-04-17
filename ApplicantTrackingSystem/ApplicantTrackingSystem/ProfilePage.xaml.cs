@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using ApplicantTrackingSystem.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,12 +20,12 @@ namespace ApplicantTrackingSystem
 
             FullName.Completed += (object sender, EventArgs e) =>
             {
-                Password.Focus();
+                Headline.Focus();
             };
 
-            Password.Completed += (object sender, EventArgs e) =>
+            Headline.Completed += (object sender, EventArgs e) =>
             {
-                ProfilePicture.Focus();
+                Phone.Focus();
             };
 
             //ProfilePicture.Completed += (object sender, EventArgs e) =>
@@ -53,36 +55,32 @@ namespace ApplicantTrackingSystem
 
             City.Completed += (object sender, EventArgs e) =>
             {
-                Headline.Focus();
-            };
-
-            Headline.Completed += (object sender, EventArgs e) =>
-            {
                 Description.Focus();
             };
 
             Description.Completed += (object sender, EventArgs e) =>
             {
-                vm.SubmitCommand.Execute(null);
-            };
-
-            Type.Completed += (object sender, EventArgs e) =>
-            {
-                vm.SubmitCommand.Execute(null);
+                
             };
         }
 
-        //public async void OnChooseProfilePictureClicked(object sender, EventArgs e)
-        //{
-        //    (sender as Button).IsEnabled = false;
+        async void ChangeProfilePicture_Clicked(System.Object sender, System.EventArgs e)
+        {
+            var pickResult = await FilePicker.PickAsync(new PickOptions
+            {
+                FileTypes = FilePickerFileType.Images,
+                PickerTitle = "Choose an image"
+            });
 
-        //    Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
-        //    if (stream != null)
-        //    {
-        //        image.Source = ImageSource.FromStream(() => stream);
-        //    }
+            if (pickResult != null)
+            {
+                var stream = await pickResult.OpenReadAsync();
+                ProfilePic.Source = ImageSource.FromStream(() => stream);
 
-        //    (sender as Button).IsEnabled = true;
-        //}
+                MultipartFormDataContent content = new MultipartFormDataContent();
+
+                content.Add(new StreamContent(stream), "file", pickResult.FileName);
+            }
+        }
     }
 }

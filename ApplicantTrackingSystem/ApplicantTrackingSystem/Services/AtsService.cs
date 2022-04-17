@@ -350,5 +350,77 @@ namespace ApplicantTrackingSystem.Services
             return jsonResp;
 
         }
+
+        public static async Task<Profile> GetProfile(string token, int user_id)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+            
+            string Profile = "User/" + user_id.ToString();
+            var json = await client.GetStringAsync(Profile);
+            var profileResponse = JsonConvert.DeserializeObject<Profile>(json);
+            //Console.WriteLine(profileResponse.birthdate);
+
+            return profileResponse;
+        }
+
+        public static async Task<string> UpdateProfile(Profile profile, string token)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+
+            //client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            var json = JsonConvert.SerializeObject(profile);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PutAsync("User/", content);
+            var contentResp = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine("IS SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                return contentResp;
+            }
+            else
+            {
+                Console.WriteLine("IS NOT SUCCESS STATUS CODE");
+                Console.WriteLine(response);
+                Console.WriteLine(contentResp);
+                return null;
+            }
+
+        }
+
+        public static async Task<UploadImageModel> UploadPicture(MultipartFormDataContent content, string token)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+
+            var response = await client.PostAsync("Upload/picture", content);
+            var contentResp = await response.Content.ReadAsStringAsync();
+            var jsonResp = JsonConvert.DeserializeObject<UploadImageModel>(contentResp);
+            
+            return jsonResp;
+
+        }
     }
 }
