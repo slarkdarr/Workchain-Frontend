@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:ApplicantTrackingSystem.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="ApplicantTrackingSystem.ApplicationDetailPage"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
+            <!--Top Navbar-->
+            <StackLayout Padding="20" BackgroundColor="#F2F2F2" Spacing="12">
+                <StackLayout.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Color="#8142C1"
+                                      Offset="0.1" />
+                        <GradientStop Color="#58327F"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </StackLayout.Background>
+
+                <!--Page Title-->
+                <Label Text="Applicant Detail" FontFamily="LatoBold" FontSize="22" TextColor="White"/>
+
+            </StackLayout>
+
+            <!--Header-->
+            <StackLayout Padding="50,10" BackgroundColor="#F2F2F2">
+                <Image Source="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-No-Background.png"
+                   HeightRequest="90"/>
+                <!--ApplicantName-->
+                <Label x:Name="ApplicantName"
+                       Text="{Binding ApplicantName}"
+                       FontFamily="LatoBlack"
+                       FontSize="22"
+                       TextColor="Black"
+                       Margin="0,0,0,10"
+                       HorizontalTextAlignment="Center"/>
+                <!--Job Position Name-->
+                <Label x:Name="JobName"
+                       Text="{Binding JobName}"
+                       FontFamily="Lato"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <BoxView WidthRequest="350" HeightRequest="1" BackgroundColor="#D9D9D9" HorizontalOptions="CenterAndExpand"/>
+
+            <!--Body-->
+            <ScrollView Padding="30,10" BackgroundColor="#F2F2F2" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label x:Name="Resume" 
+                           Text="Resume" 
+                           FontFamily="LatoBold" 
+                           FontSize="18" 
+                           TextColor="Black"
+                           Margin="0,0,0,5"/>
+                    <!--Resume File Attachment-->
+                    <Frame x:Name="ResumeFileAttachment" CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
+                           HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#E5E5E5"
+                                     Spacing="10" Padding="10,10">
+                            
+                            <Image Source="attachment.png"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Center"/>
+
+                            <Label x:Name="ResumeFileName"
+                                   Text="{Binding ApplicantName}"
+                                   FontFamily="LatoBold"
+                                   VerticalOptions="Center"/>
+
+                            <Button x:Name="ViewResume"
+                                    Margin="-10,-10"
+                                    Text="View"
+                                    FontFamily="Lato"
+                                    TextColor="DodgerBlue"
+                                    BackgroundColor="#E5E5E5"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="Center"
+                                    Command="{Binding OpenCVCommand}"/>
+
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Contact Information-->
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="email.png"/>
+                        <Label Text="{Binding ApplicantEmail}"
+                               FontFamily="Lato"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="phone.png"/>
+                        <Label Text="{Binding ApplicantTelp}"
+                               FontFamily="Lato"/>
+                    </StackLayout>
+
+                    <!--<Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit lectus ac porta venenatis. Quisque id aliquet purus, posuere molestie nisi. Vestibulum id pretium sem. In rhoncus nunc quis sapien sagittis interdum. Donec in dolor id magna elementum sollicitudin ut et lorem. Etiam tincidunt at risus eu dictum. Maecenas at est gravida, vulputate orci facilisis, egestas ipsum. Praesent imperdiet venenatis fringilla. Sed pulvinar eget sem eu mattis. Vivamus hendrerit nec turpis vel tempor. Vestibulum lacus ante, rutrum in ultricies eu, dignissim nec sem. Etiam ac massa nec erat tempus pulvinar ut tristique ante."
+                       FontFamily="Lato"
+                       FontSize="14"/>-->
+
+                    <!--Interview details-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label x:Name="InterviewDetails" 
+                           Text="Interview Details" 
+                           FontFamily="LatoBold" 
+                           FontSize="18" 
+                           TextColor="Black"
+                           Margin="0,20,0,5"/>
+                        <ImageButton Source="edit.png"
+                               HorizontalOptions="Center"
+                               Margin="0,15,0,5"
+                               Command="{Binding ScheduleCommand}"
+                               BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="date.png"/>
+                        <Label Text="{Binding InterviewDate}"
+                               FontFamily="Lato"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="time.png"/>
+                        <Label Text="{Binding InterviewTime}"
+                               FontFamily="Lato"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="link.png"/>
+                        <Label Text="{Binding InterviewLink}"
+                               FontFamily="Lato"/>
+                    </StackLayout>
+
+                </StackLayout>
+                
+            </ScrollView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

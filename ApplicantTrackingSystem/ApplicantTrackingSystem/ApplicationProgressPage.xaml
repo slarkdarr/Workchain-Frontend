@@ -13,6 +13,12 @@
         <viewmodels:ApplicationProgressViewModel/>
     </ContentPage.BindingContext>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
             <!--Header-->
@@ -76,8 +82,15 @@
                           ItemsSource="{Binding JobApplications}"
                           HasUnevenRows="True"
                           VerticalOptions="StartAndExpand"
-                          VerticalScrollBarVisibility="Never">
+                          VerticalScrollBarVisibility="Never"
+                          SelectedItem="{Binding SelectedApplicant, Mode=TwoWay}">
                     <!--To use for when binded with view model components-->
+                    <ListView.Behaviors>
+                        <xct:EventToCommandBehavior 
+                            EventName="ItemSelected"
+                            Command="{Binding SelectedCommand}"
+                            EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+                    </ListView.Behaviors>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

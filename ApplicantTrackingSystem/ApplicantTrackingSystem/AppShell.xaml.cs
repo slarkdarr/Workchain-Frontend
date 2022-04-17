@@ -29,6 +29,7 @@ namespace ApplicantTrackingSystem
             Routing.RegisterRoute(nameof(JobVacancyPost), typeof(JobVacancyPost));
             Routing.RegisterRoute(nameof(ApplicantDetailPage), typeof(ApplicantDetailPage));
             Routing.RegisterRoute(nameof(ScheduleJobInterviewPage), typeof(ScheduleJobInterviewPage));
+            Routing.RegisterRoute(nameof(ApplicationDetailPage), typeof(ApplicationDetailPage));
         }
     }
 }
