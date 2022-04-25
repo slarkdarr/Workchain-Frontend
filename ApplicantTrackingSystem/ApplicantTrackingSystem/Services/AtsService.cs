@@ -34,6 +34,19 @@ namespace ApplicantTrackingSystem.Services
             }
         }
 
+        public static void removeHeader(string headerName)
+        {
+            try
+            {
+                client.DefaultRequestHeaders.Remove(headerName);
+                Console.WriteLine("Header removed");
+            }
+            catch (Exception ex)
+            {
+                //throw ex;
+            }
+        }
+
 
         public static async Task<CredentialModel> PostLogin(string email, string password, string type)
         {

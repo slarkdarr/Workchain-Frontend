@@ -17,6 +17,7 @@ namespace ApplicantTrackingSystem.ViewModels
     public class ProfileViewModel : INotifyPropertyChanged
     {
         public CredentialModel credential = new CredentialModel();
+        public CredentialModel credentialOut = new CredentialModel();
         public Profile ProfileQueryResult { get; set; }
         public Command ImagePickerCommand { get; }
         public Command LogoutCommand { get; }
@@ -154,22 +155,39 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async void Logout()
         {
-            //Hapus credentials, tapi masih belum bener
-            Barrel.Current.Empty("loginCredential");
-            Barrel.Current.EmptyAll();
-            Barrel.Current.EmptyExpired();
+            Console.WriteLine("LOGOUT");
+            //Remove existing credential
+            Barrel.Current.Empty(key: "loginCredential");
 
-            AtsService.client =  new HttpClient
+            //Barrel.Current.Empty("loginCredential");
+            //Barrel.Current.EmptyAll();
+            //Barrel.Current.EmptyExpired();
+
+            //AtsService.client =  new HttpClient
+            //{
+            //    BaseAddress = new Uri(AtsService.BaseUrl)
+            //};
+
+            // Removing header from httpClient
+            AtsService.removeHeader("Authorization");
+
+            // Check/try access the cache (should not exist)
+            try
             {
-                BaseAddress = new Uri(AtsService.BaseUrl)
-            };
+                Console.WriteLine("CRED LOGOUT");
+                var jsonOut = string.Empty;
+                jsonOut = Barrel.Current.Get<string>("loginCredential");
+                credentialOut = JsonConvert.DeserializeObject<CredentialModel>(jsonOut);
+                Console.WriteLine("BARREL CONTENT: " + credentialOut.token);
+            }
+            catch (Exception ex)
+            { 
+                // Do nothing
+            }
 
-            Console.WriteLine("BARREL CONTENT: " + Barrel.Current.Get<string>("loginCredential"));
+            // Navigate to Main Page by re-creating new MainPage
+            (Application.Current).MainPage = new AppShell();
 
-            //Yahya tolong benerin navigasi nya dong, buat balik ke main page
-            //var route = $"{nameof(RegistrationApplicantPage)}";
-            await Shell.Current.GoToAsync("//MainPage");
-            
         }
 
         async void FetchAll()
