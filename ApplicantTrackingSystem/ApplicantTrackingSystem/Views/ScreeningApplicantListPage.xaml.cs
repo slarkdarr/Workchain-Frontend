@@ -21,18 +21,18 @@ namespace ApplicantTrackingSystem
             this.BindingContext = vm;
             InitializeComponent();
 
-            var state = (Button)States.FindByName("InReview");
+            var state = (Button)States.FindByName("All");
             state.BackgroundColor = Color.FromHex("9955DE");
-            currentState = "InReview";
+            currentState = "All";
 
-            vm.FetchInReviewCommand.Execute(null);
+            vm.FetchAllCommand.Execute(null);
             var stateTitle = (Label)JobList.FindByName("StateTitle");
-            stateTitle.Text = "In Review";
+            stateTitle.Text = "All";
         }
 
         private void StateChosen(object sender, EventArgs e)
         {
-            string[] stateNamesList = { "InReview", "Interview", "Offered", "Declined" };
+            string[] stateNamesList = { "All", "InReview", "Interview", "Offered", "Declined" };
             var entry = (Button)sender;
             var classId = entry.ClassId;
             var identifier = classId;
@@ -98,6 +98,16 @@ namespace ApplicantTrackingSystem
                 vm.FetchDeclinedCommand.Execute(null);
                 var stateTitle = (Label)JobList.FindByName("StateTitle");
                 stateTitle.Text = "Declined";
+            }
+            else if (currentState == "All")
+            {
+                var state = (Button)States.FindByName("All");
+                state.BackgroundColor = Color.FromHex("9955DE");
+                currentState = "All";
+
+                vm.FetchAllCommand.Execute(null);
+                var stateTitle = (Label)JobList.FindByName("StateTitle");
+                stateTitle.Text = "All";
             }
         }
 

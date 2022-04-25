@@ -216,6 +216,12 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async void OnAccept()
         {
+            if (interviewDate == "Not set")
+            {
+                InterviewDate = null;
+                InterviewTime = null;
+                InterviewLink = null;
+            }
             var jobApplication = new UpdateJobApplication
             {
                 application_id = Int32.Parse(ApplicationId),
@@ -244,6 +250,12 @@ namespace ApplicantTrackingSystem.ViewModels
 
         async void OnDecline()
         {
+            if (interviewDate == "Not set")
+            {
+                InterviewDate = null;
+                InterviewTime = null;
+                InterviewLink = null;
+            }
             var jobApplication = new UpdateJobApplication
             {
                 application_id = Int32.Parse(ApplicationId),

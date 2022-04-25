@@ -62,13 +62,23 @@
             <!--Body-->
             <ScrollView Padding="30,10" BackgroundColor="#F2F2F2" VerticalOptions="FillAndExpand">
                 <StackLayout>
+                    <!--Status Information-->
+                    <Label x:Name="Status" 
+                           Text="{Binding ApplicationStatus}" 
+                           FontFamily="LatoBold" 
+                           FontSize="18" 
+                           TextColor="DodgerBlue"
+                           Margin="0,0,0,5"
+                           HorizontalOptions="End"/>
+
+                    <!--Resume File Attachment-->
                     <Label x:Name="Resume" 
                            Text="Resume" 
                            FontFamily="LatoBold" 
                            FontSize="18" 
                            TextColor="Black"
                            Margin="0,0,0,5"/>
-                    <!--Resume File Attachment-->
+                    
                     <Frame x:Name="ResumeFileAttachment" CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
                            HorizontalOptions="FillAndExpand">
                         <StackLayout Orientation="Horizontal" BackgroundColor="#E5E5E5"
