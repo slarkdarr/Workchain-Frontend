@@ -23,6 +23,7 @@ namespace ApplicantTrackingSystem.ViewModels
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         private string stateTitle;
+        public ICommand FetchAllCommand { protected set; get; }
         public ICommand FetchInReviewCommand { protected set; get; }
         public ICommand FetchInterviewCommand { protected set; get; }
         public ICommand FetchOfferedCommand { protected set; get; }
@@ -56,8 +57,11 @@ namespace ApplicantTrackingSystem.ViewModels
             FetchInterviewCommand = new Command(FetchInterview);
             FetchOfferedCommand = new Command(FetchOffered);
             FetchDeclinedCommand = new Command(FetchDeclined);
+            FetchAllCommand = new Command(FetchAll);
 
             SelectedCommand = new MvvmHelpers.Commands.AsyncCommand<object>(Selected);
+
+            FetchAll();
 
         }
 
@@ -84,6 +88,26 @@ namespace ApplicantTrackingSystem.ViewModels
             var route = $"{nameof(ApplicationDetailPage)}?PassedApplication={applicant.application_id}";
             await Shell.Current.GoToAsync(route);
 
+        }
+
+        async void FetchAll()
+        {
+            JobApplications.Clear();
+            var JobApplicationQueryResults = await AtsService.GetJobApplication(credential.token);
+            if (JobApplicationQueryResults != null)
+            {
+                Console.WriteLine(JobApplicationQueryResults);
+                foreach (JobApplication job in JobApplicationQueryResults)
+                {
+                   
+                    JobApplications.Add(job);
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("EMPTYY");
+            }
         }
 
         async void FetchAll(string state)

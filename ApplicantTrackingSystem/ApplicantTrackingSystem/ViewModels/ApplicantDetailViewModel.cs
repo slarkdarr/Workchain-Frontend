@@ -63,6 +63,7 @@ namespace ApplicantTrackingSystem.ViewModels
         private string interviewDate = "Not set";
         private string interviewTime = "Not set";
         private string interviewLink = "Not set";
+        private string applicantPicture;
         private bool enabledAccept;
         private bool enabledDecline;
         private string applicantRequirement;
@@ -144,6 +145,16 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 interviewLink = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("InterviewLink"));
+            }
+        }
+
+        public string ApplicantPicture
+        {
+            get { return applicantPicture; }
+            set
+            {
+                applicantPicture = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantPicture"));
             }
         }
 
@@ -270,7 +281,7 @@ namespace ApplicantTrackingSystem.ViewModels
                 ApplicantEmail = application[0].applicant_email;
                 ApplicationStatus = application[0].status;
                 ApplicantTelp = application[0].applicant_telp;
-
+                ApplicantPicture = application[0].applicant_picture;
                 ApplicantRequirement = application[0].requirement_link;
                 //ApplicantRequirement = "https://stei19.kuliah.itb.ac.id/login/index.php";
 

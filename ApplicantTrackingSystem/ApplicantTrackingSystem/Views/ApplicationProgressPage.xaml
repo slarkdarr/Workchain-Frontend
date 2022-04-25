@@ -40,11 +40,11 @@
             <!--Progress State Selectors-->
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout x:Name="States" Orientation="Horizontal" HorizontalOptions="Center" Padding="20">
-                    <Button x:Name="Applied" Text="Applied" BackgroundColor="#9955DE" Padding="10,0" Margin="0"
+                    <Button x:Name="All" Text="All" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"
-                            ClassId="Applied" CornerRadius="3" Clicked="StateChosen"
-                            Command="{Binding FetchInReviewCommand}"/>
+                            ClassId="All" CornerRadius="3" Clicked="StateChosen"
+                            Command="{Binding FetchAllCommand}"/>
                     <Button x:Name="InReview" Text="In Review" BackgroundColor="#D9D9D9" Padding="10,0" Margin="0"
                             HeightRequest="35" TextColor="White" FontFamily="Lato"
                             FontSize="12" VerticalOptions="Fill" HorizontalOptions="Fill"

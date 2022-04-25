@@ -106,32 +106,39 @@
                             </StackLayout>-->
 
                             <!--Resume File Attachment-->
-                            <Frame x:Name="ResumeFileAttachment" CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
-                                   HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal" BackgroundColor="#E5E5E5"
-                                             Spacing="10" Padding="10,10">
+                            <StackLayout>
+                                <Label Text="Curriculum Vitae" FontFamily="Lato" FontSize="11" TextColor="#727272"
+                                    Padding="3,0,0,0"/>
+
+                                <Frame x:Name="ResumeFileAttachment" CornerRadius="10" HasShadow="True" Padding="0" Margin="0,0,0,15"
+                                       HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="#E5E5E5"
+                                                 Spacing="10" Padding="10,10">
                             
-                                    <Image Source="attachment.png"
-                                           HorizontalOptions="Fill"
-                                           VerticalOptions="Center"/>
+                                        <Image Source="attachment.png"
+                                               HorizontalOptions="Fill"
+                                               VerticalOptions="Center"/>
 
-                                    <Label x:Name="ResumeFileName"
-                                           Text="{Binding ApplicantName}"
-                                           FontFamily="LatoBold"
-                                           VerticalOptions="Center"/>
+                                        <Label x:Name="ResumeFileName"
+                                               Text="{Binding ApplicantName}"
+                                               FontFamily="LatoBold"
+                                               VerticalOptions="Center"/>
 
-                                    <Button x:Name="ViewResume"
-                                            Margin="-10,-10"
-                                            Text="View"
-                                            FontFamily="Lato"
-                                            TextColor="DodgerBlue"
-                                            BackgroundColor="#E5E5E5"
-                                            HorizontalOptions="EndAndExpand"
-                                            VerticalOptions="Center"
-                                            Command="{Binding CVPickerCommand}"/>
+                                        <Button x:Name="ViewResume"
+                                                Margin="-10,-10"
+                                                Text="Select File"
+                                                FontFamily="Lato"
+                                                TextColor="DodgerBlue"
+                                                BackgroundColor="#E5E5E5"
+                                                HorizontalOptions="EndAndExpand"
+                                                VerticalOptions="Center"
+                                                Command="{Binding CVPickerCommand}"/>
 
-                                </StackLayout>
-                            </Frame>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                           
 
                             <Button x:Name="SubmitButton"
                             Text="Apply" VerticalOptions="End" HorizontalOptions="CenterAndExpand"

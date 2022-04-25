@@ -15,11 +15,18 @@ namespace ApplicantTrackingSystem
         {
             this.BindingContext = vm;
             InitializeComponent();
+
+            var state = (Button)States.FindByName("All");
+            state.BackgroundColor = Color.FromHex("9955DE");
+
+            vm.FetchAllCommand.Execute(null);
+            var stateTitle = (Label)JobList.FindByName("StateTitle");
+            stateTitle.Text = "All";
         }
 
         private void StateChosen(object sender, EventArgs e)
         {
-            string[] stateNamesList = { "Applied", "InReview", "Interview", "Offered", "Declined" };
+            string[] stateNamesList = { "All", "InReview", "Interview", "Offered", "Declined" };
             var entry = (Button)sender;
             var classId = entry.ClassId;
             var identifier = classId;

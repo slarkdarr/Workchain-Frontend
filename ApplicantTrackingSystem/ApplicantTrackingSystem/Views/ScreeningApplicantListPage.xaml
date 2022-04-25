@@ -10,9 +10,9 @@
     NavigationPage.HasNavigationBar="False">
 
     <!--Binding context-->
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <viewmodels:ScreeningApplicantListViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -100,9 +100,13 @@
                                             <TapGestureRecognizer Tapped="JobComponentTapped"/>
                                         </StackLayout.GestureRecognizers>-->
                                         <!--Company logo-->
-                                        <Image Source="imgplaceholder.png"
-                                                HorizontalOptions="Fill"
-                                                VerticalOptions="Center"/>
+                                        <Frame Padding="0" Margin="0" CornerRadius="7" IsClippedToBounds="True">
+                                            <Image Source="{Binding applicant_picture}"
+                                                    HorizontalOptions="Fill"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="55"
+                                                    Margin="0"/>
+                                        </Frame>
 
                                         <!--Job information-->
                                         <StackLayout HorizontalOptions="StartAndExpand">

@@ -14,11 +14,20 @@ namespace ApplicantTrackingSystem
     public partial class ScreeningApplicantListPage : ContentPage
     {
         public ScreeningApplicantListViewModel vm = new ScreeningApplicantListViewModel();
+        string currentState;
 
         public ScreeningApplicantListPage()
         {
             this.BindingContext = vm;
             InitializeComponent();
+
+            var state = (Button)States.FindByName("InReview");
+            state.BackgroundColor = Color.FromHex("9955DE");
+            currentState = "InReview";
+
+            vm.FetchInReviewCommand.Execute(null);
+            var stateTitle = (Label)JobList.FindByName("StateTitle");
+            stateTitle.Text = "In Review";
         }
 
         private void StateChosen(object sender, EventArgs e)
@@ -27,6 +36,7 @@ namespace ApplicantTrackingSystem
             var entry = (Button)sender;
             var classId = entry.ClassId;
             var identifier = classId;
+            currentState = identifier;
 
             var element = (Button)States.FindByName(identifier);
             var stateTitle = (Label)JobList.FindByName("StateTitle");
@@ -45,6 +55,50 @@ namespace ApplicantTrackingSystem
                 stateTitle.Text = element.Text;
             }
 
+        }
+
+        protected override async void OnAppearing()
+        {
+            if (currentState == "InReview")
+            {
+                var state = (Button)States.FindByName("InReview");
+                state.BackgroundColor = Color.FromHex("9955DE");
+                currentState = "InReview";
+
+                vm.FetchInReviewCommand.Execute(null);
+                var stateTitle = (Label)JobList.FindByName("StateTitle");
+                stateTitle.Text = "In Review";
+            }
+            else if (currentState == "Interview")
+            {
+                var state = (Button)States.FindByName("Interview");
+                state.BackgroundColor = Color.FromHex("9955DE");
+                currentState = "Interview";
+
+                vm.FetchInterviewCommand.Execute(null);
+                var stateTitle = (Label)JobList.FindByName("StateTitle");
+                stateTitle.Text = "Interview";
+            }
+            else if (currentState == "Offered")
+            {
+                var state = (Button)States.FindByName("Offered");
+                state.BackgroundColor = Color.FromHex("9955DE");
+                currentState = "Offered";
+
+                vm.FetchOfferedCommand.Execute(null);
+                var stateTitle = (Label)JobList.FindByName("StateTitle");
+                stateTitle.Text = "Offered";
+            }
+            else if (currentState == "Declined")
+            {
+                var state = (Button)States.FindByName("Declined");
+                state.BackgroundColor = Color.FromHex("9955DE");
+                currentState = "Declined";
+
+                vm.FetchDeclinedCommand.Execute(null);
+                var stateTitle = (Label)JobList.FindByName("StateTitle");
+                stateTitle.Text = "Declined";
+            }
         }
 
         private void InReviewCommand(object sender, EventArgs e)
