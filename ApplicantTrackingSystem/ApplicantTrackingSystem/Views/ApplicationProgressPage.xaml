@@ -123,13 +123,13 @@
                                         </StackLayout>
 
                                         <!--Save and time information-->
-                                        <StackLayout>
+                                        <!--<StackLayout>
                                             <Image Source="{Binding Company_Image}"
                                                 HorizontalOptions="EndAndExpand"
                                                 VerticalOptions="StartAndExpand"/>
                                             <Label Text="{Binding Apply_Duration}" FontFamily="Lato" FontSize="11"
                                                    TextColor="#727272"/>
-                                        </StackLayout>
+                                        </StackLayout>-->
                                     </StackLayout>
                                 </Frame>
                                 </StackLayout>
