@@ -58,15 +58,6 @@
     
     <!--Tab bar untuk company-->
     <TabBar Route="MenuCompany">
-        <Tab Title="Job Post">
-            <Tab.Icon>
-                <FontImageSource FontFamily="{StaticResource MaterialFont}"
-                             Glyph="&#x000f039c;"/>
-            </Tab.Icon>
-            <ShellContent Title="Job Post"
-                      ContentTemplate="{DataTemplate local:JobVacancyPost}" />
-        </Tab>
-
         <Tab Title="Progress">
             <Tab.Icon>
                 <FontImageSource FontFamily="{StaticResource MaterialFont}"
@@ -74,6 +65,15 @@
             </Tab.Icon>
             <ShellContent Title="Progress"
                       ContentTemplate="{DataTemplate local:ScreeningApplicantListPage}" />
+        </Tab>
+
+        <Tab Title="Job Post">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource MaterialFont}"
+                             Glyph="&#x000f039c;"/>
+            </Tab.Icon>
+            <ShellContent Title="Job Post"
+                      ContentTemplate="{DataTemplate local:JobVacancyPost}" />
         </Tab>
 
         <Tab Title="Profile">
