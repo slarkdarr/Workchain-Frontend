@@ -28,6 +28,8 @@ namespace ApplicantTrackingSystem.ViewModels
         private string email;
         private string profile_picture;
         private DateTime birthdate;
+        private DateTime minbirthdate = new DateTime(2000, 1, 1);
+        private DateTime maxbirthdate = DateTime.Now;
         private string phone_number;
         private string gender;
         private string country;
@@ -76,6 +78,16 @@ namespace ApplicantTrackingSystem.ViewModels
                 birthdate = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Birthdate"));
             }
+        }
+
+        public DateTime MinBirthdate
+        {
+            get { return minbirthdate; }
+        }
+
+        public DateTime MaxBirthdate
+        {
+            get { return maxbirthdate; }
         }
 
         public string Phone

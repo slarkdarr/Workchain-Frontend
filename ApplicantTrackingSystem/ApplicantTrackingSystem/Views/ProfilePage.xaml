@@ -52,7 +52,7 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="birthdate.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="Birthdate"/>
                                         </Grid>
-                                        <DatePicker x:Name="BirthDate" Format="dd/MM/yyyy" Date="{Binding Birthdate}" Margin="30,0,0,0"/>
+                                        <DatePicker x:Name="BirthDate" Format="dd/MM/yyyy" Date="{Binding Birthdate}" MinimumDate="{Binding MinBirthdate}" MaximumDate="{Binding MaxBirthdate}" Margin="30,0,0,0"/>
                                     </StackLayout>
 
                                     <StackLayout Margin="0,10,0,0">
