@@ -27,8 +27,14 @@
 
             <!--Header-->
             <StackLayout Padding="50,10" BackgroundColor="#F2F2F2">
-                <Image Source="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-No-Background.png"
-                   HeightRequest="90"/>
+                <Frame Padding="0" Margin="0" CornerRadius="45" IsClippedToBounds="True"
+                       WidthRequest="90" HeightRequest="90"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Start">
+                    <Image Source="{Binding ApplicantPicture}"
+                       HeightRequest="90"
+                       WidthRequest="90"/>
+                </Frame>
                 <!--ApplicantName-->
                 <Label x:Name="ApplicantName"
                        Text="{Binding ApplicantName}"

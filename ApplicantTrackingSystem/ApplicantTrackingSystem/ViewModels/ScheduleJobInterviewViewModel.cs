@@ -19,6 +19,7 @@ namespace ApplicantTrackingSystem.ViewModels
         private DateTime endTime;
         private string meetingLink;
         private string applicantName;
+        private string applicantPicture;
         private string jobName;
         public ICommand SubmitCommand { protected set; get; }
         public ICommand SaveCommand { protected set; get; }
@@ -64,17 +65,6 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-        //public DateTime InterviewStartTime
-        //{
-        //    get { return startTime; }
-        //    set { SetProperty(ref startTime, value); }
-        //}
-
-        //public DateTime InterviewEndTime
-        //{
-        //    get { return endTime; }
-        //    set { SetProperty(ref endTime, value); }
-        //}
 
         public string ApplicantName
         {
@@ -83,6 +73,16 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 applicantName = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("ApplicantName"));
+            }
+        }
+
+        public string ApplicantPicture
+        {
+            get { return applicantPicture; }
+            set
+            {
+                applicantPicture = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantPicture"));
             }
         }
 
@@ -186,6 +186,7 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 Console.WriteLine("Valid job opening");
                 ApplicantName = application[0].applicant_name;
+                ApplicantPicture = application[0].applicant_picture;
                 JobName = application[0].job_name;
                
             }

@@ -57,6 +57,7 @@ namespace ApplicantTrackingSystem.ViewModels
         private string interviewDate = "Not set";
         private string interviewTime = "Not set";
         private string interviewLink = "Not set";
+        private string applicantPicture;
         private string applicantRequirement;
 
         public string ApplicantName
@@ -149,6 +150,16 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
+        public string ApplicantPicture
+        {
+            get { return applicantPicture; }
+            set
+            {
+                applicantPicture = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ApplicantPicture"));
+            }
+        }
+
         bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (Object.Equals(storage, value))
@@ -176,6 +187,7 @@ namespace ApplicantTrackingSystem.ViewModels
                 ApplicantName = application[0].applicant_name;
                 JobName = application[0].job_name;
                 ApplicantEmail = application[0].applicant_email;
+                ApplicantPicture = application[0].applicant_picture;
                 ApplicationStatus = application[0].status;
                 ApplicantTelp = application[0].applicant_telp;
 
