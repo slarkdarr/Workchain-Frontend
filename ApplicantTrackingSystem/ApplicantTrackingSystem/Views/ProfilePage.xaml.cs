@@ -13,8 +13,8 @@ namespace ApplicantTrackingSystem
     {
         public ProfilePage()
         {
-            var vm = new ProfileViewModel();
-            this.BindingContext = vm;
+            //var vm = new ProfileViewModel();
+            //this.BindingContext = vm;
             // vm.DisplayInvalidProfilePrompt += () => DisplayAlert("Error", "Invalid Profile Edit, try again", "OK");
             InitializeComponent();
 
