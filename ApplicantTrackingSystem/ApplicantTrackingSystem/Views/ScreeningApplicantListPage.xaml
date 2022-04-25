@@ -23,7 +23,7 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
             <!--Header-->
-            <StackLayout Padding="20" BackgroundColor="#F2F2F2" Spacing="12">
+            <StackLayout Orientation="Horizontal" Padding="0" BackgroundColor="#F2F2F2" Spacing="12">
                 <StackLayout.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#8142C1"
@@ -34,8 +34,11 @@
                 </StackLayout.Background>
 
                 <!--Page Title-->
-                <Label Text="Applicant Screening List" FontFamily="LatoBold" FontSize="22" TextColor="White"/>
-
+                <Label Text="Applicant Screening" FontFamily="Lato" FontSize="17"
+                       TextColor="White" CharacterSpacing="1.04" HorizontalOptions="Start"
+                       VerticalOptions="End"
+                       Margin="10,0,5,15"/>
+                <Image Source="pattern.png" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
             <!--Progress State Selectors-->

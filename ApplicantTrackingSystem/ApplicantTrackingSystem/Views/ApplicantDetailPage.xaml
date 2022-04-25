@@ -15,8 +15,9 @@
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="#F2F2F2" Spacing="0">
-            <!--Top Navbar-->
-            <StackLayout Padding="20" BackgroundColor="#F2F2F2" Spacing="12">
+            <!--Header-->
+            <StackLayout Orientation="Horizontal" Padding="0" BackgroundColor="#F2F2F2" Spacing="12"
+                         Margin="0,0,0,10">
                 <StackLayout.Background>
                     <LinearGradientBrush EndPoint="1,0">
                         <GradientStop Color="#8142C1"
@@ -27,8 +28,12 @@
                 </StackLayout.Background>
 
                 <!--Page Title-->
-                <Label Text="Applicant Detail" FontFamily="LatoBold" FontSize="22" TextColor="White"/>
-
+                <Label Text="Applicant Detail" FontFamily="Lato" FontSize="17"
+                       TextColor="White" CharacterSpacing="1.04" HorizontalOptions="Start"
+                       VerticalOptions="End"
+                       Margin="10,0,5,15"/>
+                <Image Source="pattern.png" HorizontalOptions="EndAndExpand"
+                       HeightRequest="60"/>
             </StackLayout>
 
             <!--Header-->

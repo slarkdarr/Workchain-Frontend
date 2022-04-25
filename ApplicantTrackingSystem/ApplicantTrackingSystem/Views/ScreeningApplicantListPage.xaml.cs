@@ -21,13 +21,13 @@ namespace ApplicantTrackingSystem
             this.BindingContext = vm;
             InitializeComponent();
 
-            var state = (Button)States.FindByName("All");
-            state.BackgroundColor = Color.FromHex("9955DE");
+            //var state = (Button)States.FindByName("All");
+            //state.BackgroundColor = Color.FromHex("9955DE");
             currentState = "All";
 
-            vm.FetchAllCommand.Execute(null);
-            var stateTitle = (Label)JobList.FindByName("StateTitle");
-            stateTitle.Text = "All";
+            //vm.FetchAllCommand.Execute(null);
+            //var stateTitle = (Label)JobList.FindByName("StateTitle");
+            //stateTitle.Text = "All";
         }
 
         private void StateChosen(object sender, EventArgs e)

@@ -129,12 +129,12 @@ namespace ApplicantTrackingSystem.ViewModels
         {
             var jobVacancy = new AddJobVacancy
             {
-                job_name = jobName,
-                start_recruitment_date = startDate.ToString("dd/MM/yyyy"),
-                end_recruitment_date = endDate.ToString("dd/MM/yyyy"),
-                job_type = jobType,
-                salary = Int32.Parse(salary),
-                description = description
+                job_name = JobName,
+                start_recruitment_date = StartDate.ToString("dd/MM/yyyy"),
+                end_recruitment_date = EndDate.ToString("dd/MM/yyyy"),
+                job_type = JobType,
+                salary = Int32.Parse(Salary),
+                description = Description
             };
 
 
