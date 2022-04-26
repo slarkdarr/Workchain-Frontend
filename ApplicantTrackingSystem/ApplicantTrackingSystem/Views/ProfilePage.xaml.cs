@@ -11,12 +11,12 @@ namespace ApplicantTrackingSystem
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
+        //public ProfileViewModel vm = new ProfileViewModel();
         public ProfilePage()
         {
-            //var vm = new ProfileViewModel();
-            //this.BindingContext = vm;
             // vm.DisplayInvalidProfilePrompt += () => DisplayAlert("Error", "Invalid Profile Edit, try again", "OK");
             InitializeComponent();
+
 
             FullName.Completed += (object sender, EventArgs e) =>
             {
@@ -63,6 +63,7 @@ namespace ApplicantTrackingSystem
                 
             };
         }
+       
 
         async void ChangeProfilePicture_Clicked(System.Object sender, System.EventArgs e)
         {

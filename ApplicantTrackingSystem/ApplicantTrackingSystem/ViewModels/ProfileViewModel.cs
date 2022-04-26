@@ -37,6 +37,7 @@ namespace ApplicantTrackingSystem.ViewModels
         private string headline;
         private string description;
         private string type;
+        private bool isVisible;
 
         public string FullName
         {
@@ -45,6 +46,26 @@ namespace ApplicantTrackingSystem.ViewModels
             {
                 full_name = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("FullName"));
+            }
+        }
+
+        public bool IsVisible
+        {
+            get { return isVisible; }
+            set
+            {
+                isVisible = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("IsVisible"));
+            }
+        }
+
+        public string Type
+        {
+            get { return type; }
+            set
+            {
+                type = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Type"));
             }
         }
 
@@ -221,6 +242,10 @@ namespace ApplicantTrackingSystem.ViewModels
                 Country = ProfileQueryResult.country;
                 City = ProfileQueryResult.city;
                 Description = ProfileQueryResult.description;
+                Type = ProfileQueryResult.type;
+                IsVisible = Type == "applicant";
+
+                Console.WriteLine("TYPE: " + ProfileQueryResult.type);
             }
             else
             {

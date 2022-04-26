@@ -151,7 +151,8 @@ namespace ApplicantTrackingSystem.ViewModels
         async void Save()
         {
             // Remove till here once the UI is connected to the view model
-
+            Console.WriteLine("DATEEEEE: " + InterviewStartTime.ToString("HH:mm"));
+            Console.WriteLine("TANPACONVERT: " + InterviewStartTime);
             var jobApplication = new UpdateJobApplication
             {
                 application_id = Int32.Parse(ApplicationId),

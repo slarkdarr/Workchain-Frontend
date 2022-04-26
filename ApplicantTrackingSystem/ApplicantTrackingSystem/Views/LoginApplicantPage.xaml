@@ -84,8 +84,8 @@
                                            Unfocused="FrameUnfocused"/>
                                     </StackLayout>
                                 </Frame>
-                                <Label Text="Forgot password?" FontFamily="Lato" FontSize="11"
-                                       TextColor="Black" HorizontalOptions="End" Padding="0,0,0,3"/>
+                                <!--<Label Text="Forgot password?" FontFamily="Lato" FontSize="11"
+                                       TextColor="Black" HorizontalOptions="End" Padding="0,0,0,3"/>-->
                             </StackLayout>
                             
                             <Button x:Name="SigninButton"
