@@ -83,6 +83,7 @@
                                 <Frame x:Name="entry1Frame" Grid.Row="0" Grid.Column="1" BackgroundColor="White" Padding="3" BorderColor="Transparent"
                                            CornerRadius="7" HasShadow="False">
                                     <local:RoundedDatePicker x:Name="InterviewDate" Date="{Binding InterviewDate}"
+                                                             MinimumDate="{Binding MinimumInterviewDate}"
                                                              ClassId="entry1" FontFamily="Lato" Margin="0,0,0,0"
                                                              FontSize="12"
                                                              BackgroundColor="White"

@@ -58,12 +58,12 @@
     
     <!--Tab bar untuk company-->
     <TabBar Route="MenuCompany">
-        <Tab Title="Progress">
+        <Tab Title="Applicants">
             <Tab.Icon>
                 <FontImageSource FontFamily="{StaticResource MaterialFont}"
                              Glyph="&#x000f0004;"/>
             </Tab.Icon>
-            <ShellContent Title="Progress"
+            <ShellContent Title="Applicants"
                       ContentTemplate="{DataTemplate local:ScreeningApplicantListPage}" />
         </Tab>
 

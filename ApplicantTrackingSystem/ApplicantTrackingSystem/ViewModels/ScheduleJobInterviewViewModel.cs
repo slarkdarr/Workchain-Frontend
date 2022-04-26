@@ -15,8 +15,9 @@ namespace ApplicantTrackingSystem.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private DateTime date;
-        private DateTime startTime;
-        private DateTime endTime;
+        private DateTime minimumInterviewDate = DateTime.Now;
+        private TimeSpan startTime;
+        private TimeSpan endTime;
         private string meetingLink;
         private string applicantName;
         private string applicantPicture;
@@ -65,6 +66,10 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
+        public DateTime MinimumInterviewDate
+        {
+            get { return minimumInterviewDate; }
+        }
 
         public string ApplicantName
         {
@@ -96,7 +101,7 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-        public DateTime InterviewStartTime
+        public TimeSpan InterviewStartTime
         {
             get { return startTime; }
             set
@@ -106,7 +111,7 @@ namespace ApplicantTrackingSystem.ViewModels
             }
         }
 
-        public DateTime InterviewEndTime
+        public TimeSpan InterviewEndTime
         {
             get { return endTime; }
             set
@@ -151,14 +156,16 @@ namespace ApplicantTrackingSystem.ViewModels
         async void Save()
         {
             // Remove till here once the UI is connected to the view model
-            Console.WriteLine("DATEEEEE: " + InterviewStartTime.ToString("HH:mm"));
-            Console.WriteLine("TANPACONVERT: " + InterviewStartTime);
+            //Console.WriteLine("DATEEEEE: " + InterviewStartTime.ToString("HH:mm"));
+
+            Console.WriteLine("TANPACONVERT: " + InterviewStartTime.ToString(@"hh\:mm"));
+
             var jobApplication = new UpdateJobApplication
             {
                 application_id = Int32.Parse(ApplicationId),
                 status = "Interview",
                 interview_date = InterviewDate.ToString("dd/MM/yyyy"),
-                interview_time = InterviewStartTime.ToString("HH:mm"),
+                interview_time = InterviewStartTime.ToString(@"hh\:mm"),
                 interview_link = MeetingLink
             };
 
@@ -197,6 +204,7 @@ namespace ApplicantTrackingSystem.ViewModels
             }
 
         }
+
 
     }
 }
