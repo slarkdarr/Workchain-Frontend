@@ -24,19 +24,24 @@
 
             <ScrollView>
                 <!--Card-->
-                <Grid VerticalOptions="FillAndExpand" Margin="0,0,0,-40" Padding="0,60,0,0">
-                    <Frame HasShadow="False" CornerRadius="40" VerticalOptions="FillAndExpand" Background="#F2F2F2" Padding="0,70,0,0">
+                <Grid VerticalOptions="FillAndExpand" Margin="0,0,0,0" Padding="0,60,0,0">
+                    <Frame HasShadow="False" CornerRadius="40" VerticalOptions="FillAndExpand" Background="#F2F2F2" Padding="0,70,0,0" Margin="0,0,0,-40">
                         <StackLayout>
                             <Editor x:Name="FullName" AutoSize="TextChanges" Text="{Binding FullName}" Placeholder="Full Name" FontFamily="LatoBlack" FontSize="22" TextColor="Black" HorizontalOptions="Center" Margin="30,0"/>
                             <Editor x:Name="Headline" AutoSize="TextChanges" Text="{Binding Headline}" Placeholder="Tell about yourself in the headline" FontFamily="Lato" FontSize="16" HorizontalOptions="Center" Margin="30,0"/>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <Button HorizontalOptions="Start" Text="Logout" TextColor="DarkRed" BackgroundColor="Transparent" Margin="0,20,0,0" Command="{Binding LogoutCommand}" />
-                                <Button HorizontalOptions="StartAndExpand" Text="" TextColor="DarkRed" BackgroundColor="Transparent" Margin="0,20,0,0" />
-                                <Button x:Name="ProfilePicture" Text="Change profile picture" HorizontalOptions="End" Margin="0,10,10,0" Command="{Binding ImagePickerCommand}"/>
+                                <!--<Button HorizontalOptions="Start" Text="Logout" TextColor="DarkRed" BackgroundColor="Transparent" Margin="0,0,0,0" Command="{Binding LogoutCommand}" Padding="0"/>-->
+                                <Button x:Name="Logout" Text="Logout" HorizontalOptions="End"
+                                        Margin="10,10,20,0" Command="{Binding LogoutCommand}" Padding="0"
+                                        BackgroundColor="Transparent" TextColor="DarkRed" FontFamily="Lato"/>
+                                <Button HorizontalOptions="StartAndExpand" Text="" TextColor="DarkRed" BackgroundColor="Transparent" Margin="0,0,0,0" Padding="0"/>
+                                <Button x:Name="ProfilePicture" Text="Change profile picture" HorizontalOptions="End"
+                                        Margin="0,10,20,0" Command="{Binding ImagePickerCommand}" Padding="0"
+                                        BackgroundColor="Transparent" TextColor="DodgerBlue" FontFamily="Lato"/>
                             </StackLayout>
                             <!--Applicant Personal Info (from Applicant table)-->
                             <Frame Grid.Row="4" Grid.Column="0" Margin="0,0,0,0">
-                                <StackLayout Padding="10,0,10,90">
+                                <StackLayout Padding="10,0,10,110">
                                     <Label Text="Personal Info" FontFamily="LatoBold" FontSize="18" TextColor="Black" Margin="0,0,0,15"/>
 
                                     <StackLayout Margin="0,10,0,0">
@@ -44,7 +49,8 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="email.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="E-mail"/>
                                         </Grid>
-                                        <Entry x:Name="Email" Keyboard="Email" IsReadOnly="true" Text="{Binding Email}" Margin="30,0,0,0"/>
+                                        <Entry x:Name="Email" Keyboard="Email" IsReadOnly="true" Text="{Binding Email}" Margin="30,0,0,0"
+                                               FontFamily="Lato" FontSize="13"/>
                                     </StackLayout>
 
                                     <StackLayout Margin="0,10,0,0">
@@ -52,7 +58,8 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="birthdate.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="Birthdate"/>
                                         </Grid>
-                                        <DatePicker x:Name="BirthDate" Format="dd/MM/yyyy" Date="{Binding Birthdate}" MinimumDate="{Binding MinBirthdate}" MaximumDate="{Binding MaxBirthdate}" Margin="30,0,0,0"/>
+                                        <DatePicker x:Name="BirthDate" Format="dd/MM/yyyy" Date="{Binding Birthdate}" MinimumDate="{Binding MinBirthdate}" MaximumDate="{Binding MaxBirthdate}" Margin="30,0,0,0"
+                                                    FontFamily="Lato" FontSize="13"/>
                                     </StackLayout>
 
                                     <StackLayout Margin="0,10,0,0">
@@ -60,7 +67,8 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="phone.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="Phone"/>
                                         </Grid>
-                                        <Entry x:Name="Phone" Keyboard="Telephone" Text="{Binding Phone}" Margin="30,0,0,0"/>
+                                        <Entry x:Name="Phone" Keyboard="Telephone" Text="{Binding Phone}" Margin="30,0,0,0"
+                                               FontFamily="Lato" FontSize="13"/>
                                     </StackLayout>
 
                                     <StackLayout Margin="0,10,0,0">
@@ -68,7 +76,8 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="gender.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="Gender"/>
                                         </Grid>
-                                        <Picker x:Name="Gender" Title="Select your Gender" SelectedItem="{Binding Gender}" Margin="30,0,0,0">
+                                        <Picker x:Name="Gender" Title="Select your Gender" SelectedItem="{Binding Gender}" Margin="30,0,0,0"
+                                                FontFamily="Lato" FontSize="13">
                                         <Picker.ItemsSource>
                                             <x:Array Type="{x:Type x:String}">
                                                 <x:String>Male</x:String>
@@ -83,7 +92,8 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="country.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="Country"/>
                                         </Grid>
-                                        <Entry x:Name="Country" Text="{Binding Country}" Margin="30,0,0,0"/>
+                                        <Entry x:Name="Country" Text="{Binding Country}" Margin="30,0,0,0"
+                                               FontFamily="Lato" FontSize="13"/>
                                     </StackLayout>
 
                                     <StackLayout Margin="0,10,0,0">
@@ -91,7 +101,8 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="city.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="City"/>
                                         </Grid>
-                                        <Entry x:Name="City" Text="{Binding City}" Margin="30,0,0,0"/>
+                                        <Entry x:Name="City" Text="{Binding City}" Margin="30,0,0,0"
+                                               FontFamily="Lato" FontSize="13"/>
                                     </StackLayout>
 
                                     <StackLayout Margin="0,10,0,0">
@@ -99,7 +110,8 @@
                                             <Image Grid.Row="0" Grid.Column="0" Source="description.png" HorizontalOptions="Start"></Image>
                                             <Label Grid.Row="0" Grid.Column="1" Text="Description"/>
                                         </Grid>
-                                        <Editor x:Name="Description" Text="{Binding Description}" AutoSize="TextChanges" Margin="30,0,0,0"/>
+                                        <Editor x:Name="Description" Text="{Binding Description}" AutoSize="TextChanges" Margin="30,0,0,0"
+                                                FontFamily="Lato" FontSize="13"/>
                                     </StackLayout>
 
                                 </StackLayout>

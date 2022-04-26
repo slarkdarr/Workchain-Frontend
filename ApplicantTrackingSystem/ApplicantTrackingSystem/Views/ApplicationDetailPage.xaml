@@ -148,7 +148,12 @@
                     <StackLayout Orientation="Horizontal">
                         <Image Source="link.png"/>
                         <Label Text="{Binding InterviewLink}"
-                               FontFamily="Lato"/>
+                               FontFamily="Lato">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenMeetLinkCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
                     </StackLayout>
 
                 </StackLayout>

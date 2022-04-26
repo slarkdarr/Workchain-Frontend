@@ -24,6 +24,7 @@ namespace ApplicantTrackingSystem.ViewModels
         public ICommand AcceptCommand { protected set; get; }
         public ICommand DeclineCommand { protected set; get; }
         public ICommand OpenCVCommand { protected set; get; }
+        public ICommand OpenMeetLinkCommand { protected set; get; }
 
         public ApplicantDetailViewModel()
         {
@@ -46,6 +47,7 @@ namespace ApplicantTrackingSystem.ViewModels
             AcceptCommand = new Command(OnAccept);
             DeclineCommand = new Command(OnDecline);
             OpenCVCommand = new Command(OpenCV);
+            OpenMeetLinkCommand = new Command(OpenMeetLink);
         }
 
         private string applicationId;
@@ -343,6 +345,14 @@ namespace ApplicantTrackingSystem.ViewModels
         async void OpenCV()
         {
             await Browser.OpenAsync(ApplicantRequirement, BrowserLaunchMode.SystemPreferred);
+        }
+
+        async void OpenMeetLink()
+        {
+            if (InterviewLink != "Not set")
+            {
+                await Browser.OpenAsync(InterviewLink, BrowserLaunchMode.External);
+            }
         }
 
 

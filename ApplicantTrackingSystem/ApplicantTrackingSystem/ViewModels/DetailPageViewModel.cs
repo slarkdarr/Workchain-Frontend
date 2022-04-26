@@ -63,6 +63,14 @@ namespace ApplicantTrackingSystem.ViewModels
             set => SetProperty(ref jobDescription, value);
         }
 
+        private string companyPicture;
+        public string CompanyPicture
+        {
+            get => companyPicture;
+            set => SetProperty(ref companyPicture, value);
+        }
+
+
         public void SetJobID(string jobIDPassing)
         {
             JobId = jobIDPassing.ToString();
@@ -86,6 +94,7 @@ namespace ApplicantTrackingSystem.ViewModels
                 CompanyName = JobVacancy.Company_Name;
                 Salary = "Rp " + JobVacancy.Salary.ToString();
                 JobDescription = JobVacancy.Description;
+                CompanyPicture = JobVacancy.Company_Profile_Picture;
             }
             else
             {

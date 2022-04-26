@@ -29,7 +29,17 @@
                         </StackLayout>
 
                         <!--Company logo-->
-                        <Image Source="companydetail.png" VerticalOptions="Start" Margin="0"/>
+                        <StackLayout Orientation="Vertical">
+                        <Frame Padding="0" Margin="0,15" CornerRadius="7" IsClippedToBounds="True"
+                               HeightRequest="80" HasShadow="True">
+                            <Image Source="{Binding CompanyPicture}"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="Center"
+                                    WidthRequest="80"
+                                    Margin="0"/>
+                        </Frame>
+                        <!--<Label Text="" HeightRequest="0"/>-->
+                        </StackLayout>
                     </StackLayout>
 
                     <!--Content Body-->
